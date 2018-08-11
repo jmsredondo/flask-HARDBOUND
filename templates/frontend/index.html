@@ -131,10 +131,10 @@
                     <ul id="categorySubMenu" class="collapse list-unstyled ">
                         <li><a href="#addCatModal" data-toggle="modal">Add Category</a></li>
                         <li><a href="#addBookCatModal" data-toggle="modal">Add Books to Category</a></li>
-                        <li><a href="">Display Category - All</a></li>
-                        <li><a href="">Display Category - By ID</a></li>
-                        <li><a href="">Delete Category</a></li>
-                        <li><a href="">Add Book to Category</a></li>
+                        <li><a href="dispCat_all.html">Display Category - All</a></li>
+                        <li><a href="#dispCatBook" data-toggle="modal">Display Category - By ID</a></li>
+                        <li><a href="#deleteCat" data-toggle="modal">Delete Category</a></li>
+                        <li><a href="#addBookToCat" data-toggle="modal">Add Book to Category</a></li>
                     </ul>
                     
 
@@ -792,6 +792,107 @@
                             <div class="form-group">
                                 <label for="addBookCat" class="label-material">Book Category</label>
                                 <input id="addBookCat" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+        
+        <!-- Display Category By ID Modal -->
+        <div class="modal fade" id="dispCatBook" tabindex="-1" role="dialog" aria-labelledby="Display Category - By ID" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Display Category - By ID</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="dispCatByBook" class="label-material">Category ID</label>
+                                <input id="dispCatByBook" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+        
+        <!-- Delete Category Modal -->
+        <div class="modal fade" id="deleteCat" tabindex="-1" role="dialog" aria-labelledby="Delete Category" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Delete Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="delCat" class="label-material">Category</label>
+                                <input id="delCat" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+        
+        <!-- Add Book to Category Modal -->
+        <div class="modal fade" id="addBookToCat" tabindex="-1" role="dialog" aria-labelledby="Add Book to Category" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Book
+                                  </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Twilight</a>
+                                        <a class="dropdown-item" href="#">Pugad Baboy</a>
+                                        <a class="dropdown-item" href="#">Gordon Ramsay Cookbook 1</a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Category
+                                  </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Romance</a>
+                                        <a class="dropdown-item" href="#">Fiction</a>
+                                        <a class="dropdown-item" href="#">Non-Fiction</a>
+                                        <a class="dropdown-item" href="#">Literrary Cookbook</a>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
