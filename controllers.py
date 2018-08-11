@@ -2,10 +2,9 @@ from flask import Flask
 from flask import render_template
 from models import get_book
 from flask import jsonify
-import sqlite3
 app = Flask(__name__)
-DATABASE = 'test.db'
-#database connection
+
+
 @app.route('/')
 def getbook():
 
