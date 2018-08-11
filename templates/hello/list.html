@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Record</title>
+</head>
+<body>
+Record table
+<table>
+<tr>
+    <th>Name</th><th>Address</th><th>City</th><th>Pin</th>
+</tr>
+{% for row in rows %}
+<tr>
+
+    <td>{{row["name"]}}</td><td>{{row["addr"]}}</td><td>{{row["city"]}}</td><td>{{row["pin"]}}</td>
+
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
