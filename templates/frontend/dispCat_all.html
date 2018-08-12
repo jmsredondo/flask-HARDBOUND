@@ -124,24 +124,51 @@
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-                    <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
-                    <li class="active"><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
-                    <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                    <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                    <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-                      <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
-          </ul><span class="heading">Extras</span>
-          <ul class="list-unstyled">
-            <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+                    <li class=""><a href="index.html"> <i class="icon-home"></i>HOME </a></li>
+                    
+                        <li class="active"><a href="#categorySubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list-ul"></i>CATEGORY/GENRE </a></li>
+                    <ul id="categorySubMenu" class="collapse list-unstyled ">
+                        <li><a href="#addCatModal" data-toggle="modal">Add Category</a></li>
+                        <li><a href="#addBookCatModal" data-toggle="modal">Add Books to Category</a></li>
+                        <li><a href="dispCat_all.html">Display Category - All</a></li>
+                        <li><a href="#dispCatBook" data-toggle="modal">Display Category - By ID</a></li>
+                        <li><a href="#deleteCat" data-toggle="modal">Delete Category</a></li>
+                        <li><a href="#addBookToCat" data-toggle="modal">Add Book to Category</a></li>
+                    </ul>
+                    
+
+                    
+                    <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
+                    <ul id="booksSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">Display All Books</a></li>
+                        <li><a href="">Add New Book</a></li>
+                        <li><a href="">Display Book by ID</a></li>
+                        <li><a href="">Delete Book by ID</a></li>
+                    </ul>
+                    
+                    <li><a href="#usersSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>USERS </a></li>
+                    <ul id="usersSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User List</a></li>
+                        <li><a href="">Search Users</a></li>
+                        <li><a href="">User Login - Token</a></li>
+                        <li><a href="">User Logout - Token</a></li>
+                    </ul>
+                    
+                    <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list"></i>LIBRARY </a></li>
+                    <ul id="libSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User Library</a></li>
+                        <li><a href="">Add Book to Library</a></li>
+                        
+                    </ul>
+                    
+                    <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-comment"></i>RATE AND COMMENT </a></li>
+                    <ul id="libSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User Library</a></li>
+                        <li><a href="">Add Book to Library</a></li>
+                        
+                    </ul>
+                    
+
           </ul>
         </nav>
         <div class="content-inner">
