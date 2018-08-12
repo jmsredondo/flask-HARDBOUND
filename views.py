@@ -20,6 +20,23 @@ def getbooks():
 @app.route('/test')
 def testlink():
     return render_template('hello/test.html')
+
+@app.route('/login',methods=['POST','GET'])
+def login():
+    con=sqlite3.connect("database.db")
+    con.row_factory=sqlite3.Row
+    cur=con.cursor()
+    cur.execute("select * from users where lastname = '"+ request.form['username']+"' and password = '"+ request.form['username']+"'")
+    return render_template("hello/test.html")
+
+@app.route('/userlist')
+def userslist():
+    con=sqlite3.connect("database.db")
+    con.row_factory=sqlite3.Row
+    cur=con.cursor()
+    cur.execute("select * from users")
+    rows=cur.fetchall()
+    return render_template("hello/list.html",rows=rows)
 '''
 @app.route('/addrec',methods=['POST','GET'])
 def addrec():
