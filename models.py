@@ -6,7 +6,7 @@ DATABASE = 'test.db'
 db = (sqlite3.connect(DATABASE))
 cur = db.cursor()
 
-#database connection
+#get book list
 def get_book():
     # connect to database
     db = (sqlite3.connect(DATABASE))
@@ -17,4 +17,14 @@ def get_book():
 
     return (query_ret)
 
+#get book categories
+def get_category():
+    pass
 
+#get book for each category
+def get_book_per_cat():
+    pass
+
+#get users
+def get_users():
+    pass

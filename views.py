@@ -9,7 +9,7 @@ def get_book():
 
 @app.route('/')
 def hello_world():
-    return render_template('hello/index.html')
+    return render_template('frontend/index.html')
 
 @app.route('/getbook',methods=['GET'])
 def getbooks():

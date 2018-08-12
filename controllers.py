@@ -4,6 +4,7 @@ from models import get_book
 from flask import jsonify
 from app import app
 
+#get list of books
 def getbook():
 
     query_dict = []
@@ -18,3 +19,12 @@ def getbook():
     print (query_dict)
 
     return (query_dict)
+
+#get list of categories
+def getcategories():
+    pass
+#get book for each category
+def getbook_per_cat():
+    pass
+def getusers():
+    pass
