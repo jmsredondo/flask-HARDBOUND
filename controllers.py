@@ -2,10 +2,8 @@ from flask import Flask
 from flask import render_template
 from models import get_book
 from flask import jsonify
-app = Flask(__name__)
+from app import app
 
-
-@app.route('/')
 def getbook():
 
     query_dict = []
@@ -20,6 +18,3 @@ def getbook():
     print (query_dict)
 
     return jsonify(query_dict)
-
-if __name__ == '__main__':
-    app.run()

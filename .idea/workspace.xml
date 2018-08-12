@@ -1,229 +1,535 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-
-    <list default="true" id="9d44336d-8d2f-4eca-a225-74c1317bfc21" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c65f9f6d-0711-4081-96ad-e0ccd14e25b9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c65f9f6d-0711-4081-96ad-e0ccd14e25b9.xml" afterDir="false" />
-
-    <list default="true" id="9d44336d-8d2f-4eca-a225-74c1317bfc21" name="Default" comment="updated login.html">
-
+    <list default="true" id="45e81b08-0c75-428a-a682-a28d95a5cb48" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WebApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/27a30058-6f9a-4cc5-a6fb-ae9fbd384da3/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c65f9f6d-0711-4081-96ad-e0ccd14e25b9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c65f9f6d-0711-4081-96ad-e0ccd14e25b9/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/fontastic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.green.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.pink.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.red.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.sea.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/css/style.violet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/data/addresses.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/data/countries.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/fonts/dashboard.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/fonts/dashboard.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/fonts/dashboard.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/fonts/dashboard.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/fonts/dashboard.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/fonts/dashboard.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/fonts/dashboard.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/fonts/dashboard.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/icons-reference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/icons-reference/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/avatar-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/AZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/BZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/CZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/DZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/EC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/EE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/EG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/EH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ER.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ES.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/EU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/FR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/GY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/HK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/HN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/HR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/HT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/HU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ID.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/IT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/JE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/JM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/JO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/JP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/KZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/LY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ME.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/MZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/NZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/OM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/PY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/QA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/RE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/RO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/RS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/RU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/RW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ST.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/SZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/TZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/UA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/UG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/US.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/UY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/UZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/VU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/WF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/WS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/YE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/YT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ZA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ZM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/ZW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_abkhazia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_basque-country.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_british-antarctic-territory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_commonwealth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_england.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_gosquared.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_kosovo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_mars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_nagorno-karabakh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_nato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_northern-cyprus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_olympics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_red-cross.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_scotland.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_somaliland.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_south-ossetia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_united-nations.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_unknown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/flags/16/_wales.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-pink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-sea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker-violet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/map-marker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/mockup7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/multiselect-switch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/photos/paul-morris-116514-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/project-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/project-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/project-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/project-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/img/template-mac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/js/charts-custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/js/charts-home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/js/front.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/chart.js/Chart.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/chart.js/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/chart.js/Chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/chart.js/Chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/additional-methods.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_bn_BD.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_es_AR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_es_PE.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_hy_AM.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_no.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_pt_BR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_pt_PT.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_si.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sr_lat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_tj.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_ur.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_zh.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/messages_zh_TW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/methods_de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/methods_es_CL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/methods_fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/methods_nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery-validation/localization/methods_pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery.cookie/MIT-LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery.cookie/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery.cookie/cookie.jquery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery.cookie/jquery.cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery/core.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery/jquery.slim.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/jquery/jquery.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/esm/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/esm/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/esm/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/esm/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/umd/popper-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/umd/popper-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/umd/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontend/vendor/popper.js/umd/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/hello/getbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hello/getbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="database" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="database" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="database" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-489436665">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="sql" value="39" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="SQL" value="39" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="sqlite_master" value="1" />
-          <entry key="users" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Database Element" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-
-    <session id="-1596395628">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="books" value="1" />
-          <entry key="category" value="2" />
-          <entry key="genres" value="1" />
-          <entry key="sql" value="1" />
-          <entry key="sqlite_sequence" value="1" />
-
-    <session id="-1457015611">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="2" />
-
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-
-          <entry key="Database Element" value="5" />
-          <entry key="Scratch" value="1" />
-
-          <entry key="HTML" value="2" />
-
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-
-          <entry key="sql" value="26" />
-          <entry key="txt" value="12" />
-
-          <entry key="txt" value="20" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-<<<<<<< HEAD
-          <entry key="PLAIN_TEXT" value="12" />
-          <entry key="SQL" value="26" />
-=======
-          <entry key="PLAIN_TEXT" value="20" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/flask_project$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1534008839712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="true">
-        <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/books">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-=======
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/hello/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/category">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
-              <filtering enabled="true" />
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13078" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/hello/addrec.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+              <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/hello/index.html">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controllers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getbook.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/hello/getbook.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/hello/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>flask</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -231,11 +537,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/hello/test.html" />
-        <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/templates/hello/addrec.html" />
-        <option value="$PROJECT_DIR$/templates/hello/list.html" />
-        <option value="$PROJECT_DIR$/templates/frontend/login.html" />
+        <option value="$PROJECT_DIR$/forms.py" />
+        <option value="$PROJECT_DIR$/views.py" />
+        <option value="$PROJECT_DIR$/templates/hello/getbook.html" />
       </list>
     </option>
   </component>
@@ -245,9 +549,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1041" />
-    <option name="y" value="58" />
+    <option name="x" value="12" />
     <option name="width" value="981" />
     <option name="height" value="1032" />
   </component>
@@ -260,12 +566,19 @@
         <subPane>
           <expand>
             <path>
-<<<<<<< HEAD
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-=======
               <item name="flask-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="flask-project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flask-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask-project" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flask-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask-project" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flask-project" type="b2602c69:ProjectViewProjectNode" />
@@ -276,23 +589,27 @@
               <item name="flask-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="flask-project" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
+              <item name="hello" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -306,237 +623,139 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
-      <module name="WebApp" />
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" factoryName="Flask server" temporary="true" nameIsGenerated="true">
+      <module name="flask-project" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\arvincea\PycharmProjects\python2.7\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+    </configuration>
+    <configuration name="flask-project" type="Python.FlaskServer" factoryName="Flask server">
+      <module name="flask-project" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+      <option name="launchJavascriptDebuger" value="false" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.flask-project" />
+      <item itemvalue="Flask server.Flask (app.py)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <created>1533964983179</created>
+      <changelist id="45e81b08-0c75-428a-a682-a28d95a5cb48" name="Default" comment="" />
+      <created>1534006354473</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1533964983179</updated>
+      <updated>1534006354473</updated>
     </task>
-    <task id="LOCAL-00001" summary="updated login.html">
-      <created>1533966215614</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1533966215614</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="py_test_in_app_py - 2018.08.10 at 20h 42m 03s.xml">
-      <configuration name="py.test in app.py" configurationId="tests" />
-    </history-entry>
-  </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28987855" />
-=======
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11727079" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3237925" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291592" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Database Console" order="9" weight="0.3291815" />
-=======
-      <window_info anchor="bottom" id="Database Console" order="9" visible="true" weight="0.3291815" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32841328" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="SciView" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.398524" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.32955465" />
-=======
-      <window_info anchor="right" id="Database" order="4" weight="0.32955465" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="User interface for web app" />
-    <MESSAGE value="updated login.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated login.html" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/PycharmProjects/python2.7/Lib/site-packages/flask/templating.py" />
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/templates/hello/test.html" />
-    <entry file="file://$PROJECT_DIR$/templates/hello/index.html" />
-    <entry file="file://$PROJECT_DIR$/templates/hello/addrec.html" />
-    <entry file="file://$PROJECT_DIR$/app.py" />
-    <entry file="file://$PROJECT_DIR$/templates/hello/list.html" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27a30058-6f9a-4cc5-a6fb-ae9fbd384da3/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/genres">
-=======
-    <entry file="file://$PROJECT_DIR$/templates/hello/test.html">
+    <entry file="file://$PROJECT_DIR$/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state>
+          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hello/index.html">
+    <entry file="file://$PROJECT_DIR$/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="204">
+          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hello/addrec.html">
+    <entry file="file://$PROJECT_DIR$/controllers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hello/list.html">
+    <entry file="file://$PROJECT_DIR$/templates/hello/getbook.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        <state relative-caret-position="136">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
-      </provider>
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/sqlite_master">
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/sqlite_sequence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/sqlite_master">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c65f9f6d-0711-4081-96ad-e0ccd14e25b9/schema/main/table/books">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-=======
-    <entry file="file://$PROJECT_DIR$/templates/frontend/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13078" />
->>>>>>> 68d7ccb29213de3f74690c7c84a1eccdeb302787
       </provider>
     </entry>
   </component>
