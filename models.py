@@ -28,6 +28,7 @@ def get_book_per_cat():
 def get_users():
     cur.execute("select * from users")
     rows = cur.fetchall()
+    print rows
     return rows
 
 def login_user():

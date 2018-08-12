@@ -27,4 +27,20 @@ def getcategories():
 def getbook_per_cat():
     pass
 def getusers():
-    return get_users()
+    users_dict = []
+
+    for user in get_users():
+        user_as_dict = {
+            'id': user[0],
+            'username': user[1],
+            'firstname': user[2],
+            'lastname': user[3],
+            'email': user[4],
+            'balance': user[5],
+            'phonenumber': user[6],
+            'password': user[7]
+        }
+        users_dict.append(user_as_dict)
+
+    print (users_dict)
+    return users_dict
