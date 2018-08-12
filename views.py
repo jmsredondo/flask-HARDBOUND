@@ -1,4 +1,6 @@
-from flask import render_template
+import sqlite3
+
+from flask import render_template, request
 from controllers import getbook
 from flask import jsonify
 from app import app
