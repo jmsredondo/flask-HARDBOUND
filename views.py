@@ -1,4 +1,6 @@
-from flask import render_template
+import sqlite3
+
+from flask import render_template, request
 from controllers import getbook
 from flask import jsonify
 from app import app
@@ -9,7 +11,7 @@ def get_book():
 
 @app.route('/')
 def hello_world():
-    return render_template('frontend/index.html')
+    return render_template('hello/login.html')
 
 @app.route('/getbook',methods=['GET'])
 def getbooks():
@@ -21,13 +23,13 @@ def getbooks():
 def testlink():
     return render_template('hello/test.html')
 
-@app.route('/login',methods=['POST','GET'])
+@app.route('/home',methods=['POST','GET'])
 def login():
     con=sqlite3.connect("database.db")
     con.row_factory=sqlite3.Row
     cur=con.cursor()
     cur.execute("select * from users where lastname = '"+ request.form['username']+"' and password = '"+ request.form['username']+"'")
-    return render_template("hello/test.html")
+    return render_template("frontend/index.html")
 
 @app.route('/userlist')
 def userslist():
