@@ -1,5 +1,6 @@
 from flask import render_template
 from controllers import getbook
+from flask import jsonify
 from app import app
 @app.route('/get_book')
 #database connection
@@ -10,10 +11,11 @@ def get_book():
 def hello_world():
     return render_template('hello/index.html')
 
-@app.route('/getbook')
+@app.route('/getbook',methods=['GET'])
 def getbooks():
-    booklist = getbook()
-    return render_template('hello/getbook.html',data=booklist)
+    booklist = (getbook())
+    print((booklist))
+    return render_template('hello/getbook.html',book=booklist)
 
 @app.route('/test')
 def testlink():

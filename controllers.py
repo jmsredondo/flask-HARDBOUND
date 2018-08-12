@@ -17,4 +17,4 @@ def getbook():
 
     print (query_dict)
 
-    return jsonify(query_dict)
+    return (query_dict)
