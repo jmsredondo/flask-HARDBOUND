@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from models import get_book
+from models import *
 from flask import jsonify
 from app import app
 
@@ -27,4 +27,4 @@ def getcategories():
 def getbook_per_cat():
     pass
 def getusers():
-    pass
+    return get_users()

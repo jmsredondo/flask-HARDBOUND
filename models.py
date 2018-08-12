@@ -1,16 +1,15 @@
 import sqlite3
+import request
+
 from flask import jsonify
 
-DATABASE = 'test.db'
+DATABASE = 'database/database_1.db'
 #connect to database
-db = (sqlite3.connect(DATABASE))
+db = (sqlite3.connect(DATABASE,check_same_thread=False))
 cur = db.cursor()
 
 #get book list
 def get_book():
-    # connect to database
-    db = (sqlite3.connect(DATABASE))
-    cur = db.cursor()
     # query
     cur.execute("SELECT * FROM books")
     query_ret = cur.fetchall()
@@ -27,4 +26,10 @@ def get_book_per_cat():
 
 #get users
 def get_users():
-    pass
+    cur.execute("select * from users")
+    rows = cur.fetchall()
+    return rows
+
+def login_user():
+    cur.execute("select * from users where lastname = '" + request.form['username'] + "' and password = '" + request.form[
+            'username'] + "'")
