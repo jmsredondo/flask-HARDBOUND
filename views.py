@@ -2,13 +2,13 @@ from flask import render_template
 from controllers import getbook
 from flask import jsonify
 from app import app
-@app.route('/get_book')
-#database connection
-def get_book():
-    return getbook()
 
 @app.route('/')
-def hello_world():
+def login():
+    return render_template('login.html')
+
+@app.route('/dashboard')
+def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/getbook',methods=['GET'])
