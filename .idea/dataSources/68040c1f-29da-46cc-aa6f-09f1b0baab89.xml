@@ -89,63 +89,59 @@
     <column id="28" parent="9" name="seq">
       <Position>2</Position>
     </column>
-    <column id="29" parent="10" name="id">
+    <column id="29" parent="10" name="user_id">
       <Position>1</Position>
-      <DataType>int|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="30" parent="10" name="user_id">
+    <column id="30" parent="10" name="book_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="31" parent="10" name="book_id">
-      <Position>3</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <foreign-key id="32" parent="10" name="user_library_users_user_id_fk">
-      <ColNames>id</ColNames>
+    <foreign-key id="31" parent="10" name="user_library_users_user_id_fk">
+      <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="33" parent="10" name="user_library_books_book_id_fk">
+    <foreign-key id="32" parent="10" name="user_library_books_book_id_fk">
       <ColNames>book_id</ColNames>
       <RefTableName>books</RefTableName>
       <RefColNames>book_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="34" parent="11" name="id">
+    <column id="33" parent="11" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="11" name="username ">
+    <column id="34" parent="11" name="username ">
       <Position>2</Position>
       <DataType>VARCHAR|0s</DataType>
     </column>
-    <column id="36" parent="11" name="firstname">
+    <column id="35" parent="11" name="firstname">
       <Position>3</Position>
       <DataType>VARCHAR|0s</DataType>
     </column>
-    <column id="37" parent="11" name="lastname">
+    <column id="36" parent="11" name="lastname">
       <Position>4</Position>
       <DataType>VARCHAR|0s</DataType>
     </column>
-    <column id="38" parent="11" name="email">
+    <column id="37" parent="11" name="email">
       <Position>5</Position>
       <DataType>VARCHAR|0s</DataType>
     </column>
-    <column id="39" parent="11" name="balance">
+    <column id="38" parent="11" name="balance">
       <Position>6</Position>
       <DataType>DOUBLE|0s</DataType>
     </column>
-    <column id="40" parent="11" name="phonenumber">
+    <column id="39" parent="11" name="phonenumber">
       <Position>7</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="41" parent="11" name="password">
+    <column id="40" parent="11" name="password">
       <Position>8</Position>
       <DataType>VARCHAR|0s</DataType>
     </column>
-    <key id="42" parent="11">
+    <key id="41" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
