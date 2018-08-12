@@ -1,0 +1,313 @@
+{% block header %}
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="../../dashboard.html" class="navbar-brand d-none d-sm-inline-block">
+                  <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>Dashboard</strong></div>
+                  <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
+                <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                <!-- Notifications-->
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red badge-corner">12</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-envelope bg-green"></i>You have 6 new messages </div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-upload bg-orange"></i>Server Rebooted</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item">
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>10 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>view all notifications                                            </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Messages                        -->
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">10</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="/static/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                        <div class="msg-profile"> <img src="/static/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages   </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Languages dropdown    -->
+                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="/static/img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+                  <ul aria-labelledby="languages" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="/static/img/flags/16/DE.png" alt="English" class="mr-2">German</a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="/static/img/flags/16/FR.png" alt="English" class="mr-2">French                                         </a></li>
+                  </ul>
+                </li>
+                <!-- Logout    -->
+                <li class="nav-item"><a href="../../login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+     <div class="page-content d-flex align-items-stretch">
+    <!-- Side Navbar -->
+
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4">Admin</h1>
+              <p>Web Designer</p>
+            </div>
+          </div>
+          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+
+
+          <ul class="list-unstyled">
+                    <li class="active"><a href="../../dashboard.html"> <i class="icon-home"></i>HOME </a></li>
+
+                        <li><a href="#categorySubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list-ul"></i>CATEGORY/GENRE </a></li>
+                    <ul id="categorySubMenu" class="collapse list-unstyled ">
+                        <li><a href="#addCatModal" data-toggle="modal">Add Category</a></li>
+                        <li><a href="#addBookCatModal" data-toggle="modal">Add Books to Category</a></li>
+                        <li><a href="dispCat_all.html">Display Category - All</a></li>
+                        <li><a href="#dispCatBook" data-toggle="modal">Display Category - By ID</a></li>
+                        <li><a href="#deleteCat" data-toggle="modal">Delete Category</a></li>
+                        <li><a href="#addBookToCat" data-toggle="modal">Add Book to Category</a></li>
+                    </ul>
+
+
+
+                    <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
+                    <ul id="booksSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">Display All Books</a></li>
+                        <li><a href="">Add New Book</a></li>
+                        <li><a href="">Display Book by ID</a></li>
+                        <li><a href="">Delete Book by ID</a></li>
+                    </ul>
+
+                    <li><a href="#usersSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>USERS </a></li>
+                    <ul id="usersSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User List</a></li>
+                        <li><a href="">Search Users</a></li>
+                        <li><a href="">User Login - Token</a></li>
+                        <li><a href="">User Logout - Token</a></li>
+                    </ul>
+
+                    <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list"></i>LIBRARY </a></li>
+                    <ul id="libSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User Library</a></li>
+                        <li><a href="">Add Book to Library</a></li>
+
+                    </ul>
+
+                    <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-comment"></i>RATE AND COMMENT </a></li>
+                    <ul id="libSubMenu" class="collapse list-unstyled ">
+                        <li><a href="">View User Library</a></li>
+                        <li><a href="">Add Book to Library</a></li>
+
+                    </ul>
+
+
+          </ul><span class="heading">Extras</span>
+          <ul class="list-unstyled">
+            <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
+            <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+          </ul>
+        </nav>
+
+
+
+{% endblock%}
+    <!-- Add Category Modal -->
+        <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="Add Category" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="addCat" class="label-material">Category</label>
+                                <input id="addCat" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+
+        <!-- Add Book to Category Modal -->
+        <div class="modal fade" id="addBookCatModal" tabindex="-1" role="dialog" aria-labelledby="Add Book to Category Modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="addBookCat" class="label-material">Book Category</label>
+                                <input id="addBookCat" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!-- Display Category By ID Modal -->
+        <div class="modal fade" id="dispCatBook" tabindex="-1" role="dialog" aria-labelledby="Display Category - By ID" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Display Category - By ID</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="dispCatByBook" class="label-material">Category ID</label>
+                                <input id="dispCatByBook" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!-- Delete Category Modal -->
+        <div class="modal fade" id="deleteCat" tabindex="-1" role="dialog" aria-labelledby="Delete Category" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Delete Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="delCat" class="label-material">Category</label>
+                                <input id="delCat" type="text" name="category" class="input-material">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!-- Add Book to Category Modal -->
+        <div class="modal fade" id="addBookToCat" tabindex="-1" role="dialog" aria-labelledby="Add Book to Category" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Book
+                                  </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Twilight</a>
+                                        <a class="dropdown-item" href="#">Pugad Baboy</a>
+                                        <a class="dropdown-item" href="#">Gordon Ramsay Cookbook</a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Category
+                                  </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Romance</a>
+                                        <a class="dropdown-item" href="#">Fiction</a>
+                                        <a class="dropdown-item" href="#">Non-Fiction</a>
+                                        <a class="dropdown-item" href="#">Literrary Cookbook</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
