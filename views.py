@@ -11,11 +11,11 @@ def login():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/getbook',methods=['GET'])
+@app.route('/book',methods=['GET'])
 def getbooks():
     booklist = getbook()
     print((booklist))
-    return render_template('hello/getbook.html',book=booklist)
+    return render_template('bookList.html',book=booklist)
 
 
 
