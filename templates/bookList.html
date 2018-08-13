@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
-  {% include 'layout/partials/head.html' %}
-  <title>HARDBOUND | Book List</title>
-  <body>
-    <div class="page">
-     
-     {% include 'layout/partials/navHeader.html' %}
-      
-      
-      <div class="page-content d-flex align-items-stretch">
-        
-        <!-- Side Navbar -->
-        {% include 'layout/partials/sideNav.html' %}
-        
+{% extends 'layout/base.html' %}
+{% block content %}
+
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
@@ -21,55 +9,8 @@
             </div>
           </header>
 
-                    <!-- Projects Section-->
-          
-          <section class="<projects></projects>">
-            <div class="container-fluid">
-              <!-- Project-->
-              <div class="project">
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h1>Harry Potter and the Order of the Phoenix</h1><small><a href="">View Details</a></small>
-                      </div>
-                    </div>
-                    </div>
-                  <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="desc">6th book of Harry Potter</div>
-                    <div class="project-progress">
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Project-->
-              <div class="project">
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="static/img/hp1.jpeg" style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h1>Harry Potter and the Philosopher's Stone</h1><small><a href="">View Details</a></small>
-                      </div>
-                    </div>
-                    </div>
-                  <div class="right-col col-lg-6 d-flex align-items-center">
-                    <div class="desc">First book of the Harry Potter series</div>
-                    <div class="project-progress">
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-             
-            </div>
-          </section>
-          {% include 'layout/partials/footer.html' %}
+
         </div>
+{% endblock %}
       </div>
     </div>
-    {% include 'layout/partials/scripts.html' %}
-  </body>
-</html>
