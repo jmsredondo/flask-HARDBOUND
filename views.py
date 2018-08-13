@@ -40,3 +40,5 @@ def register():
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)
+
+
