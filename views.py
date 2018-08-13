@@ -3,7 +3,7 @@ from controllers import *
 from flask import jsonify
 from app import app
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/users/login',methods=['POST','GET'])
 def login():
     return render_template("login.html")
 
