@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template('hello/index.html')
+    return render_template('hello/login.html')
 
 @app.route('/test')
 def testlink():
