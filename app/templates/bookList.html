@@ -8,27 +8,52 @@
               <h2 class="no-margin-bottom">Book List</h2>
             </div>
           </header>
-<table>
-<tr>
-    <th>title</th>
-    <th>description</th>
-    <th>image</th>
-    <th>book id</th>
-    <th>author</th>
-
-</tr>
-{% for row in book %}
-<tr>
-
-    <td>{{row["title"]}}</td>
-    <td>{{row["description"]}}</td>
-    <td>{{row["image"]}}</td>
-    <td>{{row["book_id"]}}</td>
-    <td>{{row["author"]}}</td>
-
-</tr>
-</table>
-        {% endfor %}
+        
+        <!-- Projects Section-->
+           <section class="<projects></projects>">
+            <div class="container-fluid">
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
+                      <div class="text">
+                        <h2>Harry Potter and the Order of the Phoenix</h2><small><a href="">View Details</a></small>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="desc">6th book of Harry Potter</div>
+                    <div class="project-progress">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Project-->
+              <div class="project">
+                <div class="row bg-white has-shadow">
+                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                    <div class="project-title d-flex align-items-center">
+                      <div class="image has-shadow"><img src="static/img/hp1.jpeg" style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
+                      <div class="text">
+                        <h2>Harry Potter and the Philosopher's Stone</h2><small><a href="">View Details</a></small>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="right-col col-lg-6 d-flex align-items-center">
+                    <div class="desc">First book of the Harry Potter series</div>
+                    <div class="project-progress">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </section>
+          
 
         </div>
 {% endblock %}
