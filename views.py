@@ -7,9 +7,15 @@ from app import app
 def login():
     return render_template("login.html")
 
-@app.route('/dashboard')
+@app.route('/dashboard',methods=['POST','GET'])
 def dashboard():
-    return render_template('dashboard.html')
+    rows = getlogin()
+    print rows
+    if rows != None:
+        return render_template('dashboard.html')
+    else:
+        return render_template("login.html")
+
 
 @app.route('/getbook',methods=['GET'])
 def getbooks():

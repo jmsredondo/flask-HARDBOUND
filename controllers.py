@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 from models import *
 from flask import jsonify
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from app import app
 
 #get list of books
@@ -45,3 +45,8 @@ def getusers():
 
     print (users_dict)
     return users_dict
+
+def getlogin():
+    userlogin = login()
+    print userlogin
+    return userlogin
