@@ -32,7 +32,7 @@ def get_users():
     return rows
 
 def login():
-     cur.execute("select lastname, password from users where lastname='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
      return rows
 
