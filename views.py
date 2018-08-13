@@ -3,7 +3,7 @@ from controllers import *
 from flask import jsonify
 from app import app
 
-@app.route('/users/login',methods=['POST','GET'])
+@app.route('/',methods=['POST','GET'])
 def login():
     return render_template("login.html")
 
@@ -17,7 +17,7 @@ def dashboard():
         return render_template("login.html")
 
 
-@app.route('/bookList',methods=['GET'])
+@app.route('/book',methods=['GET'])
 def getbooks():
     booklist = (getbook())
     print((booklist))
@@ -33,12 +33,13 @@ def getregister():
 
 @app.route('/users', methods=['POST'])
 def register():
-    add_user()
+    adduser()
     return render_template('register.html')
 
 @app.route('/userList',methods=['GET'])
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)
+
 
 

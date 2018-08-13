@@ -50,3 +50,7 @@ def getlogin():
     userlogin = login()
     print userlogin
     return userlogin
+
+def adduser():
+    add_user()
+
