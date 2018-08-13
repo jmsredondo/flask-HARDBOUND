@@ -34,3 +34,12 @@ def get_users():
 def login_user():
     cur.execute("select * from users where lastname = '" + request.form['username'] + "' and password = '" + request.form[
             'username'] + "'")
+
+def add_user():
+    username=request.form['registerUsername']
+    firstname=request.form['registerFirstname']
+    lastname=request.form['registerLastname']
+    email=request.form['registerEmail']
+    phonenumber=request.form['registerPhoneNum']
+    cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
+    db.commit()
