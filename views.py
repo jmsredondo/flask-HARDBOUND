@@ -21,7 +21,7 @@ def getbooks():
 def testlink():
     return render_template('hello/test.html')
 
-@app.route('/userlist',methods=['GET'])
+@app.route('/users',methods=['GET'])
 def userslist():
     rows = getusers()
-    return render_template("hello/list.html",rows=rows)
+    return render_template("userList.html",rows=rows)
