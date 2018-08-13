@@ -202,34 +202,19 @@
                               <th>Last Name</th>
                               <th>Email</th>
                               <th>Phone Number</th>
-                              
                             </tr>
                           </thead>
                           <tbody>
+                            {% for row in rows %}
                             <tr>
-                              <th scope="row">1</th>
-                              <td>marko</td>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>sad@gmail.com</td>
-                              <td>09277643211</td>
+                              <td>{{row["id"]}}</td>
+                              <td>{{row["username"]}}</td>
+                              <td>{{row["firstname"]}}</td>
+                              <td>{{row["lastname"]}}</td>
+                              <td>{{row["email"]}}</td>
+                              <td>{{row["phonenumber"]}}</td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>jabobt</td>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>sasdas@gmail.com</td>
-                              <td>00924478344</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>larryb</td>
-                              <td>Larry</td>
-                              <td>the Bird</td>
-                              <td>ssad@gmail.com</td>
-                              <td>0904667700</td>
-                            </tr>
+                            {% endfor %}
                           </tbody>
                         </table>
                       </div>

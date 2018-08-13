@@ -21,11 +21,16 @@ def getbooks():
 def testlink():
     return render_template('hello/test.html')
 
-@app.route('/booklist')
-def bookListLink():
-    return render_template('bookList.html')
+@app.route('/users', methods=['GET'])
+def getregister():
+    return render_template('register.html')
 
-@app.route('/users',methods=['GET'])
+@app.route('/users', methods=['POST'])
+def register():
+    add_user()
+    return render_template('register.html')
+
+@app.route('/users/list',methods=['GET'])
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)
