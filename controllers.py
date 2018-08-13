@@ -45,3 +45,8 @@ def getusers():
 
     print (users_dict)
     return users_dict
+
+def getlogin():
+    userlogin = login()
+    print userlogin
+    return userlogin

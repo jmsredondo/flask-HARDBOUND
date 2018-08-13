@@ -31,9 +31,10 @@ def get_users():
     print rows
     return rows
 
-def login_user():
-    cur.execute("select * from users where lastname = '" + request.form['username'] + "' and password = '" + request.form[
-            'username'] + "'")
+def login():
+     cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     rows=cur.fetchone()
+     return rows
 
 def add_user():
     username=request.form['registerUsername']

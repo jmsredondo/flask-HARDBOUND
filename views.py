@@ -3,13 +3,19 @@ from controllers import *
 from flask import jsonify
 from app import app
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/users/login',methods=['POST','GET'])
 def login():
     return render_template("login.html")
 
-@app.route('/dashboard')
+@app.route('/dashboard',methods=['POST','GET'])
 def dashboard():
-    return render_template('dashboard.html')
+    rows = getlogin()
+    print rows
+    if rows != None:
+        return render_template('dashboard.html')
+    else:
+        return render_template("login.html")
+
 
 @app.route('/bookList',methods=['GET'])
 def getbooks():
