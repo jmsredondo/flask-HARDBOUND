@@ -1,11 +1,13 @@
 from flask import render_template
 from controllers import *
-from flask import jsonify
+#import app from class Flask from app directory
 from app import app
 
-@app.route('/',methods=['POST','GET'])
+#route to index
+@app.route('/')
+@app.route('/index',methods=['POST','GET'])
 def login():
-    return render_template("login.html")
+    return render_template("index.html")
 
 @app.route('/dashboard')
 def dashboard():
