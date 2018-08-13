@@ -17,9 +17,7 @@ def getbooks():
     print((booklist))
     return render_template('hello/getbook.html',book=booklist)
 
-@app.route('/test')
-def testlink():
-    return render_template('hello/test.html')
+
 
 @app.route('/users', methods=['GET'])
 def getregister():
@@ -35,7 +33,7 @@ def register():
     adduser()
     return render_template('register.html')
 
-@app.route('/users/list',methods=['GET'])
+@app.route('/userList',methods=['GET'])
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)
