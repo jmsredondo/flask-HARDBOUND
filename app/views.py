@@ -40,7 +40,7 @@ def register():
     adduser()
     return render_template('register.html')
 
-@app.route('/userList',methods=['GET'])
+@app.route('/users/list',methods=['GET'])
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)
