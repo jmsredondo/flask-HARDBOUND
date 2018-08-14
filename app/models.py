@@ -57,6 +57,7 @@ class User(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(128),nullable =False)
     password_hash = db.Column(db.String(128), nullable=False)
+    
 
     # posts = db.relationship('Post', backref='author', lazy='dynamic')
 
@@ -70,10 +71,26 @@ class User(db.Model):
             'balance': self.balance,
             'phone': self.phone,
             'password: self.password,
-            'password_hash': self.password_hash
+            'password_hash': self.password_hash,
+            
         }
 
         response = '<User %s>' % data
+        return repr(response)
+        
+class genre(db.Model):
+    genre_id =  db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    genre = db.Column(db.String(64), unique=True, nullable=False)
+    type = db.Column(db.String(64), nullable=False)
+
+    def __repr__(self):
+        data = {
+            'Genre ID': self.genre_id,
+            'Genre': self.genre,
+            'Type': self.type
+        }
+
+        response = '<Genre %s>' %data
         return repr(response)
         """
 
