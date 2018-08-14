@@ -32,7 +32,7 @@ def getregister():
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
-    #genres = get_genres()
+    genres = get_genres()
     return render_template('dispCat_all.html',genres=genres)
 
 @app.route('/users', methods=['POST'])

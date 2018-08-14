@@ -46,6 +46,11 @@ def add_user():
     cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
     db.commit()
 
+def get_genres():
+    cur.execute("select * from genres")
+    genres=cur.fetchall()
+    return genres
+
 """
 class User(db.Model):
     user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
