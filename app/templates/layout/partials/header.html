@@ -39,8 +39,7 @@
               <p>Web Designer</p>
             </div>
           </div>
-          <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-
+          <!-- Sidebar Navidation Menus-->
 
           <ul class="list-unstyled">
                     <li class="active"><a href="../../dashboard.html"> <i class="icon-home"></i>HOME </a></li>
@@ -89,12 +88,12 @@
 
 
 {% endblock%}
-    <!-- Add Category Modal -->
+    <!-- Add Genre Modal -->
         <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="Add Category" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Genre</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -102,7 +101,7 @@
                     <div class="modal-body">
                         <form method="post" class="form-validate">
                             <div class="form-group">
-                                <label for="addCat" class="label-material">Category</label>
+                                <label for="addCat" class="label-material">Genre</label>
                                 <input id="addCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
@@ -122,7 +121,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Category</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Genre</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -130,35 +129,8 @@
                     <div class="modal-body">
                         <form method="post" class="form-validate">
                             <div class="form-group">
-                                <label for="addBookCat" class="label-material">Book Category</label>
+                                <label for="addBookCat" class="label-material">Book Genre</label>
                                 <input id="addBookCat" type="text" name="category" class="input-material">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal -->
-
-        <!-- Display Category By ID Modal -->
-        <div class="modal fade" id="dispCatBook" tabindex="-1" role="dialog" aria-labelledby="Display Category - By ID" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Display Category - By ID</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" class="form-validate">
-                            <div class="form-group">
-                                <label for="dispCatByBook" class="label-material">Category ID</label>
-                                <input id="dispCatByBook" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>
@@ -176,7 +148,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Delete Category</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Delete Genre</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -184,7 +156,7 @@
                     <div class="modal-body">
                         <form method="post" class="form-validate">
                             <div class="form-group">
-                                <label for="delCat" class="label-material">Category</label>
+                                <label for="delCat" class="label-material">Genre</label>
                                 <input id="delCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
@@ -203,7 +175,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Category</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book to Genre</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -224,7 +196,7 @@
                                 <hr>
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Category
+                                    Genre
                                   </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Romance</a>

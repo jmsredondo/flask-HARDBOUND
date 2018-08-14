@@ -1,5 +1,6 @@
 from flask import render_template
 from controllers import *
+from flask import redirect,url_for
 #import app from class Flask from app directory
 from app import app
 
@@ -9,9 +10,14 @@ from app import app
 def login():
     return render_template("login.html")
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    return render_template('dashboard.html')
+    rows = getlogin()
+    if rows is not None and session['token'] is not None:
+        return render_template('dashboard.html')
+    else:
+        return redirect(url_for('login'))
+
 
 @app.route('/book',methods=['GET'])
 def getbooks():
@@ -26,7 +32,7 @@ def getregister():
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
-    #genres = get_genres()
+    genres = get_genres()
     return render_template('dispCat_all.html',genres=genres)
 
 @app.route('/users', methods=['POST'])
@@ -34,7 +40,7 @@ def register():
     adduser()
     return render_template('register.html')
 
-@app.route('/userList',methods=['GET'])
+@app.route('/users/list',methods=['GET'])
 def userslist():
     rows = getusers()
     return render_template("userList.html",rows=rows)

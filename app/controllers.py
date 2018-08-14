@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import session
 from flask import render_template
 from models import *
 from flask import jsonify
@@ -51,6 +52,14 @@ def getlogin():
     print userlogin
     return userlogin
 
+def login():
+     cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     rows=cur.fetchone()
+     if rows != None:
+        session['token'] = rows[0]
+     else:
+        session['token'] = []
+     return rows
 def adduser():
     add_user()
 
