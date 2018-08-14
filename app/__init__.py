@@ -16,4 +16,4 @@ migrate = Migrate(app, db)
 
 #import views from app directory
 from app import views
-from app import routes, models
+from app import models
