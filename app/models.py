@@ -53,7 +53,7 @@ def get_genres():
 
 """
 class User(db.Model):
-    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False, auto_increment)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
     lastname = db.Column(db.String(64), nullable=False)
@@ -86,7 +86,7 @@ class User(db.Model):
         return repr(response)
         
 class genre(db.Model):
-    genre_id =  db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    genre_id =  db.Column(db.Integer, unique=True, primary_key=True, nullable=False,auto_increment)
     genre = db.Column(db.String(64), unique=True, nullable=False)
     type = db.Column(db.String(64), nullable=False)
 
@@ -99,5 +99,23 @@ class genre(db.Model):
 
         response = '<Genre %s>' %data
         return repr(response)
+        
+class book(db.Model):
+    book_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False,auto_increment)
+    title = db.Column(db.String(128), nullable=False)
+    image = db.Column(db.BLOB)
+    author = db.Column(db.String(64))
+    description = db.Column(db.String(64))
+
+
+    def __repr__(self):
+        data = {
+            'Book ID': self.book_id,
+            'Book Name': self.title,
+            'Image': self.image,
+            'Description': self.description
+        }
+
+        response = '<Book %s>' %
         """
 
