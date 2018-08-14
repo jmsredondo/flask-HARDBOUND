@@ -33,21 +33,12 @@
                             </tr>
                           </thead>
                           <tbody>
+                            {% for genre in genres %}
                             <tr>
-                              <th scope="row">1</th>
-                              <td>Romance</td>
-                              
+                              <td>{{genre["type"]}}</td>
+                              <td>{{genre["genre"]}}</td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Comedy</td>
-                              
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>Sci-Fi</td>
-                              
-                            </tr>
+                            {% endfor %}
                           </tbody>
                         </table>
                       </div>
