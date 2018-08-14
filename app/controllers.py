@@ -13,8 +13,9 @@ def getbook():
 
     for book in get_book():
         book_as_dict = {
-            'book_id': book[0],
-            'book_name': book[1]
+            'title': book[0],
+            'description': book[1],
+            'author': book[4]
         }
         query_dict.append(book_as_dict)
 

@@ -21,9 +21,8 @@ def dashboard():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    booklist = getbook()
-    print((booklist))
-    return render_template('bookList.html',book=booklist)
+    books = getbook()
+    return render_template('bookList.html',books=books)
 
 
 @app.route('/users', methods=['GET'])
