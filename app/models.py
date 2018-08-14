@@ -46,9 +46,14 @@ def add_user():
     cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
     db.commit()
 
+def get_genres():
+    cur.execute("select * from genres")
+    genres=cur.fetchall()
+    return genres
+
 """
 class User(db.Model):
-    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False, auto_increment)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
     lastname = db.Column(db.String(64), nullable=False)
@@ -57,6 +62,8 @@ class User(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(128),nullable =False)
     password_hash = db.Column(db.String(128), nullable=False)
+    user_type = db.Column(ENUM('Admin','User'),nullable =False)
+    
 
     # posts = db.relationship('Post', backref='author', lazy='dynamic')
 
@@ -70,10 +77,45 @@ class User(db.Model):
             'balance': self.balance,
             'phone': self.phone,
             'password: self.password,
-            'password_hash': self.password_hash
+            'password_hash': self.password_hash,
+            'user_type' :self.user_type
+            
         }
 
         response = '<User %s>' % data
         return repr(response)
+        
+class genre(db.Model):
+    genre_id =  db.Column(db.Integer, unique=True, primary_key=True, nullable=False,auto_increment)
+    genre = db.Column(db.String(64), unique=True, nullable=False)
+    type = db.Column(db.String(64), nullable=False)
+
+    def __repr__(self):
+        data = {
+            'Genre ID': self.genre_id,
+            'Genre': self.genre,
+            'Type': self.type
+        }
+
+        response = '<Genre %s>' %data
+        return repr(response)
+        
+class book(db.Model):
+    book_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False,auto_increment)
+    title = db.Column(db.String(128), nullable=False)
+    image = db.Column(db.BLOB)
+    author = db.Column(db.String(64))
+    description = db.Column(db.String(64))
+
+
+    def __repr__(self):
+        data = {
+            'Book ID': self.book_id,
+            'Book Name': self.title,
+            'Image': self.image,
+            'Description': self.description
+        }
+
+        response = '<Book %s>' %
         """
 
