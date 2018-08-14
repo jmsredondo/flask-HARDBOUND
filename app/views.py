@@ -20,7 +20,6 @@ def getbooks():
     return render_template('bookList.html',book=booklist)
 
 
-
 @app.route('/users', methods=['GET'])
 def getregister():
     return render_template('register.html')
