@@ -1,5 +1,6 @@
 import sqlite3
 from flask import request
+from app import db
 
 from flask import jsonify
 
@@ -44,3 +45,35 @@ def add_user():
     phonenumber=request.form['registerPhoneNum']
     cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
     db.commit()
+
+"""
+class User(db.Model):
+    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    username = db.Column(db.String(64), index=True, unique=True, nullable=False)
+    firstname = db.Column(db.String(64), nullable=False)
+    lastname = db.Column(db.String(64), nullable=False)
+    email = db.Column(db.String(120), index=True, unique=True, nullable=False)
+    balance = db.Column(db.Float)
+    phone = db.Column(db.Integer, nullable=False)
+    password = db.Column(db.String(128),nullable =False)
+    password_hash = db.Column(db.String(128), nullable=False)
+
+    # posts = db.relationship('Post', backref='author', lazy='dynamic')
+
+    def __repr__(self):
+        data = {
+            'user_id': self.user_id,
+            'username': self.username,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'email': self.email,
+            'balance': self.balance,
+            'phone': self.phone,
+            'password: self.password,
+            'password_hash': self.password_hash
+        }
+
+        response = '<User %s>' % data
+        return repr(response)
+        """
+
