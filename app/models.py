@@ -62,6 +62,7 @@ class User(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(128),nullable =False)
     password_hash = db.Column(db.String(128), nullable=False)
+    user_type = db.Column(ENUM('Admin','User'),nullable =False)
     
 
     # posts = db.relationship('Post', backref='author', lazy='dynamic')
@@ -77,6 +78,7 @@ class User(db.Model):
             'phone': self.phone,
             'password: self.password,
             'password_hash': self.password_hash,
+            'user_type' :self.user_type
             
         }
 
