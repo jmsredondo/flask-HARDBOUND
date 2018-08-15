@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 $.ajax({
-        url: 'list',
+        url: 'viewlist',
         dataType: 'JSON',
         success: function (data) {
             $userTable = $('#userlist');
