@@ -6,27 +6,30 @@ $.ajax({
         dataType: 'JSON',
         success: function (data) {
             $userTable = $('#userlist');
+           console.log(data);
                 $userTable.DataTable({
-                    url: 'users/viewlist',
+                    //url: 'viewlist',
+                        data: data,
                     columns: [{
-                        field: 'balance',
-                        title: 'Balance'
-                    },{
-                        field: 'email',
-                        title: 'Username'
-                    }, {
-                        field: 'firstname',
-                        title: 'First Name'
-                    }, {
-                        field: 'id',
-                        title: 'Last Name'
-                    }, {
-                        field: 'email',
-                        title: 'Email'
-                    }, {
-                        field: 'phonenumber',
-                        title: 'Phone Number'
-                    }]
+                            "data": "username",
+                            "title":"Username"
+                        },
+                        {"data" : "firstname",
+                        "title": 'First Name'
+                        },
+                        {"data" : "lastname",
+                        "title": 'Last Name'
+                        },
+                        {"data" : "email",
+                        "title": 'Email'
+                        },
+                        {"data" : "balance",
+                        "title": 'Balance'
+                        },
+                        {"data" : "phone",
+                        "title": 'Phone'
+                        },],
+
 
     });
       }

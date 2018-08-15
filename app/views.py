@@ -47,6 +47,7 @@ def register():
 @app.route('/users/list',methods=['GET'])
 def userslist():
     rows = getusers()
+    print rows
     return jsonify(rows)
 
 @app.route('/users/viewlist',methods=['GET'])
