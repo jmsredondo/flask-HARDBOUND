@@ -77,3 +77,5 @@ def getgenres():
 def adduser():
     add_user()
 
+def addgenre():
+    add_genres()
