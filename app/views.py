@@ -20,7 +20,7 @@ def dashboard():
         return redirect(url_for('login'))
 
 
-@app.route('/book',methods=['GET'])
+@app.route('/users/book',methods=['GET'])
 def getbooks():
     books = getbook()
     return render_template('bookList.html',books=books)
@@ -46,12 +46,13 @@ def register():
     flash('New user successfully added!')
     return render_template('register.html')
 
-@app.route('/users/list',methods=['GET'])
+@app.route('/users/viewlist',methods=['GET'])
 def userslist():
     rows = getusers()
+    print rows
     return jsonify(rows)
 
-@app.route('/users/viewlist',methods=['GET'])
+@app.route('/users/list',methods=['GET'])
 def listuser():
     userslist()
     return render_template('userList.html')
