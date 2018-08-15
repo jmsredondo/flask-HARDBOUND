@@ -46,13 +46,20 @@ def register():
     flash('New user successfully added!')
     return render_template('register.html')
 
-@app.route('/users/viewlist',methods=['GET'])
+@app.route('/users/viewlist', methods=['GET'])
 def userslist():
     rows = getusers()
     print rows
     return jsonify(rows)
 
-@app.route('/users/list',methods=['GET'])
+@app.route('/users/<username>', methods=['GET'])
+def getspecificuser(username):
+    users = searchusers(username)
+    print users
+    return render_template('userList.html', users=users)
+
+
+@app.route('/users/list', methods=['GET'])
 def listuser():
     userslist()
     return render_template('userList.html')

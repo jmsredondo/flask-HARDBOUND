@@ -32,6 +32,11 @@ def get_users():
     print rows
     return rows
 
+def search_users(username):
+    cur.execute("select * from users where username LIKE '%" + username + "%'")
+    users = cur.fetchall()
+    return users
+
 def login():
      cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
@@ -44,6 +49,13 @@ def add_user():
     email=request.form['registerEmail']
     phonenumber=request.form['registerPhoneNum']
     cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
+    db.commit()
+
+def add_book():
+    title=request.form['title']
+    description=request.form['description']
+    author=request.form['author']
+    cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
 def get_genres():

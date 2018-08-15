@@ -46,6 +46,23 @@ def getusers():
     #print (users_dict)
     return users_dict
 
+def searchusers(username):
+    users_dict = []
+
+    for user in search_users(username):
+        user_as_dict = {
+            'username': user[1],
+            'firstname': user[2],
+            'lastname': user[3],
+            'email': user[4],
+            'balance': user[5],
+            'phone': user[6],
+        }
+        users_dict.append(user_as_dict)
+
+    #print (users_dict)
+    return users_dict
+
 def getlogin():
     userlogin = login()
     print userlogin
