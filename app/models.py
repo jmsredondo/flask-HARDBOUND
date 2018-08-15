@@ -29,7 +29,7 @@ def get_book_per_cat():
 def get_users():
     cur.execute("select * from users")
     rows = cur.fetchall()
-    #print rows
+    print rows
     return rows
 
 def login():
@@ -50,6 +50,12 @@ def get_genres():
     cur.execute("select * from genres")
     genres=cur.fetchall()
     return genres
+
+def add_genres():
+    genre_type=request.form['type']
+    genre_name=request.form['name']
+    cur.execute("insert into genres (type, genre) VALUES (??)", (genre_type, genre_name))
+    db.commit()
 
 """
 class User(db.Model):
