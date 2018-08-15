@@ -44,7 +44,7 @@ def getusers():
         }
         users_dict.append(user_as_dict)
 
-    print (users_dict)
+    #print (users_dict)
     return users_dict
 
 def getlogin():
