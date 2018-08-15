@@ -35,7 +35,7 @@ def getgenre():
     return render_template('dispCat_all.html',genres=genres)
 
 @app.route('/genre', methods=['POST'])
-def addgenres()
+def addgenres():
     addgenre()
     return render_template('dispCat_all.html',genres=genres)
 
