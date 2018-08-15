@@ -34,6 +34,11 @@ def getgenre():
     genres = getgenres()
     return render_template('dispCat_all.html',genres=genres)
 
+@app.route('/genre', methods=['POST'])
+def addgenres()
+    addgenre()
+    return render_template('dispCat_all.html',genres=genres)
+
 @app.route('/users', methods=['POST'])
 def register():
     adduser()
