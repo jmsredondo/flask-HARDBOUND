@@ -21,9 +21,8 @@ def dashboard():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    booklist = getbook()
-    print((booklist))
-    return render_template('bookList.html',book=booklist)
+    books = getbook()
+    return render_template('bookList.html',books=books)
 
 
 @app.route('/users', methods=['GET'])
@@ -32,7 +31,7 @@ def getregister():
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
-    genres = get_genres()
+    genres = getgenres()
     return render_template('dispCat_all.html',genres=genres)
 
 @app.route('/users', methods=['POST'])

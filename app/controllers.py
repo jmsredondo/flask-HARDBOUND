@@ -13,8 +13,9 @@ def getbook():
 
     for book in get_book():
         book_as_dict = {
-            'book_id': book[0],
-            'book_name': book[1]
+            'title': book[0],
+            'description': book[1],
+            'author': book[4]
         }
         query_dict.append(book_as_dict)
 
@@ -60,6 +61,21 @@ def login():
      else:
         session['token'] = []
      return rows
+
+def getgenres():
+    genres_dict = []
+
+    for genre in get_genres():
+        genre_as_dict = {
+            'type': genre[0],
+            'genre': genre[1],
+            'genre_id': genre[2]
+        }
+        genres_dict.append(genre_as_dict)
+
+    print (genres_dict)
+    return genres_dict
+
 def adduser():
     add_user()
 
