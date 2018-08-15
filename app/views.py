@@ -1,4 +1,5 @@
 from flask import render_template
+from flask import flash
 from controllers import *
 from flask import redirect,url_for
 #import app from class Flask from app directory
@@ -42,6 +43,7 @@ def addgenres():
 @app.route('/users', methods=['POST'])
 def register():
     adduser()
+    flash('New user successfully added!')
     return render_template('register.html')
 
 @app.route('/users/list',methods=['GET'])

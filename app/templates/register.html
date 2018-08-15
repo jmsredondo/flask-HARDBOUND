@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
 <title>HARDBOUND | Register</title>
- {% include 'layout/partials/head.html' %}
   <body>
+       {% include 'layout/partials/head.html' %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
     <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
