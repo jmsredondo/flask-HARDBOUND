@@ -96,3 +96,6 @@ def adduser():
 
 def addgenre():
     add_genres()
+
+def deletegenre(gid):
+    delete_genres(gid)

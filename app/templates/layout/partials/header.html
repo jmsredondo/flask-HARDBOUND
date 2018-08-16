@@ -96,26 +96,24 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                     </div>
-                    <div class="modal-body">
-                        <form method="post" class="form-validate">
+                    <form method="post" action="/genre" class="form-validate">
+                        <div class="modal-body">
                             <div class="form-group">
                                 <label for="addCat" class="label-material">Genre</label>
-                                <input id="addCat" type="text" name="category" class="input-material">
+                                <input id="addCat" type="text" name="genre" class="input-material"></input>
                             </div>
-
                             <div class="form-group">
                                   <label for="sel1">Select Type</label>
-                                  <select class="form-control" id="sel1">
-                                    <option>Fiction</option>
-                                    <option>Non-Fiction</option>
+                                  <select class="form-control" name="type" id="sel1">
+                                    <option value="Fiction">Fiction</option>
+                                    <option value="Non-Fiction">Non-Fiction</option>
                                   </select>
                                   </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
-                    </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

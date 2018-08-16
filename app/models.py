@@ -65,8 +65,13 @@ def get_genres():
 
 def add_genres():
     genre_type=request.form['type']
-    genre_name=request.form['name']
-    cur.execute("insert into genres (type, genre) VALUES (??)", (genre_type, genre_name))
+    genre_name=request.form['genre']
+    cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
+    db.commit()
+
+def delete_genres(gid):
+    print gid
+    cur.execute("delete from genres where genre_id = " + (gid))
     db.commit()
 
 """

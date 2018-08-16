@@ -38,7 +38,13 @@ def getgenre():
 @app.route('/genre', methods=['POST'])
 def addgenres():
     addgenre()
-    return render_template('dispCat_all.html',genres=genres)
+    return redirect('/genre')
+
+@app.route('/genre/<gid>')
+def deletegenres(gid):
+    deletegenre(gid)
+    flash('Genre successfully deleted.')
+    return redirect('/genre')
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -57,7 +63,6 @@ def getspecificuser(username):
     users = searchusers(username)
     print users
     return render_template('userList.html', users=users)
-
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
