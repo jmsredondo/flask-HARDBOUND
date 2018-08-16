@@ -13,6 +13,29 @@
           <section class="tables">   
             <div class="container-fluid">
               <div class="row">
+                     
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                       
+                        {% for message in messages %} 
+
+                   <div class="col-lg-12">
+                  <div class="card card-success">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" aria-labelledby="closeCard1" aria-haspopup="true" aria-expanded="false" class="btn btn-danger"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">{{ message }}</h3>
+                    </div>
+                  </div>
+                </div>
+                  
+                  {% endfor %}
+                        
+                      {% endif %}
+                    {% endwith %}
                    
                 <div class="col-lg-12">
                   <div class="card">
