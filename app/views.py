@@ -20,7 +20,7 @@ def dashboard():
         return redirect(url_for('login'))
 
 
-@app.route('/users/book',methods=['GET'])
+@app.route('/book',methods=['GET'])
 def getbooks():
     books = getbook()
     return render_template('bookList.html',books=books)
