@@ -38,6 +38,7 @@ def getgenre():
 @app.route('/genre', methods=['POST'])
 def addgenres():
     addgenre()
+    flash('Genre successfully added!')
     return redirect('/genre')
 
 @app.route('/genre/<gid>')
@@ -45,6 +46,12 @@ def deletegenres(gid):
     deletegenre(gid)
     flash('Genre successfully deleted.')
     return redirect('/genre')
+
+@app.route('/genre/addbook/<gid>')
+def addbooktogenre(gid):
+    addbookgenre(gid)
+    flash('Genre successfully added!')
+    return redirect('/genre/addbook/' + gid)
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -58,13 +65,12 @@ def userslist():
     print rows
     return jsonify(rows)
 
-@app.route('/users/<username>', methods=['GET'])
-def getspecificuser(username):
-    users = searchusers(username)
-    print users
-    return render_template('userList.html', users=users)
-
 @app.route('/users/list', methods=['GET'])
 def listuser():
     userslist()
     return render_template('userList.html')
+
+@app.route('/users/<username>', methods=['GET'])
+def getspecificuser(username):
+    users = searchusers(username)
+    return render_template('users.html', users=users, username=username)
