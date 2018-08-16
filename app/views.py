@@ -23,7 +23,8 @@ def dashboard():
 @app.route('/book',methods=['GET'])
 def getbooks():
     books = getbook()
-    return render_template('bookList.html',books=books)
+    genres = getgenres()
+    return render_template('bookList.html',books=books, genres=genres)
 
 
 @app.route('/users', methods=['GET'])

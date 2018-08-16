@@ -14,27 +14,32 @@
            <section class="<projects></projects>">
             <div class="container-fluid">
               <!-- Project-->
-              {% for book in books %}
-              <div class="project">
-                <div class="row bg-white has-shadow">
-                  <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                      <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
-                      <div class="text">
-                        <h1>{{book["title"]}}</h1>
-                        <i>Author: {{book["author"]}}</i>
+              {% for genre in genres %}
+                <h1> {{genre["type"]}} - {{genre["genre"]}}</h1>
+                {% for book in books %}
+                {% if book["genre_id"] == genre["genre_id"] %}
+                <div class="project">
+                  <div class="row bg-white has-shadow">
+                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                      <div class="project-title d-flex align-items-center">
+                        <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
+                        <div class="text">
+                          <h1>{{book["title"]}}</h1>
+                          <i>Author: {{book["author"]}}</i>
+                        </div>
                       </div>
+                      </div>
+                    <div class="right-col col-lg-5 d-flex align-items-center">
+                      <div class="desc">{{book["description"]}}</div>
                     </div>
-                    </div>
-                  <div class="right-col col-lg-5 d-flex align-items-center">
-                    <div class="desc">{{book["description"]}}</div>
-                  </div>
-                  <div class="right-col col-lg-1 d-flex align-items-center">
-                    <button class="btn btn-danger btn-sm btn-block">Delete</button>  
+                    <div class="right-col col-lg-1 d-flex align-items-center">
+                      <button class="btn btn-danger btn-sm btn-block">Delete</button>  
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+                {% endif %}
+                {% endfor %}
               {% endfor %}
 
 
