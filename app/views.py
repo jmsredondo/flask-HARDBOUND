@@ -55,7 +55,7 @@ def addbooks():
 def deletebooks(bid):
     deletebook(bid)
     flash('Book successfully deleted.')
-    return redirect('/book')
+    return redirect('/books')
 
 @app.route('/users', methods=['GET'])
 def getregister():

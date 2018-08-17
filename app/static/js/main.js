@@ -99,7 +99,9 @@ var div = [];
                       "<div class=\"desc\">"+data[i].description+"</div>"+
                     "</div>"+
                 "<div class=\"right-col col-lg-1 d-flex align-items-center\">" +
-                      "<form method=\"delete\" action=\"/book/{{book['book_id']}}\"><button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>"+
+                "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= "+data[i].book_id+"><button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>"+
+                "<form method=\"delete\" action=\"/book/\""+data[i].book_id+">" +
+                "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>"+
                       "</div>"+
                     "</div>";
             }
