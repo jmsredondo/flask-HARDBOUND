@@ -125,12 +125,12 @@ def getlogin():
     return userlogin
 
 def login():
-     cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
      if rows != None:
         session['token'] = rows[0]
      else:
-        session['token'] = []
+        session['token'] = ''
      return rows
 
 def getgenres():

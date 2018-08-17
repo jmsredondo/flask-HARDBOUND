@@ -9,15 +9,21 @@ from app import app
 @app.route('/')
 @app.route('/index',methods=['POST','GET'])
 def login():
-    return render_template("login.html")
+    if 'token' in session:
+        print "token: a  "+ session['token']
+        return render_template("dashboard.html")
+    else:
+        #print "token: "+ session['token']
+        return render_template("login.html")
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     rows = getlogin()
-    if rows is not None and session['token'] is not None:
+    if rows is not None or 'token' in session:
+        print "token b : "+ session['token']
         return render_template('dashboard.html')
     else:
-        return redirect(url_for('login'))
+        return redirect('/')
 
 @app.route('/book',methods=['GET'])
 def getbooks():
@@ -102,3 +108,10 @@ def register():
     adduser()
     flash('New user successfully added!')
     return render_template('register.html')
+
+@app.route('/logout')
+def logout():
+   # remove the username from the session if it is there
+   session.pop('token', None)
+   session.clear()
+   return redirect(url_for('login'))
