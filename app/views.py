@@ -23,7 +23,12 @@ def dashboard():
 def getbooks():
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html',books=books, genres=genres)
+    return render_template('bookList.html', books=books, genres=genres)
+
+@app.route('/book/<bid>', methods=['GET'])
+def getabooks(bid):
+    books = getabook(bid)
+    return render_template('getBook.html', books=books)
 
 @app.route('/book', methods=['POST'])
 def addbooks():

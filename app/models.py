@@ -64,6 +64,11 @@ def add_book():
     cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
+def get_a_book(bid):
+    cur.execute("select * from books where book_id = " + (bid))
+    books=cur.fetchall()
+    return books
+
 def add_book_genre(gid):
     bid=request.form['book_id']
     cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
