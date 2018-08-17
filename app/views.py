@@ -116,6 +116,12 @@ def getlibrary():
     books = getuserbook(username)
     return render_template('library.html', books=books)
 
+@app.route('/library', methods=['POST'])
+def addlibraries():
+    addlibrary()
+    flash('Added book to library!')
+    return redirect('/library')
+
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there

@@ -78,6 +78,15 @@ def add_book():
     cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
+def add_library():
+    book=request.form['book']
+    user='arvincea'
+    cur.execute("select id from users where username = '" + user + "'")
+    user=cur.fetchone()
+    user_id=user[0]
+    cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
+    db.commit()
+
 def get_a_book(bid):
     cur.execute("select * from books where book_id = " + (bid))
     books=cur.fetchall()

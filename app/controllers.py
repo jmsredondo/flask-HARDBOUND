@@ -187,6 +187,9 @@ def addbook():
 def addbookgenre(gid):
     add_book_genre(gid)
 
+def addlibrary():
+    add_library()
+
 def deletegenre(gid):
     delete_genres(gid)
 

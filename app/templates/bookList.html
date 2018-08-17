@@ -33,6 +33,7 @@
                       <div class="desc">{{book["description"]}}</div>
                     </div>
                     <div class="right-col col-lg-1 d-flex align-items-center">
+                      <form method="post" action="/library"><input name = "book" type="hidden" value="{{book['book_id']}}"><button type="submit" class="btn btn-warning">Add book</button></form>
                       <form method="delete" action="/book/{{book['book_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form>
                       </div>
                     </div>
@@ -40,7 +41,7 @@
                 {% endif %}
                 {% endfor %}
               {% endfor %}
-              
+
                 <h1> Unassigned </h1>
                 {% for book in books %}
                 {% if not book["genre_id"]%}
@@ -59,6 +60,7 @@
                       <div class="desc">{{book["description"]}}</div>
                     </div>
                     <div class="right-col col-lg-1 d-flex align-items-center">
+                      <form method="post" action="/library"><input name = "book" type="hidden" value="{{book['book_id']}}"><button type="submit" class="btn btn-warning">Add book</button></form>
                       <form method="delete" action="/book/{{book['book_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form>
                       </div>
                     </div>
