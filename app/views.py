@@ -19,13 +19,19 @@ def dashboard():
     else:
         return redirect(url_for('login'))
 
-
 @app.route('/book',methods=['GET'])
 def getbooks():
     books = getbook()
     genres = getgenres()
     return render_template('bookList.html',books=books, genres=genres)
 
+@app.route('/book', methods=['POST'])
+def addbooks():
+    addbook()
+    flash('New book successfully added!')
+    books = getbook()
+    genres = getgenres()
+    return render_template('bookList.html',books=books, genres=genres)
 
 @app.route('/users', methods=['GET'])
 def getregister():
@@ -48,10 +54,15 @@ def deletegenres(gid):
     flash('Genre successfully deleted.')
     return redirect('/genre')
 
-@app.route('/genre/addbook/<gid>')
+@app.route('/genre/addbook/<gid>', methods=['GET'])
+def getbooktogenre(gid):
+    books = getunassignedbook(gid)
+    return render_template('bookList2.html',books=books, gid=gid)
+
+@app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):
     addbookgenre(gid)
-    flash('Genre successfully added!')
+    flash('Genre successfully assigned to book!')
     return redirect('/genre/addbook/' + gid)
 
 @app.route('/users', methods=['POST'])

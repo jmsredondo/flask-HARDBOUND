@@ -15,6 +15,26 @@ def getbook():
         book_as_dict = {
             'title': book[0],
             'description': book[1],
+            'book_id': book[3],
+            'author': book[4],
+            'genre_id': book[5]
+        }
+        query_dict.append(book_as_dict)
+
+    print (query_dict)
+
+    return (query_dict)
+
+#same as top function, but do not delete
+def getunassignedbook(gid):
+
+    query_dict = []
+
+    for book in get_unassigned_book(gid):
+        book_as_dict = {
+            'title': book[0],
+            'description': book[1],
+            'book_id': book[3],
             'author': book[4],
             'genre_id': book[5]
         }
@@ -97,6 +117,12 @@ def adduser():
 
 def addgenre():
     add_genres()
+
+def addbook():
+    add_book()
+
+def addbookgenre(gid):
+    add_book_genre(gid)
 
 def deletegenre(gid):
     delete_genres(gid)

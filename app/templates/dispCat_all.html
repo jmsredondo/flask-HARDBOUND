@@ -51,7 +51,7 @@
                             <tr>
                               <td>{{genre["type"]}}</td>
                               <td>{{genre["genre"]}}</td>
-                              <td><form method="delete" action="/genre/{{genre['genre_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+                              <td><form method="delete" action="/genre/{{genre['genre_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form><form method="get" action="/genre/addbook/{{genre['genre_id']}}"><button type="submit" class="btn btn-warning">Add Book</button></form></td>
                             </tr>
                             {% endfor %}
                           </tbody>

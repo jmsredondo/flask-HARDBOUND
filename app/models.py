@@ -17,6 +17,12 @@ def get_book():
 
     return (query_ret)
 
+def get_unassigned_book(gid):
+    cur.execute("SELECT * FROM books where genre_id !=" + gid + " or genre_id is null")
+    query_ret = cur.fetchall()
+
+    return (query_ret)
+
 #get book categories
 def get_category():
     pass
@@ -58,6 +64,11 @@ def add_book():
     cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
+def add_book_genre(gid):
+    bid=request.form['book_id']
+    cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
+    db.commit()
+
 def get_genres():
     cur.execute("select * from genres")
     genres=cur.fetchall()
@@ -70,7 +81,6 @@ def add_genres():
     db.commit()
 
 def delete_genres(gid):
-    print gid
     cur.execute("delete from genres where genre_id = " + (gid))
     db.commit()
 
