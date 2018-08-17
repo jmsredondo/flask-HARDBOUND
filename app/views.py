@@ -25,11 +25,17 @@ def dashboard():
     else:
         return redirect('/')
 
+#getbooktemp and getbook methods used for rendering
+#generating json response
+@app.route('/books')
+def getbooktemp():
+    return render_template("bookList.html")
+
 @app.route('/book',methods=['GET'])
 def getbooks():
     books = getbook()
-    genres = getgenres()
-    return render_template('bookList.html', books=books, genres=genres)
+   # genres = getgenres()
+    return jsonify(books)
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
