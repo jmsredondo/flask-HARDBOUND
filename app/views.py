@@ -9,21 +9,32 @@ from app import app
 @app.route('/')
 @app.route('/index',methods=['POST','GET'])
 def login():
-    return render_template("login.html")
+    if 'token' in session:
+        print "token: a  "+ session['token']
+        return render_template("dashboard.html")
+    else:
+        #print "token: "+ session['token']
+        return render_template("login.html")
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     rows = getlogin()
-    if rows is not None and session['token'] is not None:
+    if rows is not None or 'token' in session:
+        print "token b : "+ session['token']
         return render_template('dashboard.html')
     else:
-        return redirect(url_for('login'))
+        return redirect('/')
 
 @app.route('/book',methods=['GET'])
 def getbooks():
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html',books=books, genres=genres)
+    return render_template('bookList.html', books=books, genres=genres)
+
+@app.route('/book/<bid>', methods=['GET'])
+def getabooks(bid):
+    books = getabook(bid)
+    return render_template('getBook.html', books=books)
 
 @app.route('/book', methods=['POST'])
 def addbooks():
@@ -33,14 +44,41 @@ def addbooks():
     genres = getgenres()
     return render_template('bookList.html',books=books, genres=genres)
 
+@app.route('/book/<bid>')
+def deletebooks(bid):
+    deletebook(bid)
+    flash('Book successfully deleted.')
+    return redirect('/book')
+
 @app.route('/users', methods=['GET'])
 def getregister():
     return render_template('register.html')
+
+@app.route('/users/viewlist', methods=['GET'])
+def userslist():
+    rows = getusers()
+    print rows
+    return jsonify(rows)
+
+@app.route('/users/list', methods=['GET'])
+def listuser():
+    userslist()
+    return render_template('userList.html')
+
+@app.route('/users/<uid>', methods=['GET'])
+def getausers(uid):
+    users = getauser(uid)
+    return render_template('getUser.html', users=users)
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
     return render_template('dispCat_all.html',genres=genres)
+
+@app.route('/genre/<gid>', methods=['GET'])
+def getagenre(gid):
+    genres = getagenres(gid)
+    return render_template('getGenre.html', genres=genres)
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
@@ -71,18 +109,9 @@ def register():
     flash('New user successfully added!')
     return render_template('register.html')
 
-@app.route('/users/viewlist', methods=['GET'])
-def userslist():
-    rows = getusers()
-    print rows
-    return jsonify(rows)
-
-@app.route('/users/list', methods=['GET'])
-def listuser():
-    userslist()
-    return render_template('userList.html')
-
-@app.route('/users/<username>', methods=['GET'])
-def getspecificuser(username):
-    users = searchusers(username)
-    return render_template('users.html', users=users, username=username)
+@app.route('/logout')
+def logout():
+   # remove the username from the session if it is there
+   session.pop('token', None)
+   session.clear()
+   return redirect(url_for('login'))

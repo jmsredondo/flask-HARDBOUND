@@ -57,7 +57,7 @@
                     <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
                     <ul id="booksSubMenu" class="collapse list-unstyled ">
                         <li><a href="book">Display All Books</a></li>
-                        <li><a href="">Add New Book</a></li>
+                        <li><a href="#addBook" data-toggle="modal">Add New Book</a></li>
                     </ul>
 
                     <li><a href="#usersSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>USERS </a></li>
@@ -209,6 +209,44 @@
                                         <a class="dropdown-item" href="#">Literrary Cookbook</a>
                                     </div>
                                 </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+
+        <!-- Add Book Modal -->
+        <div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="Add Book" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                            <div class="form-group">
+                                <label for="addBk" class="label-material">Title</label>
+                                <input id="addBk" type="text" name="category" class="input-material">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="addBk" class="label-material">Description</label>
+                                <input id="addBk" type="text" name="category" class="input-material">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="addBk" class="label-material">Author</label>
+                                <input id="addBk" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>

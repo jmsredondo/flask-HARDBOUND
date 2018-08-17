@@ -35,13 +35,19 @@ def get_book_per_cat():
 def get_users():
     cur.execute("select * from users")
     rows = cur.fetchall()
-    print rows
     return rows
 
+def get_a_user(uid):
+    cur.execute("select * from users where username LIKE '%" + uid + "%'")
+    rows = cur.fetchall()
+    return rows
+
+'''
 def search_users(username):
     cur.execute("select * from users where username LIKE '%" + username + "%'")
     users = cur.fetchall()
     return users
+'''
 
 def login():
      cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
@@ -64,6 +70,11 @@ def add_book():
     cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
+def get_a_book(bid):
+    cur.execute("select * from books where book_id = " + (bid))
+    books=cur.fetchall()
+    return books
+
 def add_book_genre(gid):
     bid=request.form['book_id']
     cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
@@ -71,6 +82,11 @@ def add_book_genre(gid):
 
 def get_genres():
     cur.execute("select * from genres")
+    genres=cur.fetchall()
+    return genres
+
+def get_a_genre(gid):
+    cur.execute("select * from genres where genre_id = " + (gid))
     genres=cur.fetchall()
     return genres
 
@@ -82,6 +98,10 @@ def add_genres():
 
 def delete_genres(gid):
     cur.execute("delete from genres where genre_id = " + (gid))
+    db.commit()
+
+def delete_books(bid):
+    cur.execute("delete from books where book_id = " + (bid))
     db.commit()
 
 """
