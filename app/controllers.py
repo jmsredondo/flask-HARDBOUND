@@ -112,6 +112,20 @@ def getgenres():
     print (genres_dict)
     return genres_dict
 
+def getagenres(gid):
+    genres_dict = []
+
+    for genre in get_a_genre(gid):
+        genre_as_dict = {
+            'type': genre[0],
+            'genre': genre[1],
+            'genre_id': genre[2]
+        }
+        genres_dict.append(genre_as_dict)
+
+    print (genres_dict)
+    return genres_dict
+
 def adduser():
     add_user()
 

@@ -48,6 +48,11 @@ def getgenre():
     genres = getgenres()
     return render_template('dispCat_all.html',genres=genres)
 
+@app.route('/genre/<gid>', methods=['GET'])
+def getagenre(gid):
+    genres = getagenres(gid)
+    return render_template('getGenre.html', genres=genres)
+
 @app.route('/genre', methods=['POST'])
 def addgenres():
     addgenre()

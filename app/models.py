@@ -74,6 +74,11 @@ def get_genres():
     genres=cur.fetchall()
     return genres
 
+def get_a_genre(gid):
+    cur.execute("select * from genres where genre_id = " + (gid))
+    genres=cur.fetchall()
+    return genres
+
 def add_genres():
     genre_type=request.form['type']
     genre_name=request.form['genre']
