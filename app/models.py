@@ -67,7 +67,7 @@ def add_book():
     title=request.form['title']
     description=request.form['description']
     author=request.form['author']
-    cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
+    cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
 
 def get_a_book(bid):
