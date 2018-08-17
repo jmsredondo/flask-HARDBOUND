@@ -27,9 +27,10 @@ def dashboard():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
+    current_user = session['token'] 
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html', books=books, genres=genres)
+    return render_template('bookList.html', books=books, genres=genres, current_user=current_user)
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
