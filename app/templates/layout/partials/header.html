@@ -35,7 +35,7 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="../../../static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Admin</h1>
+              <h1 class="h4">{{current_user}}</h1>
               <p>Web Designer</p>
             </div>
           </div>
@@ -233,26 +233,26 @@
                                     </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" class="form-validate">
+                        <form method="post" action="/book" class="form-validate">
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Title</label>
-                                <input id="addBk" type="text" name="category" class="input-material">
+                                <input id="addBk" type="text" name="title" class="input-material">
                             </div>
                             
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Description</label>
-                                <input id="addBk" type="text" name="category" class="input-material">
+                                <input id="addBk" type="text" name="description" class="input-material">
                             </div>
                             
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Author</label>
-                                <input id="addBk" type="text" name="category" class="input-material">
+                                <input id="addBk" type="text" name="author" class="input-material">
                             </div>
-                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>

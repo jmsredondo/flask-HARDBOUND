@@ -25,6 +25,20 @@ def getbook():
 
     return (query_dict)
 
+def getuserbook(username):
+
+    query_dict = []
+
+    for book in get_user_book(username):
+        book_as_dict = {
+            'title': book[0],
+            'book_id': book[3],
+            'author': book[4]
+        }
+        query_dict.append(book_as_dict)
+    print query_dict
+    return (query_dict)
+
 def getabook(bid):
 
     query_dict = []
@@ -172,6 +186,9 @@ def addbook():
 
 def addbookgenre(gid):
     add_book_genre(gid)
+
+def addlibrary():
+    add_library()
 
 def deletegenre(gid):
     delete_genres(gid)

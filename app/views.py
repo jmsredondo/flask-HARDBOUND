@@ -33,6 +33,7 @@ def getbooktemp():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
+    current_user = session['token']
     books = getbook()
    # genres = getgenres()
     return jsonify(books)
@@ -76,6 +77,12 @@ def getausers(uid):
     users = getauser(uid)
     return render_template('getUser.html', users=users)
 
+@app.route('/users', methods=['POST'])
+def register():
+    adduser()
+    flash('New user successfully added!')
+    return render_template('register.html')
+
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
@@ -109,11 +116,17 @@ def addbooktogenre(gid):
     flash('Genre successfully assigned to book!')
     return redirect('/genre/addbook/' + gid)
 
-@app.route('/users', methods=['POST'])
-def register():
-    adduser()
-    flash('New user successfully added!')
-    return render_template('register.html')
+@app.route('/library', methods=['GET'])
+def getlibrary():
+    username = 'arvincea'
+    books = getuserbook(username)
+    return render_template('library.html', books=books)
+
+@app.route('/library', methods=['POST'])
+def addlibraries():
+    addlibrary()
+    flash('Added book to library!')
+    return redirect('/library')
 
 @app.route('/logout')
 def logout():

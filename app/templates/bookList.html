@@ -7,21 +7,72 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Book List</h2>
+              <h2 class="no-margin-bottom">Dashboard</h2>
             </div>
           </header>
           <!-- Projects Section-->
            <section class="<projects></projects>">
-            <div id="genre" class="container-fluid">
+            <div class="container-fluid">
               <!-- Project-->
-                <div id="listbook" class="project">
-                    <!--content generated using javascript-->
-
+              {% for genre in genres %}
+                <h1> {{genre["type"]}} - {{genre["genre"]}}</h1>
+                {% for book in books %}
+                {% if book["genre_id"] == genre["genre_id"] %}
+                <div class="project">
+                  <div class="row bg-white has-shadow">
+                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                      <div class="project-title d-flex align-items-center">
+                        <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
+                        <div class="text">
+                          <h2>{{book["title"]}}</h2>
+                          <i>Author: {{book["author"]}}</i>
+                        </div>
+                      </div>
+                      </div>
+                    <div class="right-col col-lg-5 d-flex align-items-center">
+                      <div class="desc">{{book["description"]}}</div>
+                    </div>
+                    <div class="right-col col-lg-1 d-flex align-items-center">
+                      <form method="post" action="/library"><input name = "book" type="hidden" value="{{book['book_id']}}"><button type="submit" class="btn btn-warning">Add book</button></form>
+                      <form method="delete" action="/book/{{book['book_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form>
+                      </div>
+                    </div>
                   </div>
+                {% endif %}
+                {% endfor %}
+              {% endfor %}
+
+                <h1> Unassigned </h1>
+                {% for book in books %}
+                {% if not book["genre_id"]%}
+                <div class="project">
+                  <div class="row bg-white has-shadow">
+                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                      <div class="project-title d-flex align-items-center">
+                        <div class="image has-shadow"><img src="static/img/hp6.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
+                        <div class="text">
+                          <h2>{{book["title"]}}</h2>
+                          <i>Author: {{book["author"]}}</i>
+                        </div>
+                      </div>
+                      </div>
+                    <div class="right-col col-lg-5 d-flex align-items-center">
+                      <div class="desc">{{book["description"]}}</div>
+                    </div>
+                    <div class="right-col col-lg-1 d-flex align-items-center">
+                      <form method="post" action="/library"><input name = "book" type="hidden" value="{{book['book_id']}}"><button type="submit" class="btn btn-warning">Add book</button></form>
+                      <form method="delete" action="/book/{{book['book_id']}}"><button type="submit" class="btn btn-danger">Delete</button></form>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+                {% endfor %}
 
                 </div>
-           </section>
 
+              <!-- Project-->
+            </div>
+          </section>
           <!-- Page Footer-->
 {% endblock %}
         </div>
