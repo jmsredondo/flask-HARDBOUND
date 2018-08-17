@@ -1,0 +1,61 @@
+<title>HARDBOUND | User List</title>
+{% extends 'layout/base.html' %}
+{% block content %}
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Get a user</h2>
+                 </div>
+            
+          </header>
+          
+          <section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                     
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                       
+                        {% for message in messages %} 
+
+                   <div class="col-lg-12">
+                  <div class="card bg-success text-white bg-lighten-3">
+                  <div class="card-body">
+                   <h3 class="h4">{{ message }}</h3>
+                  </div>
+                    </div>
+                </div>
+                  
+                  {% endfor %}
+                        
+                      {% endif %}
+                    {% endwith %}
+                   
+                <div class="col-lg-12">
+                  <div class="card">
+
+                    <div class="card-body">
+                      <div class="table-responsive">
+                            {% for user in users %}
+                            {{user["username"]}}<br>
+                            {{user["firstname"]}}<br>
+                            {{user["lastname"]}}<br>
+                            {{user["email"]}}<br>
+                            {{user["balance"]}}<br>
+                            {{user["phonenumber"]}}<br>
+                            {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+          </section>
+          
+          
+{% endblock %}
+        </div>
+      </div>
+    </div>

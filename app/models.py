@@ -35,13 +35,19 @@ def get_book_per_cat():
 def get_users():
     cur.execute("select * from users")
     rows = cur.fetchall()
-    print rows
     return rows
 
+def get_a_user(uid):
+    cur.execute("select * from users where username LIKE '%" + uid + "%'")
+    rows = cur.fetchall()
+    return rows
+
+'''
 def search_users(username):
     cur.execute("select * from users where username LIKE '%" + username + "%'")
     users = cur.fetchall()
     return users
+'''
 
 def login():
      cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
