@@ -84,6 +84,10 @@ def delete_genres(gid):
     cur.execute("delete from genres where genre_id = " + (gid))
     db.commit()
 
+def delete_books(bid):
+    cur.execute("delete from books where book_id = " + (bid))
+    db.commit()
+
 """
 class User(db.Model):
     user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False, auto_increment)

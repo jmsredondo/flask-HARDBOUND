@@ -33,6 +33,12 @@ def addbooks():
     genres = getgenres()
     return render_template('bookList.html',books=books, genres=genres)
 
+@app.route('/book/<bid>')
+def deletebooks(bid):
+    deletebook(bid)
+    flash('Book successfully deleted.')
+    return redirect('/book')
+
 @app.route('/users', methods=['GET'])
 def getregister():
     return render_template('register.html')

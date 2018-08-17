@@ -126,3 +126,6 @@ def addbookgenre(gid):
 
 def deletegenre(gid):
     delete_genres(gid)
+
+def deletebook(bid):
+    delete_books(bid)
