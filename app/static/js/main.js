@@ -67,6 +67,8 @@ $(document).ready(function() {
 //
 //
 // }
+//
+    // Code for displaying all books
 var windowurl = window.location.pathname;
 
 if (windowurl === '/books'){
@@ -74,9 +76,9 @@ if (windowurl === '/books'){
 }
 function init_getbooks() {
 var $listbook = $("#listbook");
-//var $genrecontainer = $("#genre");
+//var $genrecontainer = $("#genre"); temporary
 var div = [];
-//var genre = [];
+//var genre = []; temporary
     $.ajax({
         url: 'book',
         dataType: 'JSON',
@@ -100,7 +102,7 @@ var div = [];
                     "</div>"+
                 "<div class=\"right-col col-lg-1 d-flex align-items-center\">" +
                 "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= "+data[i].book_id+"><button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>"+
-                "<form method=\"delete\" action=\"/book/\""+data[i].book_id+">" +
+                "<form method=\"delete\" action=\"/book"+"/"+data[i].book_id+"\">" +
                 "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>"+
                       "</div>"+
                     "</div>";
