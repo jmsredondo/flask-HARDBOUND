@@ -18,11 +18,12 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    current_user = session['token']
+    #current_user = session['token']
     rows = getlogin()
     if rows is not None or 'token' in session:
         print "token b : "+ session['token']
-        return render_template('dashboard.html',current_user=current_user)
+        #return render_template('dashboard.html',current_user=current_user)
+        return render_template('dashboard.html')
     else:
         return redirect('/')
 
@@ -84,10 +85,15 @@ def register():
     flash('New user successfully added!')
     return render_template('register.html')
 
+#get list of genres
+@app.route('/genres', methods=['GET'])
+def getgenretemp():
+    return render_template('dispCat_all.html')
+
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
-    return render_template('dispCat_all.html',genres=genres)
+    return jsonify(genres)
 
 @app.route('/genre/<gid>', methods=['GET'])
 def getagenre(gid):

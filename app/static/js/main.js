@@ -68,12 +68,65 @@ $(document).ready(function() {
 //
 // }
 //
-    // Code for displaying all books
+
+  // url path
 var windowurl = window.location.pathname;
 
-if (windowurl === '/books'){
-    init_getbooks()
+switch (windowurl) {
+    case '/books':
+        init_getbooks();
+        break;
+    case '/genres':
+       init_getgenres();
+        break;
+    case 2:
+        day = "Tuesday";
+        break;
+    case 3:
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5:
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
 }
+//retrieve all book genres
+
+    function init_getgenres() {
+
+        var $genretable = $("#genretbody");
+        var genretbody = [];
+
+        $.ajax({
+        url: 'genre',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+
+            for(var i =0; i <= data.length-1; i++){
+           // genre += "<h1>Genre(For udpate)</h1>";
+            genretbody += "<tr>"+
+                              "<td>"+data[i].type+"</td>"+
+                              "<td>"+data[i].genre+"</td>"+
+                              "<td><form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
+                "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
+                "<form method=\"get\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
+                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form></td>"+
+                            "</tr>";
+
+            }
+            $genretable.html(genretbody);
+           // $genrecontainer.html(genre);
+        }
+    });
+
+    }
+
+// retrieve all books all books
 function init_getbooks() {
 var $listbook = $("#listbook");
 //var $genrecontainer = $("#genre"); temporary
@@ -107,7 +160,6 @@ var div = [];
                       "</div>"+
                     "</div>";
             }
-            console.log($listbook);
             $listbook.html(div);
            // $genrecontainer.html(genre);
         }
