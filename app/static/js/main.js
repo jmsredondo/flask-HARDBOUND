@@ -1,74 +1,6 @@
 
 $(document).ready(function() {
 
-//     $userTable = $('#userlist');
-//     var username = $("#username");
-//     var uname = '';
-//
-//
-//     $("#search").click(function () {
-//     uname = username.val();
-//     if(uname.length !== 0)
-//     listurl = uname;
-//
-//     var usertble =  $('#userlist').dataTable();
-//     usertble.fnFilter(listurl);
-//
-//     init_userlist();
-//     console.log(listurl);
-//     //console.log(uname);
-// });
-//
-// if (uname.length === 0)
-//     var listurl = 'viewlist';
-//     init_userlist();
-//
-//
-// function init_userlist() {
-//     var table = $userTable;
-//     $.ajax({
-//         url: listurl,
-//         dataType: 'JSON',
-//         success: function (data) {
-//             console.log(data);
-//           // $userTable.DataTable('refresh', {url: 'users/list'});
-//            table.DataTable({
-//                 //retrieve: true,
-//                 data: data,
-//                 columns: [{
-//                     "data": "username",
-//                     "title": "Username"
-//                 },
-//                     {
-//                         "data": "firstname",
-//                         "title": 'First Name'
-//                     },
-//                     {
-//                         "data": "lastname",
-//                         "title": 'Last Name'
-//                     },
-//                     {
-//                         "data": "email",
-//                         "title": 'Email'
-//                     },
-//                     {
-//                         "data": "balance",
-//                         "title": 'Balance'
-//                     },
-//                     {
-//                         "data": "phone",
-//                         "title": 'Phone'
-//                     },],
-//
-//            });
-//         }
-//     });
-//
-//
-//
-// }
-//
-
   // url path
 var windowurl = window.location.pathname;
 
@@ -79,8 +11,8 @@ switch (windowurl) {
     case '/genres':
        init_getgenres();
         break;
-    case 2:
-        day = "Tuesday";
+    case '/users/list':
+        getbyusername();
         break;
     case 3:
         day = "Wednesday";
@@ -94,6 +26,8 @@ switch (windowurl) {
     case 6:
         day = "Saturday";
 }
+// all functions
+
 //retrieve all book genres
 
     function init_getgenres() {
@@ -154,7 +88,8 @@ var div = [];
                       "<div class=\"desc\">"+data[i].description+"</div>"+
                     "</div>"+
                 "<div class=\"right-col col-lg-1 d-flex align-items-center\">" +
-                "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= "+data[i].book_id+"><button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>"+
+                "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= "+data[i].book_id+">" +
+                "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>"+
                 "<form method=\"delete\" action=\"/book"+"/"+data[i].book_id+"\">" +
                 "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>"+
                       "</div>"+
@@ -167,5 +102,87 @@ var div = [];
 
 
     }
+
+    function getbyusername()
+    {
+        var uname = '';
+        var listurl = 'viewlist';
+        $("#search").click(function () {
+            var username = $("#username");
+            uname = username.val();
+            listurl = uname;
+            init_userlist(listurl);
+
+            var usertble = $('#userlist').dataTable();
+             usertble.fnFilter(listurl);
+        });
+
+        if(uname.length === 0){
+            init_userlist(listurl)
+        }
+    }
+function init_userlist(listurl) {
+    $userTable = $('#userlist');
+    var table = $userTable;
+
+    // var uname = '';
+
+    //     var usertble = $('#userlist').dataTable();
+    //     usertble.fnFilter(listurl);
+    //
+    //     init_userlist();
+    //     console.log(listurl);
+    //     //console.log(uname);
+    // });
+    //
+    // if (uname.length === 0)
+    //     var listurl = 'viewlist';
+    // init_userlist();
+
+
+
+        $.ajax({
+            url: listurl,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                // $userTable.DataTable('refresh', {url: 'users/list'});
+                table.DataTable({
+                    retrieve: true,
+                    data: data,
+                    columns: [{
+                        "data": "username",
+                        "title": "Username"
+                    },
+                        {
+                            "data": "firstname",
+                            "title": 'First Name'
+                        },
+                        {
+                            "data": "lastname",
+                            "title": 'Last Name'
+                        },
+                        {
+                            "data": "email",
+                            "title": 'Email'
+                        },
+                        {
+                            "data": "balance",
+                            "title": 'Balance'
+                        },
+                        {
+                            "data": "phone",
+                            "title": 'Phone'
+                        },],
+
+                });
+            }
+        });
+
+
+
+}
+
+
 
 });

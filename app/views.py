@@ -43,7 +43,7 @@ def getbooks():
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
     books = getabook(bid)
-    return render_template('getBook.html', books=books)
+    return jsonify(books)
 
 @app.route('/book', methods=['POST'])
 def addbooks():
@@ -59,9 +59,9 @@ def deletebooks(bid):
     flash('Book successfully deleted.')
     return redirect('/books')
 
-@app.route('/users', methods=['GET'])
-def getregister():
-    return render_template('register.html')
+@app.route('/users/list', methods=['GET'])
+def listuser():
+    return render_template('userList.html')
 
 @app.route('/users/viewlist', methods=['GET'])
 def userslist():
@@ -69,15 +69,14 @@ def userslist():
     print rows
     return jsonify(rows)
 
-@app.route('/users/list', methods=['GET'])
-def listuser():
-    userslist()
-    return render_template('userList.html')
-
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):
     users = getauser(uid)
-    return render_template('getUser.html', users=users)
+    return jsonify(users)
+
+@app.route('/users', methods=['GET'])
+def getregister():
+    return render_template('register.html')
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -98,7 +97,7 @@ def getgenre():
 @app.route('/genre/<gid>', methods=['GET'])
 def getagenre(gid):
     genres = getagenres(gid)
-    return render_template('getGenre.html', genres=genres)
+    return jsonify(genres)
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
