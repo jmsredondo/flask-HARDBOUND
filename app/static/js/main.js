@@ -84,10 +84,10 @@ var div = [];
                         "</div>"+
                       "</div>"+
                       "</div>"+
-                    "<div class=\"right-col col-lg-5 d-flex align-items-center\">"+
+                    "<div class=\"right-col col-lg-4 d-flex align-items-center\">"+
                       "<div class=\"desc\">"+data[i].description+"</div>"+
                     "</div>"+
-                "<div class=\"right-col col-lg-1 d-flex align-items-center\">" +
+                "<div class=\"right-col col-lg-2 d-flex align-items-center\">" +
                 "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= "+data[i].book_id+">" +
                 "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>"+
                 "<form method=\"delete\" action=\"/book"+"/"+data[i].book_id+"\">" +
