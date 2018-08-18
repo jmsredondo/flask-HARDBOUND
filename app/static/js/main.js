@@ -105,8 +105,10 @@ var div = [];
 
     function getbyusername()
     {
+
         var uname = '';
         var listurl = 'viewlist';
+        
         $("#search").click(function () {
             var username = $("#username");
             uname = username.val();
@@ -124,22 +126,6 @@ var div = [];
 function init_userlist(listurl) {
     $userTable = $('#userlist');
     var table = $userTable;
-
-    // var uname = '';
-
-    //     var usertble = $('#userlist').dataTable();
-    //     usertble.fnFilter(listurl);
-    //
-    //     init_userlist();
-    //     console.log(listurl);
-    //     //console.log(uname);
-    // });
-    //
-    // if (uname.length === 0)
-    //     var listurl = 'viewlist';
-    // init_userlist();
-
-
 
         $.ajax({
             url: listurl,
