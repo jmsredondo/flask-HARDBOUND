@@ -23,6 +23,14 @@ def get_unassigned_book(gid):
 
     return (query_ret)
 
+def get_user_book(username):
+    # query
+    cur.execute("SELECT * FROM books INNER JOIN user_library ON books.book_id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
+    query_ret = cur.fetchall()
+    print ('EY')
+    print (query_ret)
+    return (query_ret)
+
 #get book categories
 def get_category():
     pass
@@ -67,7 +75,16 @@ def add_book():
     title=request.form['title']
     description=request.form['description']
     author=request.form['author']
-    cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
+    cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
+    db.commit()
+
+def add_library():
+    book=request.form['book']
+    user='arvincea'
+    cur.execute("select id from users where username = '" + user + "'")
+    user=cur.fetchone()
+    user_id=user[0]
+    cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
     db.commit()
 
 def get_a_book(bid):

@@ -18,23 +18,32 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
+    #current_user = session['token']
     rows = getlogin()
     if rows is not None or 'token' in session:
         print "token b : "+ session['token']
+        #return render_template('dashboard.html',current_user=current_user)
         return render_template('dashboard.html')
     else:
         return redirect('/')
 
+#getbooktemp and getbook methods used for rendering
+#generating json response
+@app.route('/books')
+def getbooktemp():
+    return render_template("bookList.html")
+
 @app.route('/book',methods=['GET'])
 def getbooks():
+    current_user = session['token']
     books = getbook()
-    genres = getgenres()
-    return render_template('bookList.html', books=books, genres=genres)
+   # genres = getgenres()
+    return jsonify(books)
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
     books = getabook(bid)
-    return render_template('getBook.html', books=books)
+    return jsonify(books)
 
 @app.route('/book', methods=['POST'])
 def addbooks():
@@ -48,11 +57,11 @@ def addbooks():
 def deletebooks(bid):
     deletebook(bid)
     flash('Book successfully deleted.')
-    return redirect('/book')
+    return redirect('/books')
 
-@app.route('/users', methods=['GET'])
-def getregister():
-    return render_template('register.html')
+@app.route('/users/list', methods=['GET'])
+def listuser():
+    return render_template('userList.html')
 
 @app.route('/users/viewlist', methods=['GET'])
 def userslist():
@@ -60,25 +69,35 @@ def userslist():
     print rows
     return jsonify(rows)
 
-@app.route('/users/list', methods=['GET'])
-def listuser():
-    userslist()
-    return render_template('userList.html')
-
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):
     users = getauser(uid)
-    return render_template('getUser.html', users=users)
+    return jsonify(users)
+
+@app.route('/users', methods=['GET'])
+def getregister():
+    return render_template('register.html')
+
+@app.route('/users', methods=['POST'])
+def register():
+    adduser()
+    flash('New user successfully added!')
+    return render_template('register.html')
+
+#get list of genres
+@app.route('/genres', methods=['GET'])
+def getgenretemp():
+    return render_template('dispCat_all.html')
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
-    return render_template('dispCat_all.html',genres=genres)
+    return jsonify(genres)
 
 @app.route('/genre/<gid>', methods=['GET'])
 def getagenre(gid):
     genres = getagenres(gid)
-    return render_template('getGenre.html', genres=genres)
+    return jsonify(genres)
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
@@ -103,11 +122,17 @@ def addbooktogenre(gid):
     flash('Genre successfully assigned to book!')
     return redirect('/genre/addbook/' + gid)
 
-@app.route('/users', methods=['POST'])
-def register():
-    adduser()
-    flash('New user successfully added!')
-    return render_template('register.html')
+@app.route('/library', methods=['GET'])
+def getlibrary():
+    username = 'arvincea'
+    books = getuserbook(username)
+    return render_template('library.html', books=books)
+
+@app.route('/library', methods=['POST'])
+def addlibraries():
+    addlibrary()
+    flash('Added book to library!')
+    return redirect('/library')
 
 @app.route('/logout')
 def logout():
