@@ -18,11 +18,11 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    #current_user = session['token']
+    current_user = session['token']
     rows = getlogin()
     if rows is not None or 'token' in session:
         print "token b : "+ session['token']
-        #return render_template('dashboard.html',current_user=current_user)
+        return render_template('dashboard.html',current_user=current_user)
         return render_template('dashboard.html')
     else:
         return redirect('/')
