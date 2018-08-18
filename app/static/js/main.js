@@ -108,7 +108,7 @@ var div = [];
 
         var uname = '';
         var listurl = 'viewlist';
-        
+
         $("#search").click(function () {
             var username = $("#username");
             uname = username.val();
