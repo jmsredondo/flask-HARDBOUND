@@ -18,7 +18,7 @@ switch (windowurl) {
         getbookbyid();
         break;
     case '/user':
-        getbbyusername();
+        getbyusername();
         break;
     case 5:
         day = "Friday";
@@ -201,14 +201,17 @@ function init_userlist() {
 
 
 }
+$userTable = $('#userlist');
 var table = $userTable;
 $userTable.on('click', 'tbody tr', function() {
 
   console.log('API row values : ', table.DataTable().row(this).data());
   var data = table.DataTable().row(this).data();
       var  username =data['username'];
+
       alert(username);
     localStorage.setItem('username', username);
+    document.location.href = ('/user');
 });
 
 function getbyusername() {
@@ -216,7 +219,7 @@ function getbyusername() {
         var divtable = [];
         $userbyusername = $('#getusername');
         $.ajax({
-            url: username,
+            url: 'users/'+username,
             dataType: 'JSON',
             success: function (data) {
                 console.log(data);
