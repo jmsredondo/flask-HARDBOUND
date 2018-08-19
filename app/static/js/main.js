@@ -73,13 +73,15 @@ function init_getbooks() {
             console.log(data);
 
             for (var i = 0; i <= data.length - 1; i++) {
+
                 // genre += "<h1>Genre(For udpate)</h1>";
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-6 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
                     "<div class=\"image has-shadow\"><img src=\"static/img/hp6.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
-                    "<a id='btnid' <h2>" + data[i].title + "</h2></a>" +
+                    "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
+                    "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a>" +
                     "<i>" + data[i].author + "</i>" +
                     "</div>" +
                     "</div>" +
@@ -98,17 +100,43 @@ function init_getbooks() {
             $listbook.html(div);
             // $genrecontainer.html(genre);
 
-
         }
     });
 
 }
 
-   /* //get book by id
-    function getbookbyid() {
+$(document).on('click', '.bookid', function() {
 
+    var div = $(this).closest('div');
+    var bookid = (div.find('input').val());
+    localStorage.setItem('bid', bookid);
+
+});
+
+
+
+  //get book by id
+    function getbookbyid() {
+    var book_id = localStorage.getItem('bid');
+        var divtable = [];
+        $bookbyid = $('#getbookbyidtable');
+        $.ajax({
+            url: 'book/' + book_id,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].book_id+"</td>"+
+                              "<td>"+data[i].title+"</td>"+
+                       "<td>"+data[i].description+"</td>"+
+                       "<td>"+data[i].author+"</td>"+
+                            "</tr>";
+                }
+                $bookbyid.html(divtable)
+            }
+        });
     }
-*/
     function getbyusername()
     {
 
