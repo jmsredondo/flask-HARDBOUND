@@ -32,6 +32,9 @@ def dashboard():
 @app.route('/books')
 def getbooktemp():
     return render_template("bookList.html")
+@app.route('/bookbyid')
+def getbookbyidtem():
+    return render_template("getBook.html")
 
 @app.route('/book',methods=['GET'])
 def getbooks():
