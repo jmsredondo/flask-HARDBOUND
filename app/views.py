@@ -158,7 +158,6 @@ def getratings(bid):
     flash('Added rating!')
     return render_template('getRating.html', ratings=ratings)
 
-    
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there
