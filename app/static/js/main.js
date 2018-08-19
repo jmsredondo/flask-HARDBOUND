@@ -20,8 +20,8 @@ switch (windowurl) {
     case '/user':
         getbyusername();
         break;
-    case 5:
-        day = "Friday";
+    case '/genrebyid':
+        getgenrebyid();
         break;
     case 6:
         day = "Saturday";
@@ -44,6 +44,7 @@ switch (windowurl) {
             for(var i =0; i <= data.length-1; i++){
            // genre += "<h1>Genre(For udpate)</h1>";
             genretbody += "<tr>"+
+                                "<td hidden>"+data[i].genre_id+"</td>"+
                               "<td>"+data[i].type+"</td>"+
                               "<td>"+data[i].genre+"</td>"+
                               "<td><form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
@@ -60,6 +61,38 @@ switch (windowurl) {
 
     }
 
+    // get value of row and store in local storage for later use
+$genreTable = $('#genretable');
+var gentable = $genreTable;
+$genreTable.on('click', 'tbody tr', function() {
+ var tableData = $(this).children("td").map(function() {
+        return $(this).text();
+    }).get();
+ var genreid= tableData[0];
+    localStorage.setItem('genreid', genreid);
+    document.location.href = ('/genrebyid');
+});
+function getgenrebyid() {
+
+     var genre_id = localStorage.getItem('genreid');
+        var divtable = [];
+        $genrebyid = $('#getgenrebydtbody');
+        $.ajax({
+            url: 'genre/' + genre_id,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].genre_id+"</td>"+
+                              "<td>"+data[i].type+"</td>"+
+                       "<td>"+data[i].genre+"</td>"+
+                            "</tr>";
+                }
+                $genrebyid.html(divtable)
+            }
+        });
+}
 // retrieve all books all books
 function init_getbooks() {
     var $listbook = $("#listbook");
@@ -104,7 +137,7 @@ function init_getbooks() {
     });
 
 }
-
+// get value of row and store in local storage for later use
 $(document).on('click', '.bookid', function() {
 
     var div = $(this).closest('div');
@@ -201,6 +234,7 @@ function init_userlist() {
 
 
 }
+// get value of row and store in local storage for later use
 $userTable = $('#userlist');
 var table = $userTable;
 $userTable.on('click', 'tbody tr', function() {
@@ -208,12 +242,11 @@ $userTable.on('click', 'tbody tr', function() {
   console.log('API row values : ', table.DataTable().row(this).data());
   var data = table.DataTable().row(this).data();
       var  username =data['username'];
-
-      alert(username);
+      
     localStorage.setItem('username', username);
     document.location.href = ('/user');
 });
-
+// get user detail by username
 function getbyusername() {
      var username = localStorage.getItem('username');
         var divtable = [];

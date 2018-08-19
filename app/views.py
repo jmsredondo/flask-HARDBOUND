@@ -97,6 +97,10 @@ def register():
 def getgenretemp():
     return render_template('dispCat_all.html')
 
+@app.route('/genrebyid')
+def getgenreidtemp():
+    return render_template('getGenre.html')
+
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
