@@ -12,13 +12,13 @@ switch (windowurl) {
        init_getgenres();
         break;
     case '/users/list':
-        getbyusername();
+        init_userlist();
         break;
     case '/bookbyid':
         getbookbyid();
         break;
-    case 4:
-        day = "Thursday";
+    case '/user':
+        getbbyusername();
         break;
     case 5:
         day = "Friday";
@@ -114,7 +114,6 @@ $(document).on('click', '.bookid', function() {
 });
 
 
-
   //get book by id
     function getbookbyid() {
     var book_id = localStorage.getItem('bid');
@@ -137,7 +136,7 @@ $(document).on('click', '.bookid', function() {
             }
         });
     }
-    function getbyusername()
+    /*function getbyusername()
     {
 
         var uname = '';
@@ -156,13 +155,13 @@ $(document).on('click', '.bookid', function() {
         if(uname.length === 0){
             init_userlist(listurl)
         }
-    }
-function init_userlist(listurl) {
+    }*/
+function init_userlist() {
     $userTable = $('#userlist');
     var table = $userTable;
 
         $.ajax({
-            url: listurl,
+            url: '/users',
             dataType: 'JSON',
             success: function (data) {
                 console.log(data);
@@ -202,7 +201,39 @@ function init_userlist(listurl) {
 
 
 }
+var table = $userTable;
+$userTable.on('click', 'tbody tr', function() {
 
+  console.log('API row values : ', table.DataTable().row(this).data());
+  var data = table.DataTable().row(this).data();
+      var  username =data['username'];
+      alert(username);
+    localStorage.setItem('username', username);
+});
 
+function getbyusername() {
+     var username = localStorage.getItem('username');
+        var divtable = [];
+        $userbyusername = $('#getusername');
+        $.ajax({
+            url: username,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].username+"</td>"+
+                              "<td>"+data[i].firstname+"</td>"+
+                       "<td>"+data[i].lastname+"</td>"+
+                       "<td>"+data[i].email+"</td>"+
+                        "<td>"+data[i].balance+"</td>"+
+                        "<td>"+data[i].phone+"</td>"+
+                            "</tr>";
+                }
+                $userbyusername.html(divtable)
+            }
+        });
+
+}
 
 });

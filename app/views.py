@@ -32,6 +32,7 @@ def dashboard():
 @app.route('/books')
 def getbooktemp():
     return render_template("bookList.html")
+
 @app.route('/bookbyid')
 def getbookbyidtem():
     return render_template("getBook.html")
@@ -66,7 +67,11 @@ def deletebooks(bid):
 def listuser():
     return render_template('userList.html')
 
-@app.route('/users/viewlist', methods=['GET'])
+@app.route('/user')
+def userbyusernametemp():
+    return render_template('getUser.html')
+
+@app.route('/users', methods=['GET'])
 def userslist():
     rows = getusers()
     print rows
