@@ -109,20 +109,20 @@ function init_getbooks() {
 
                 // genre += "<h1>Genre(For udpate)</h1>";
                 div += "<div class=\"row bg-white has-shadow\">" +
-                    "<div class=\"left-col col-lg-6 d-flex align-items-center justify-content-between\">" +
+                    "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
                     "<div class=\"image has-shadow\"><img src=\"static/img/hp6.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
-                    "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a>" +
-                    "<i>" + data[i].author + "</i>" +
+                    "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
+                    "<small>" + data[i].author + "</small>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
                     "<div class=\"right-col col-lg-4 d-flex align-items-center\">" +
                     "<div class=\"desc\">" + data[i].description + "</div>" +
                     "</div>" +
-                    "<div class=\"right-col col-lg-2 d-flex align-items-center\">" +
+                    "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
                     "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
                     "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>" +
                     "<form method=\"delete\"  action=\"/book" + "/" + data[i].book_id + "\">" +
@@ -242,7 +242,7 @@ $userTable.on('click', 'tbody tr', function() {
   console.log('API row values : ', table.DataTable().row(this).data());
   var data = table.DataTable().row(this).data();
       var  username =data['username'];
-      
+
     localStorage.setItem('username', username);
     document.location.href = ('/user');
 });
