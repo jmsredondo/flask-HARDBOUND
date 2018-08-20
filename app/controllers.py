@@ -139,12 +139,16 @@ def getlogin():
     return userlogin
 
 def login():
-     cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
      if rows != None:
         session['token'] = rows[0]
+        if rows[2] == 'admin':
+            session['usertype'] = True
+        else:
+            session['usertype'] = False
      else:
-        session['token'] = ''
+        session['token'] = None
      return rows
 
 def getgenres():
