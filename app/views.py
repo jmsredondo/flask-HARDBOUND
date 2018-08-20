@@ -18,7 +18,8 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    current_user = session['token']
+    #current_user = session['token']
+    current_user = 'arvincea'
     rows = getlogin()
     if rows is not None or 'token' in session:
         print "token b : "+ session['token']
@@ -64,10 +65,11 @@ def listuser():
     return render_template('userList.html')
 
 @app.route('/users/viewlist', methods=['GET'])
-def userslist():
-    rows = getusers()
+def userlist():
+    rows=User.query.all()
     print rows
-    return jsonify(rows)
+    return ""
+
 
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):

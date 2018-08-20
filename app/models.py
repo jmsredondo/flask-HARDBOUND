@@ -4,136 +4,19 @@ from app import db
 
 from flask import jsonify
 
-DATABASE = 'database/database_1.db'
-#connect to database
-db = (sqlite3.connect(DATABASE,check_same_thread=False))
-cur = db.cursor()
 
-#get book list
-def get_book():
-    # query
-    cur.execute("SELECT * FROM books")
-    query_ret = cur.fetchall()
-
-    return (query_ret)
-
-def get_unassigned_book(gid):
-    cur.execute("SELECT * FROM books where genre_id !=" + gid + " or genre_id is null")
-    query_ret = cur.fetchall()
-
-    return (query_ret)
-
-def get_user_book(username):
-    # query
-    cur.execute("SELECT * FROM books INNER JOIN user_library ON books.book_id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
-    query_ret = cur.fetchall()
-    print ('EY')
-    print (query_ret)
-    return (query_ret)
-
-#get book categories
-def get_category():
-    pass
-
-#get book for each category
-def get_book_per_cat():
-    pass
-
-#get users
-def get_users():
-    cur.execute("select * from users")
-    rows = cur.fetchall()
-    return rows
-
-def get_a_user(uid):
-    cur.execute("select * from users where username LIKE '%" + uid + "%'")
-    rows = cur.fetchall()
-    return rows
-
-'''
-def search_users(username):
-    cur.execute("select * from users where username LIKE '%" + username + "%'")
-    users = cur.fetchall()
-    return users
-'''
-
-def login():
-     cur.execute("select lastname, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
-     rows=cur.fetchone()
-     return rows
-
-def add_user():
-    username=request.form['registerUsername']
-    firstname=request.form['registerFirstname']
-    lastname=request.form['registerLastname']
-    email=request.form['registerEmail']
-    phonenumber=request.form['registerPhoneNum']
-    cur.execute("insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)", (username, firstname, lastname, email, '0', phonenumber, '123456'))
-    db.commit()
-
-def add_book():
-    title=request.form['title']
-    description=request.form['description']
-    author=request.form['author']
-    cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
-    db.commit()
-
-def add_library():
-    book=request.form['book']
-    user='arvincea'
-    cur.execute("select id from users where username = '" + user + "'")
-    user=cur.fetchone()
-    user_id=user[0]
-    cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
-    db.commit()
-
-def get_a_book(bid):
-    cur.execute("select * from books where book_id = " + (bid))
-    books=cur.fetchall()
-    return books
-
-def add_book_genre(gid):
-    bid=request.form['book_id']
-    cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
-    db.commit()
-
-def get_genres():
-    cur.execute("select * from genres")
-    genres=cur.fetchall()
-    return genres
-
-def get_a_genre(gid):
-    cur.execute("select * from genres where genre_id = " + (gid))
-    genres=cur.fetchall()
-    return genres
-
-def add_genres():
-    genre_type=request.form['type']
-    genre_name=request.form['genre']
-    cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
-    db.commit()
-
-def delete_genres(gid):
-    cur.execute("delete from genres where genre_id = " + (gid))
-    db.commit()
-
-def delete_books(bid):
-    cur.execute("delete from books where book_id = " + (bid))
-    db.commit()
-
-"""
 class User(db.Model):
-    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False, auto_increment)
+    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
     lastname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(120), index=True, unique=True, nullable=False)
     balance = db.Column(db.Float)
     phone = db.Column(db.Integer, nullable=False)
-    password = db.Column(db.String(128),nullable =False)
+    password = db.Column(db.String(128), nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
-    user_type = db.Column(ENUM('Admin','User'),nullable =False)
-    
+
+    # user_type = db.Column(ENUM('Admin', 'User'), nullable=False)
 
     # posts = db.relationship('Post', backref='author', lazy='dynamic')
 
@@ -146,15 +29,218 @@ class User(db.Model):
             'email': self.email,
             'balance': self.balance,
             'phone': self.phone,
-            'password: self.password,
-            'password_hash': self.password_hash,
-            'user_type' :self.user_type
-            
+            'password': self.password,
+            'password_hash': self.password_hash
+            # 'user_type': self.user_type
+
         }
 
         response = '<User %s>' % data
         return repr(response)
-        
+
+
+class Genre(db.Model):
+    genre_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    genre = db.Column(db.String(64), unique=True, nullable=False)
+    type = db.Column(db.String(64), nullable=False)
+
+    def __repr__(self):
+        data = {
+            'Genre ID': self.genre_id,
+            'Genre': self.genre,
+            'Type': self.type
+        }
+
+        response = '<Genre %s>' % data
+        return repr(response)
+
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(128), nullable=False)
+    image = db.Column(db.BLOB)
+    author = db.Column(db.String(64))
+    description = db.Column(db.String(64))
+
+    # book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
+
+    def __repr__(self):
+        data = {
+            'Book ID': self.id,
+            'Book Name': self.title,
+            'Image': self.image,
+            'Description': self.description
+            #  'Book Rate': self.book_rate
+        }
+
+        response = '<Book %s>' % data
+        return repr(response)
+
+
+"""class Ratings(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    # user_id = db.Column(db.Integer, unique=True, nullable=False)
+    rating = db.Column(db.Integer, nullable=True)
+    comment = db.Column(db.String(64))
+
+    # book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+
+    def __repr__(self):
+        data = {
+            'Rating ID': self.id,
+            # 'Book ID': self.book_id,
+            # 'User ID': self.user_id,
+            'rating': self.rating,
+            'comment': self.comment
+        }
+
+        response = '<Ratings %s>' % data
+        return repr(response)
+"""
+
+DATABASE = 'database/database_1.db'
+# connect to database
+db = (sqlite3.connect(DATABASE, check_same_thread=False))
+cur = db.cursor()
+
+
+# get book list
+def get_book():
+    # query
+    cur.execute("SELECT * FROM books")
+    query_ret = cur.fetchall()
+
+    return (query_ret)
+
+
+def get_unassigned_book(gid):
+    cur.execute("SELECT * FROM books where genre_id !=" + gid + " or genre_id is null")
+    query_ret = cur.fetchall()
+
+    return (query_ret)
+
+
+def get_user_book(username):
+    # query
+    cur.execute(
+        "SELECT * FROM books INNER JOIN user_library ON books.book_id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
+    query_ret = cur.fetchall()
+    print ('EY')
+    print (query_ret)
+    return (query_ret)
+
+
+# get book categories
+def get_category():
+    pass
+
+
+# get book for each category
+def get_book_per_cat():
+    pass
+
+
+# get users
+def get_users():
+    cur.execute("select * from users")
+    rows = cur.fetchall()
+    return rows
+
+
+def get_a_user(uid):
+    cur.execute("select * from users where username LIKE '%" + uid + "%'")
+    rows = cur.fetchall()
+    return rows
+
+
+'''
+def search_users(username):
+    cur.execute("select * from users where username LIKE '%" + username + "%'")
+    users = cur.fetchall()
+    return users
+'''
+
+
+def login():
+    cur.execute(
+        "select lastname, password from users where username='" + request.form['username'] + "'and password = '" +
+        request.form['password'] + "'")
+    rows = cur.fetchone()
+    return rows
+
+
+def add_user():
+    username = request.form['registerUsername']
+    firstname = request.form['registerFirstname']
+    lastname = request.form['registerLastname']
+    email = request.form['registerEmail']
+    phonenumber = request.form['registerPhoneNum']
+    cur.execute(
+        "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
+        (username, firstname, lastname, email, '0', phonenumber, '123456'))
+    db.commit()
+
+
+def add_book():
+    title = request.form['title']
+    description = request.form['description']
+    author = request.form['author']
+    cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
+    db.commit()
+
+
+def add_library():
+    book = request.form['book']
+    user = 'arvincea'
+    cur.execute("select id from users where username = '" + user + "'")
+    user = cur.fetchone()
+    user_id = user[0]
+    cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
+    db.commit()
+
+
+def get_a_book(bid):
+    cur.execute("select * from books where book_id = " + (bid))
+    books = cur.fetchall()
+    return books
+
+
+def add_book_genre(gid):
+    bid = request.form['book_id']
+    cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
+    db.commit()
+
+
+def get_genres():
+    cur.execute("select * from genres")
+    genres = cur.fetchall()
+    return genres
+
+
+def get_a_genre(gid):
+    cur.execute("select * from genres where genre_id = " + (gid))
+    genres = cur.fetchall()
+    return genres
+
+
+def add_genres():
+    genre_type = request.form['type']
+    genre_name = request.form['genre']
+    cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
+    db.commit()
+
+
+def delete_genres(gid):
+    cur.execute("delete from genres where genre_id = " + (gid))
+    db.commit()
+
+
+def delete_books(bid):
+    cur.execute("delete from books where book_id = " + (bid))
+    db.commit()
+
+
+"""      
 class genre(db.Model):
     genre_id =  db.Column(db.Integer, unique=True, primary_key=True, nullable=False,auto_increment)
     genre = db.Column(db.String(64), unique=True, nullable=False)
@@ -188,4 +274,3 @@ class book(db.Model):
 
         response = '<Book %s>' %
         """
-
