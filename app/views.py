@@ -22,10 +22,6 @@ def login():
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     #current_user = session['token']
-<<<<<<< HEAD
-    current_user = 'arvincea'
-=======
->>>>>>> 6eabd1d17ea9332c389a8787f6b2d093c4fff52f
     rows = getlogin()
     if rows is not None:
         current_user = session['token']
@@ -75,11 +71,6 @@ def deletebooks(bid):
 def listuser():
     return render_template('userList.html')
 
-<<<<<<< HEAD
-@app.route('/users/viewlist', methods=['GET'])
-def userlist():
-    rows=User.query.all()
-=======
 @app.route('/user')
 def userbyusernametemp():
     return render_template('getUser.html')
@@ -87,10 +78,8 @@ def userbyusernametemp():
 @app.route('/users', methods=['GET'])
 def userslist():
     rows = getusers()
->>>>>>> 6eabd1d17ea9332c389a8787f6b2d093c4fff52f
     print rows
-    return ""
-
+    return jsonify(rows)
 
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):
