@@ -19,21 +19,12 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-<<<<<<< Updated upstream
-    #current_user = session['token']
-=======
->>>>>>> Stashed changes
     rows = getlogin()
     if rows is not None:
         current_user = session['token']
-        #usertype = session['usertype']
-        print "token b : "+ session['token']
-<<<<<<< Updated upstream
-      #  return render_template('dashboard.html',current_user=current_user)
-        return render_template('dashboard.html')
-=======
-        return render_template('dashboard.html',current_user=current_user)
->>>>>>> Stashed changes
+        usertype = session['usertype']
+        #print "token b : "+ session['token']
+        return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
         return redirect('/')
 
