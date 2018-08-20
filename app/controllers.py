@@ -175,6 +175,18 @@ def getagenres(gid):
     print (genres_dict)
     return genres_dict
 
+def getrating(bid):
+    rating_dict = []
+
+    for rating in get_rating(bid):
+        rating_as_dict = {
+            'rating': rating[2],
+            'comment': rating[3]
+        }
+        rating_dict.append(rating_as_dict)
+
+    return rating_dict
+
 def adduser():
     add_user()
 
@@ -189,6 +201,9 @@ def addbookgenre(gid):
 
 def addlibrary():
     add_library()
+
+def addrating():
+    add_rating()
 
 def deletegenre(gid):
     delete_genres(gid)

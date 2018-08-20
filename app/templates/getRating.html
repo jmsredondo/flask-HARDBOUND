@@ -1,18 +1,19 @@
+<title>HARDBOUND | User List</title>
 {% extends 'layout/base.html' %}
-
 {% block content %}
-
-
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Book List</h2>
-            </div>
+              <h2 class="no-margin-bottom">Get a genre</h2>
+                 </div>
+            
           </header>
-          <!-- Projects Section-->
-           <section class="<projects></projects>">
-            <div id="genre" class="container-fluid">
+          
+          <section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                     
                     {% with messages = get_flashed_messages() %}
                       {% if messages %}
                        
@@ -30,21 +31,26 @@
                         
                       {% endif %}
                     {% endwith %}
-              <!-- Project-->
-                <div id="listbook" class="project">
-                    <!--content generated using javascript-->
+                   
+                <div class="col-lg-12">
+                  <div class="card">
 
+                    <div class="card-body">
+                      <div class="table-responsive">
+                            {% for rating in ratings %}
+                            {{rating["rating"]}} - {{rating["comment"]}}<br>
+                            {% endfor %}
+                      </div>
+                    </div>
                   </div>
-
                 </div>
-           </section>
-
-          <!-- Page Footer-->
+            
+              </div>
+            </div>
+          </section>
+          
+          
 {% endblock %}
         </div>
+      </div>
     </div>
-    </div>
-
-
-
-
