@@ -15,16 +15,23 @@ def login():
     else:
         #print "token: "+ session['token']
         return render_template("login.html")
+        current_user = session['token']
+        print "token: a  "+ session['token']
+        return render_template('dashboard.html',current_user=current_user)
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     #current_user = session['token']
+<<<<<<< HEAD
     current_user = 'arvincea'
+=======
+>>>>>>> 6eabd1d17ea9332c389a8787f6b2d093c4fff52f
     rows = getlogin()
-    if rows is not None or 'token' in session:
-        print "token b : "+ session['token']
-        return render_template('dashboard.html',current_user=current_user)
-        return render_template('dashboard.html')
+    if rows is not None:
+        current_user = session['token']
+        usertype = session['usertype']
+        #print "token b : "+ session['token']
+        return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
         return redirect('/')
 
@@ -33,6 +40,10 @@ def dashboard():
 @app.route('/books')
 def getbooktemp():
     return render_template("bookList.html")
+
+@app.route('/bookbyid')
+def getbookbyidtem():
+    return render_template("getBook.html")
 
 @app.route('/book',methods=['GET'])
 def getbooks():
@@ -64,9 +75,19 @@ def deletebooks(bid):
 def listuser():
     return render_template('userList.html')
 
+<<<<<<< HEAD
 @app.route('/users/viewlist', methods=['GET'])
 def userlist():
     rows=User.query.all()
+=======
+@app.route('/user')
+def userbyusernametemp():
+    return render_template('getUser.html')
+
+@app.route('/users', methods=['GET'])
+def userslist():
+    rows = getusers()
+>>>>>>> 6eabd1d17ea9332c389a8787f6b2d093c4fff52f
     print rows
     return ""
 
@@ -90,6 +111,10 @@ def register():
 @app.route('/genres', methods=['GET'])
 def getgenretemp():
     return render_template('dispCat_all.html')
+
+@app.route('/genrebyid')
+def getgenreidtemp():
+    return render_template('getGenre.html')
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
@@ -136,9 +161,20 @@ def addlibraries():
     flash('Added book to library!')
     return redirect('/library')
 
+@app.route('/rate', methods=['POST'])
+def addratings():
+    addrating()
+    flash('Added rating!')
+    return redirect('/book')
+
+@app.route('/rate/<bid>', methods=['GET'])
+def getratings(bid):
+    ratings = getrating(bid)
+    flash('Added rating!')
+    return render_template('getRating.html', ratings=ratings)
+
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there
    session.pop('token', None)
-   session.clear()
    return redirect(url_for('login'))

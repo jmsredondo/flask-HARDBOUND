@@ -1,3 +1,4 @@
+<title>HARDBOUND | Book List</title>
 {% extends 'layout/base.html' %}
 
 {% block content %}
@@ -13,6 +14,23 @@
           <!-- Projects Section-->
            <section class="<projects></projects>">
             <div id="genre" class="container-fluid">
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                       
+                        {% for message in messages %} 
+
+                   <div class="col-lg-12">
+                  <div class="card bg-success text-white bg-lighten-3">
+                  <div class="card-body">
+                   <h3 class="h4">{{ message }}</h3>
+                  </div>
+                    </div>
+                </div>
+                  
+                  {% endfor %}
+                        
+                      {% endif %}
+                    {% endwith %}
               <!-- Project-->
                 <div id="listbook" class="project">
                     <!--content generated using javascript-->

@@ -229,6 +229,24 @@ def add_genres():
     cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
     db.commit()
 
+<<<<<<< HEAD
+=======
+def add_rating():
+    book_id=request.form['book_id']
+    rating=request.form['rating']
+    comment=request.form['comment']
+    user='arvincea'
+    cur.execute("select id from users where username = '" + user + "'")
+    user=cur.fetchone()
+    user_id=user[0]
+    cur.execute("insert into ratings (book_id, user_id, rating, comment) VALUES (?,?,?,?)", (book_id, user_id, rating, comment))
+    db.commit()
+
+def get_rating(bid):
+    cur.execute("select * from ratings inner join books on ratings.book_id = books.book_id where ratings.book_id = " + (bid))
+    books=cur.fetchall()
+    return books
+>>>>>>> 6eabd1d17ea9332c389a8787f6b2d093c4fff52f
 
 def delete_genres(gid):
     cur.execute("delete from genres where genre_id = " + (gid))

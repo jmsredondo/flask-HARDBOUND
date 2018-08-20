@@ -37,11 +37,18 @@
 
                     <div class="card-body">
                       <div class="table-responsive">
-                            {% for genre in genres %}
-                            {{genre["genre_id"]}}<br>
-                            {{genre["type"]}}<br>
-                            {{genre["genre"]}}<br>
-                            {% endfor %}
+                       <table class="table table-striped table-hover">
+                      <thead>
+                            <tr>
+                              <th>Genre Id</th>
+                              <th>Type</th>
+                              <th>Genre</th>
+                            </tr>
+                          </thead>
+                          <tbody id="getgenrebydtbody">
+                          </tbody>
+                           </table>
+
                       </div>
                     </div>
                   </div>

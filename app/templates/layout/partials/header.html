@@ -36,7 +36,7 @@
             <div class="avatar"><img src="../../../static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{current_user}}</h1>
-              <p>Admin</p>
+              <p>{{session['usertype']}}</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus-->
@@ -48,7 +48,7 @@
                     <ul id="categorySubMenu" class="collapse list-unstyled ">
                         <li><a href="#addCatModal" data-toggle="modal">Add Genre</a></li>
                         <li><a href="#addBookCatModal" data-toggle="modal">Add Books to Genre</a></li>
-                        <li><a href="genre">Display Genre</a></li>
+                        <li><a href="genres">Display Genre</a></li>
                         <li><a href="#addBookToCat" data-toggle="modal">Add Book to Genre</a></li>
                     </ul>
 
@@ -60,10 +60,15 @@
                         <li><a href="#addBook" data-toggle="modal">Add New Book</a></li>
                     </ul>
 
+
+                    {% if session['usertype'] == True: %}
+
                     <li><a href="#usersSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>USERS </a></li>
                     <ul id="usersSubMenu" class="collapse list-unstyled ">
                         <li><a href="users/list">View User List</a></li>
                     </ul>
+
+                    {% else: %}
 
                     <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list"></i>LIBRARY </a></li>
                     <ul id="libSubMenu" class="collapse list-unstyled ">
@@ -78,6 +83,8 @@
                         <li><a href="">Add Book to Library</a></li>
 
                     </ul>
+
+                    {% endif%}
 
 
           </ul>

@@ -139,12 +139,16 @@ def getlogin():
     return userlogin
 
 def login():
-     cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
      if rows != None:
         session['token'] = rows[0]
+        if rows[2] == 'admin':
+            session['usertype'] = True
+        else:
+            session['usertype'] = False
      else:
-        session['token'] = ''
+        session['token'] = None
      return rows
 
 def getgenres():
@@ -175,6 +179,18 @@ def getagenres(gid):
     print (genres_dict)
     return genres_dict
 
+def getrating(bid):
+    rating_dict = []
+
+    for rating in get_rating(bid):
+        rating_as_dict = {
+            'rating': rating[2],
+            'comment': rating[3]
+        }
+        rating_dict.append(rating_as_dict)
+
+    return rating_dict
+
 def adduser():
     add_user()
 
@@ -189,6 +205,9 @@ def addbookgenre(gid):
 
 def addlibrary():
     add_library()
+
+def addrating():
+    add_rating()
 
 def deletegenre(gid):
     delete_genres(gid)
