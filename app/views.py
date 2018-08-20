@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, g
 from flask import flash
 from controllers import *
 from flask import redirect,url_for
@@ -9,10 +9,7 @@ from app import app
 @app.route('/')
 @app.route('/index',methods=['POST','GET'])
 def login():
-    if 'token' in session:
-        print "token: a  "+ session['token']
-        return render_template("dashboard.html")
-    else:
+    if g.user is None:
         #print "token: "+ session['token']
         return render_template("login.html")
     else:
@@ -22,7 +19,6 @@ def login():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    #current_user = session['token']
     rows = getlogin()
     if rows is not None:
         current_user = session['token']
@@ -31,6 +27,12 @@ def dashboard():
         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
         return redirect('/')
+
+@app.before_request
+def before_request():
+    g.user = None
+    if 'token' in session:
+        g.user = session['token']
 
 #getbooktemp and getbook methods used for rendering
 #generating json response
