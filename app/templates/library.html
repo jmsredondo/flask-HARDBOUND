@@ -13,6 +13,23 @@
           <!-- Projects Section-->
            <section class="<projects></projects>">
             <div class="container-fluid">
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                       
+                        {% for message in messages %} 
+
+                   <div class="col-lg-12">
+                  <div class="card bg-success text-white bg-lighten-3">
+                  <div class="card-body">
+                   <h3 class="h4">{{ message }}</h3>
+                  </div>
+                    </div>
+                </div>
+                  
+                  {% endfor %}
+                        
+                      {% endif %}
+                    {% endwith %}
               <!-- Project-->
                 {% for book in books %}
                 <div class="project">
@@ -45,7 +62,3 @@
         </div>
     </div>
     </div>
-
-
-
-

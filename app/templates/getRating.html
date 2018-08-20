@@ -5,7 +5,7 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Genre List</h2>
+              <h2 class="no-margin-bottom">Get a genre</h2>
                  </div>
             
           </header>
@@ -37,19 +37,9 @@
 
                     <div class="card-body">
                       <div class="table-responsive">
-
-                        <table id="genretable" class="table table-striped table-hover">
-                          <thead>
-                            <tr>
-                              <th>Type</th>
-                              <th>Genre</th>
-                              <th>Action</th>
-                            </tr>
-                          </thead>
-                          <tbody id="genretbody">
-
-                          </tbody>
-                        </table>
+                            {% for rating in ratings %}
+                            {{rating["rating"]}} - {{rating["comment"]}}<br>
+                            {% endfor %}
                       </div>
                     </div>
                   </div>
