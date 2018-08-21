@@ -81,6 +81,10 @@ def userslist():
     print rows
     return jsonify(rows)
 
+@app.route('/genres', methods=['GET'])
+def getgenretemp():
+    return render_template('dispCat_all.html'), 200
+	
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
