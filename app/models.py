@@ -118,7 +118,7 @@ def get_book():
     #query_ret = cur.fetchall()
     #return (query_ret)
     rows = Book.query.all()
-    print rows
+    #print rows
     return rows
 
 
@@ -229,9 +229,12 @@ def add_book_genre(gid):
 
 
 def get_genres():
-    cur.execute("select * from genres")
-    genres = cur.fetchall()
-    return genres
+    #cur.execute("select * from genres")
+    #genres = cur.fetchall()
+    #return genres
+    rows = Genre.query.all()
+    return rows
+
 
 
 def get_a_genre(gid):
