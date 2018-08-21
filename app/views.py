@@ -44,7 +44,7 @@ def getbookbyidtem():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    #current_user = session['token']
+    # current_user = session['token']
     books = getbook()
    # genres = getgenres()
     return jsonify(books), 200
