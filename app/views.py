@@ -24,13 +24,13 @@ def dashboard():
     current_user = session['token']
     rows = getlogin()
     if rows is not None:
-         current_user = session['token']
-         usertype = session['usertype']
+        current_user = session['token']
+        usertype = session['usertype']
          #print "token b : "+ session['token']
-         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
-     else:
+        return render_template('dashboard.html',current_user=current_user,usertype=usertype)
+    else:
          return redirect('/')
-     return render_template("dashboard.html")
+    return render_template("dashboard.html")
 
 #getbooktemp and getbook methods used for rendering
 #generating json response
