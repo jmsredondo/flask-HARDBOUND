@@ -48,10 +48,14 @@ switch (windowurl) {
                                 "<td hidden>"+data[i].genre_id+"</td>"+
                               "<td>"+data[i].type+"</td>"+
                               "<td>"+data[i].genre+"</td>"+
-                              "<td><form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
+                              "<td>" +
+                "<div class='row'>" +
+                "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
                 "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
-                "<form method=\"get\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form></td>"+
+                "<form method=\"get\" style=\"padding-left:2%\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
+                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form>" +
+                "</div>" +
+                "</td>"+
                             "</tr>";
 
             }
