@@ -8,22 +8,20 @@ from app import app
 
 #get list of books
 def getbook():
-
-    query_dict = []
-
-    for book in get_book():
+    book_list = []
+    for book in Book.query.all():
         book_as_dict = {
-            'title': book[0],
-            'description': book[1],
-            'book_id': book[3],
-            'author': book[4],
-            'genre_id': book[5]
+            'title': book.title,
+            'image':book.image,
+            'description': book.description,
+            'book_id': book.id,
+            'author': book.author,
+            #'genre_id': book[5]
         }
-        query_dict.append(book_as_dict)
+        book_list.append(book_as_dict)
 
-    #print (query_dict)
-
-    return (query_dict)
+    print (book_list)
+    return book_list
 
 def getuserbook(username):
 
@@ -37,12 +35,10 @@ def getuserbook(username):
         }
         query_dict.append(book_as_dict)
     print query_dict
-    return (query_dict)
+    return query_dict
 
 def getabook(bid):
-
     query_dict = []
-
     for book in get_a_book(bid):
         book_as_dict = {
             'title': book[0],
@@ -54,7 +50,6 @@ def getabook(bid):
         query_dict.append(book_as_dict)
 
     print (query_dict)
-
     return (query_dict)
 
 #same as top function, but do not delete
@@ -73,8 +68,8 @@ def getunassignedbook(gid):
         query_dict.append(book_as_dict)
 
     print (query_dict)
-
     return (query_dict)
+
 
 #get list of categories
 def getcategories():
@@ -82,6 +77,7 @@ def getcategories():
 #get book for each category
 def getbook_per_cat():
     pass
+
 def getusers():
     userlist=[]
     for user in User.query.all():
@@ -167,11 +163,11 @@ def login():
 def getgenres():
     genres_dict = []
 
-    for genre in get_genres():
+    for genre in Genre.query.all():
         genre_as_dict = {
-            'type': genre[0],
-            'genre': genre[1],
-            'genre_id': genre[2]
+            'type': genre.type,
+            'genre': genre.genre,
+            'genre_id': genre.genre_id
         }
         genres_dict.append(genre_as_dict)
 

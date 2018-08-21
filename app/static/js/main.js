@@ -66,10 +66,14 @@ switch (windowurl) {
                                 "<td hidden>"+data[i].genre_id+"</td>"+
                               "<td>"+data[i].type+"</td>"+
                               "<td>"+data[i].genre+"</td>"+
-                              "<td><form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
+                              "<td>" +
+                "<div class='row'>" +
+                "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
                 "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
-                "<form method=\"get\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form></td>"+
+                "<form method=\"get\" style=\"padding-left:2%\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
+                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form>" +
+                "</div>" +
+                "</td>"+
                             "</tr>";
 
             }
@@ -132,7 +136,7 @@ function init_getbooks() {
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src=\"static/img/hp6.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                    "<div class=\"image has-shadow\"><img src=\"static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
                     "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +

@@ -61,20 +61,29 @@
                       
                      
                       <!-- Item-->
-                      <div class="item clearfix">
+                      <!-- Query ETO YUNG SA QUERIES MARK. CINOMMENT KO KASI HINDI LUMALABAS AT PARA MA-EDIT NI JL
+                      {% for rating in ratings %}
+                       <div class="item clearfix">
                         <div class="feed d-flex justify-content-between">
                           <div class="feed-body d-flex justify-content-between">
                             <div class="content">
-                              <h4>Ashley Wood</h4>
-                              <h1>5 <i class="fa fa-star text-orange"></i></h1>
+                              <h4>{{rating['username']}}</h4>
+                              <h1>{{rating['rating']}} <i class="fa fa-star text-orange"></i></h1>
                            
                             </div>
                           </div>
-                          <div class="date text-right"><small>August 21, 2018</small></div>
+                          <div class="date text-right"><small>{{rating['date']}}</small></div>
                         </div>
-                        <div class="quote has-shadow"> <p>The book is very good, asdasda sfdhbsdhbsd sdfjksdfkjb.</p></div>
+                        <div class="quote has-shadow"> <p>{{rating['comment']}}</p></div>
                        
                       </div>
+                      {% endfor %}
+                      -->
+
+
+
+
+
                     </div>
                   </div>
                 </div>

@@ -27,7 +27,7 @@ class User(db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        data = {
+        user_data = {
             'user_id': self.user_id,
             'username': self.username,
             'firstname': self.firstname,
@@ -43,7 +43,7 @@ class User(db.Model):
 
         #response = '<User %s>' % data
         #return repr(response)
-        return data
+        return user_data
 
 class Genre(db.Model):
     genre_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
@@ -51,15 +51,15 @@ class Genre(db.Model):
     type = db.Column(db.String(64), nullable=False)
 
     def __repr__(self):
-        data = {
+        genre_data = {
             'Genre ID': self.genre_id,
             'Genre': self.genre,
             'Type': self.type
         }
 
-        response = '<Genre %s>' % data
-        return repr(response)
-
+        #response = '<Genre %s>' % data
+        #return repr(response)
+        return genre_data
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -71,17 +71,18 @@ class Book(db.Model):
     # book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
 
     def __repr__(self):
-        data = {
+        book_data = {
             'Book ID': self.id,
             'Book Name': self.title,
             'Image': self.image,
+            'Author': self.author,
             'Description': self.description
             #  'Book Rate': self.book_rate
         }
 
-        response = '<Book %s>' % data
-        return repr(response)
-
+        #response = '<Book %s>' % data
+        #return repr(response)
+        return book_data
 
 """class Ratings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -113,10 +114,12 @@ cur = db.cursor()
 # get book list
 def get_book():
     # query
-    cur.execute("SELECT * FROM books")
-    query_ret = cur.fetchall()
-
-    return (query_ret)
+    #cur.execute("SELECT * FROM books")
+    #query_ret = cur.fetchall()
+    #return (query_ret)
+    rows = Book.query.all()
+    #print rows
+    return rows
 
 
 def get_unassigned_book(gid):
@@ -151,8 +154,8 @@ def get_users():
     #cur.execute("select * from users")
     #rows = cur.fetchall()
     #return rows
+    # print rows
     rows = User.query.all()
-    #print rows
     return rows
 
 
@@ -226,9 +229,12 @@ def add_book_genre(gid):
 
 
 def get_genres():
-    cur.execute("select * from genres")
-    genres = cur.fetchall()
-    return genres
+    #cur.execute("select * from genres")
+    #genres = cur.fetchall()
+    #return genres
+    rows = Genre.query.all()
+    return rows
+
 
 
 def get_a_genre(gid):
