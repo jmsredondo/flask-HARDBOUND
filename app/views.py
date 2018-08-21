@@ -44,7 +44,7 @@ def getbookbyidtem():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    current_user = session['token']
+    #current_user = session['token']
     books = getbook()
    # genres = getgenres()
     return jsonify(books), 200
@@ -77,31 +77,9 @@ def userbyusernametemp():
 
 @app.route('/users', methods=['GET'])
 def userslist():
-    print getusers()
-    return jsonify(getusers()), 200
-
-@app.route('/users/<uid>', methods=['GET'])
-def getausers(uid):
-    users = getauser(uid)
-    return jsonify(users), 200
-
-@app.route('/register', methods=['GET'])
-def getregister():
-    return render_template('register.html'), 200
-
-@app.route('/users', methods=['POST'])
-def register():
-    flash('New user successfully added!')
-    return jsonify(adduser()), 201
-
-#get list of genres
-@app.route('/genres', methods=['GET'])
-def getgenretemp():
-    return render_template('dispCat_all.html'), 200
-
-@app.route('/genrebyid')
-def getgenreidtemp():
-    return render_template('getGenre.html'), 200
+    rows = getusers()
+    print rows
+    return jsonify(rows)
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
