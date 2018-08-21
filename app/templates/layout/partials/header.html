@@ -103,11 +103,11 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                     </div>
-                    <form method="post" action="/genre" class="form-validate">
+                    <form id="genrepost" class="form-validate">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="addCat" class="label-material">Genre</label>
-                                <input id="addCat" type="text" name="genre" class="input-material"></input>
+                                <input id="addCat" type="text" name="genre" class="input-material">
                             </div>
                             <div class="form-group">
                                   <label for="sel1">Select Type</label>
@@ -117,7 +117,7 @@
                                   </select>
                                   </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" onclick="savegenre()" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>

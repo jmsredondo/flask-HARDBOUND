@@ -139,16 +139,16 @@ def getlogin():
     return userlogin
 
 def login():
-     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
-     if rows != None:
-        session['token'] = rows[0]
-        if rows[2] == 'admin':
-            session['usertype'] = True
-        else:
-            session['usertype'] = False
-     else:
-        session['token'] = None
+     # if rows != None:
+     #    session['token'] = rows[0]
+     #    if rows[2] == 'admin':
+     #        session['usertype'] = True
+     #    else:
+     #        session['usertype'] = False
+     # else:
+     #    session['token'] = None
      return rows
 
 def getgenres():
@@ -195,7 +195,17 @@ def adduser():
     add_user()
 
 def addgenre():
-    add_genres()
+    addgenre_dict = []
+
+    for adgen in add_genres():
+        addgenres_as_dict = {
+            'type': adgen[0],
+            'genre': adgen[1]
+        }
+        addgenre_dict.append(addgenres_as_dict)
+    print (addgenre_dict)
+    return addgenre_dict
+
 
 def addbook():
     add_book()

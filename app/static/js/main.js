@@ -26,6 +26,7 @@ switch (windowurl) {
     case 6:
         day = "Saturday";
 }
+});
 // all functions
 
 //retrieve all book genres
@@ -272,4 +273,17 @@ function getbyusername() {
 
 }
 
-});
+function savegenre() {
+    var data = $('#genrepost').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/genre',
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+}
+

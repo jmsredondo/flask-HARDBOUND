@@ -119,7 +119,7 @@ def getagenre(gid):
 def addgenres():
     addgenre()
     flash('Genre successfully added!')
-    return redirect('/genre'), 201
+    return jsonify(addgenre()), 201
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
