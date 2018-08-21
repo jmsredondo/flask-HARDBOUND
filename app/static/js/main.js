@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
+//get genre by id
+
+
 
   // url path
 var windowurl = window.location.pathname;
@@ -9,7 +12,20 @@ switch (windowurl) {
         init_getbooks();
         break;
     case '/genres':
-       init_getgenres();
+        var genreid = '';
+        var genreurl = 'genre';
+
+        $("#genbtnsearch").click(function () {
+            var genid = $("#gensearch");
+            genreid = genid.val();
+            genreurl = 'genre/'+genreid;
+            init_getgenres(genreurl);
+
+        });
+
+        if(genreid.length === 0){
+            init_getgenres(genreurl)
+        }
         break;
     case '/users/list':
         init_userlist();
@@ -29,15 +45,17 @@ switch (windowurl) {
 });
 // all functions
 
+
+
 //retrieve all book genres
 
-    function init_getgenres() {
+    function init_getgenres(gurl) {
 
         var $genretable = $("#genretbody");
         var genretbody = [];
 
         $.ajax({
-        url: 'genre',
+        url: gurl,
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
@@ -73,6 +91,8 @@ $genreTable.on('click', 'tbody tr', function() {
     localStorage.setItem('genreid', genreid);
     document.location.href = ('/genrebyid');
 });
+
+
 function getgenrebyid() {
 
      var genre_id = localStorage.getItem('genreid');

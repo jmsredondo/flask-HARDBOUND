@@ -10,13 +10,13 @@ from app import app
 @app.route('/index',methods=['POST','GET'])
 def login():
      if 'token' in session:
-         print "token: a  "+ session['token']
+         #print "token: a  "+ session['token']
          return render_template("dashboard.html")
      else:
-         print "token: "+ session['token']
-         return render_template("login.html")
-         current_user = session['token']
-         print "token: a  "+ session['token']
+         #print "token: "+ session['token']
+         #return render_template("login.html")
+         #current_user = session['token']
+         #print "token: a  "+ session['token']
          return render_template('dashboard.html', current_user=current_user)
 
 @app.route('/dashboard', methods=['POST','GET'])
@@ -44,7 +44,7 @@ def getbookbyidtem():
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    current_user = session['token']
+    #current_user = session['token']
     books = getbook()
    # genres = getgenres()
     return jsonify(books), 200
