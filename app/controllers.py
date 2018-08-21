@@ -37,7 +37,7 @@ def getuserbook(username):
         }
         query_dict.append(book_as_dict)
     print query_dict
-    return (query_dict)
+    return query_dict
 
 def getabook(bid):
 

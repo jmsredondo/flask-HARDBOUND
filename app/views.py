@@ -77,9 +77,8 @@ def userbyusernametemp():
 
 @app.route('/users', methods=['GET'])
 def userslist():
-    rows = getusers()
-    print rows
-    return jsonify(rows), 200
+    print getusers()
+    return jsonify(getusers()), 200
 
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):
