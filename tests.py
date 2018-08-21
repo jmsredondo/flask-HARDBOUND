@@ -29,10 +29,42 @@ class UserTestCase(unittest.TestCase):
         self.samplegenre3 = {'type': '1', 'genre': '1'}
         self.samplegenre4 = {'type': 'Non-Fiction', 'genre': 'Action'}
         self.samplegenre5 = {'type': '_!@#$%^&*()', 'genre': '!@#$%^&*()'}
-        self.samplebook1 = {}
+        self.samplegenre6 = {'type': "''", 'genre': "''"}
+        self.samplebook1 = {'title': 'A Wonderful Life', 'description': 'An enchanted adventure', 'author': 'Jane Doe'}
+        self.samplebook2 = {'title': '', 'description': '', 'author': ''}
+        self.samplebook3 = {'title': '2', 'description': '2', 'author': '2'}
+        self.samplebook4 = {'title': 'Harvest Moon', 'description': 'Farming book', 'author': 'Helen Keller'}
+        self.samplebook5 = {'title': '_!@#$%^&*()', 'description': '_!@#$%^&*()', 'author': '_!@#$%^&*()'}
+        self.samplebook6 = {'title': "''", 'description': "''", 'author': "''"}
+        self.sampleuser1 = {'username:': 'jlaurelio', 'firstname': 'Jan Lorenz', 'lastname': 'Aurelio', 'email': 'jlaurelio@gmail.com', 'balance': '0', 'phonenumber': '09868293384'}
+        self.sampleuser2 = {'username:': '', 'firstname': '', 'lastname': '', 'email': '', 'balance': '', 'phonenumber': ''}
+        self.sampleuser3 = {'username:': '1', 'firstname': '1', 'lastname': '1', 'email': '1', 'balance': '100', 'phonenumber': '1'}
+        self.sampleuser4 = {'username:': 'ejcarantes', 'firstname': 'Ethnica Jaya', 'lastname': 'Carantes', 'email': 'ejcarantes@gmail.com', 'balance': '0', 'phonenumber': '7120538'}
+        self.sampleuser4 = {'username:': 'ejcarantes', 'firstname': 'Ethnica Jaya', 'lastname': 'Carantes', 'email': 'ejcarantes@gmail.com', 'balance': '0', 'phonenumber': '7120538'}
+        self.sampleuser5 = {'username:': '_!@#$%^&*()', 'firstname': '_!@#$%^&*()', 'lastname': '_!@#$%^&*()', 'email': '_!@#$%^&*()', 'balance': '0', 'phonenumber': '_!@#$%^&*()'}
+        self.sampleuser6 = {'username:': "''", 'firstname': "''", 'lastname': "''", 'email': "''", 'balance': '0', 'phonenumber': "''"}
+        self.samplelibrary1 = {'user_id': '1', 'book_id': '1'}
+        self.samplelibrary2 = {'user_id': '', 'book_id': ''}
+        self.samplelibrary3 = {'user_id': 'Kanye West', 'book_id': 'A Wonderful Life'}
 
-    def test_get_genre(self):
+    def test_get_genre_status(self):
         res = res = requests.get(self.host + '/genre')
+        self.assertEqual(res.status_code, 200)
+
+    def test_get_books_status(self):
+        res = res = requests.get(self.host + '/book')
+        self.assertEqual(res.status_code, 200)
+
+    def test_get_users_status(self):
+        res = res = requests.get(self.host + '/users')
+        self.assertEqual(res.status_code, 200)
+
+    def test_get_library_status(self):
+        res = res = requests.get(self.host + '/library')
+        self.assertEqual(res.status_code, 200)
+
+    def test_get_logout_status(self):
+        res = res = requests.get(self.host + '/users/logout')
         self.assertEqual(res.status_code, 200)
             
     def test_add_genre1(self):
@@ -55,18 +87,109 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/genre')
         self.assertEqual(res.status_code, 200)
-        self.assertIn('Fiction', str(res.text))
+        self.assertIn('Non-Fiction', str(res.text))
 
     def test_add_genre5(self):
         res = requests.post(self.host+'/genre', data=self.samplegenre5)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/genre')
         self.assertEqual(res.status_code, 200)
-        self.assertIn('Fiction', str(res.text))
+        self.assertIn('_!@#$%^&*()', str(res.text))
+
+    def test_add_genre6(self):
+        res = requests.post(self.host+'/genre', data=self.samplegenre5)
+        self.assertEqual(res.status_code, 201)
 
     def test_add_book1(self):
         res = requests.post(self.host='/book', data=self.samplebook1)
         self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/book')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('A Wonderful Life', str(res.text))
+
+    def test_add_book2(self):
+        res = requests.post(self.host='/book', data=self.samplebook2)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_book3(self):
+        res = requests.post(self.host='/book', data=self.samplebook3)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/book')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('2', str(res.text))
+
+    def test_add_book4(self):
+        res = requests.post(self.host='/book', data=self.samplebook4)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_book5(self):
+        res = requests.post(self.host='/book', data=self.samplebook5)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_book6(self):
+        res = requests.post(self.host='/book', data=self.samplebook5)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_user1(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/book')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('jlaurelio', str(res.text))
+
+    def test_add_user2(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_user3(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_user4(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_user5(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_user6(self):
+        res = requests.post(self.host='/users', data=self.sampleuser1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_library1(self):
+        res = requests.post(self.host='/library', data=self.samplelibrary1)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_library2(self):
+        res = requests.post(self.host='/library', data=self.samplelibrary2)
+        self.assertEqual(res.status_code, 201)
+
+    def test_add_library3(self):
+        res = requests.post(self.host='/library', data=self.samplelibrary3)
+        self.assertEqual(res.status_code, 201)
+
+    def test_get_books_id(self):
+        res = res = requests.get(self.host + '/books/2')
+        self.assertEqual(res.status_code, 200)
+        res = res = requests.get(self.host + '/book')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('2', str(res.text))
+
+    def test_get_genre_id(self):
+        res = res = requests.get(self.host + '/genre/2')
+        self.assertEqual(res.status_code, 200)
+        res = res = requests.get(self.host + '/genre')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('2', str(res.text))
+
+    def test_get_users_id(self):
+        res = res = requests.get(self.host + '/users/janlorenz')
+        self.assertEqual(res.status_code, 200)
+        res = res = requests.get(self.host + '/users')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('janlorenz', str(res.text))
+
 
 '''
     def test_api_get_genre_list(self):

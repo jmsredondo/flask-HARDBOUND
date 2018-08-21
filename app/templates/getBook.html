@@ -74,6 +74,23 @@
                       <div class="chart text-center">
                         <img src="../static/img/hp1.jpeg" alt="" style="width: 60%; height: 60%">
                         <div class="desc">Description of the book harry pottah magic wand snake etc</div>
+                           <hr>
+                            <h3><i class="fa fa-star text-orange" style="font-size: 50%" ></i><small><i class="fa fa-star text-orange"></i></small><i class="fa fa-star-half text-orange"></i> Rate this book! <i class="fa fa-star-half text-orange" style="transform: scaleX(-1)"></i><small><i class="fa fa-star text-orange" style="transform: scaleX(-1)"></i></small><i class="fa fa-star text-orange" style="transform: scaleX(-1); font-size: 50%"></i></h3>
+                            <form method = 'post' action = '/rate'>
+                              <select class="form-control" name="rating">
+                                <option value="5">5 star</option>
+                                <option value="4">4 star</option>
+                                <option value="3">3 star</option>
+                                <option value="2">2 star</option>
+                                <option value="1">1 star</option>
+                              </select>
+                              <h3 style="padding-top: 2%">Comments <i class="fa fa-comment text-success"></i></h3>
+                              <input type = 'text' name="comment" class="form-control" placeholder="Comment">
+                              <input type = 'hidden' name="book_id" value="/rate/2">
+                              <div style="padding-top: 2%">
+                              <button type="submit" class="btn btn-warning">Add</button>
+                              </div>
+                            </form>
                       </div>
                     </div>
                   </div>
