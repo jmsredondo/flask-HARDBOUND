@@ -21,7 +21,7 @@ def getbook():
         }
         query_dict.append(book_as_dict)
 
-    print (query_dict)
+    #print (query_dict)
 
     return (query_dict)
 
@@ -83,18 +83,19 @@ def getcategories():
 def getbook_per_cat():
     pass
 def getusers():
-    users_dict = User.query.all()
     userlist=[]
-    for user in users_dict:
-        userlist.append({'username': user.username,
-                      'firstname': user.firstname,
-                      'lastname': user.lastname,
-                      'email': user.email,
-                      'balance': user.balance,
-                      'phone': user.phone,
-                      })
-        print userlist
-    return (userlist), 200
+    for user in User.query.all():
+        userli = {
+            'username': user.username,
+            'firstname': user.firstname,
+            'lastname': user.lastname,
+            'email': user.email,
+            'balance': user.balance,
+            'phone': user.phone,
+        }
+        userlist.append(userli)
+    print (userlist)
+    return userlist
 
 
     """for user in users_dict():

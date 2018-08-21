@@ -152,6 +152,7 @@ def get_users():
     #rows = cur.fetchall()
     #return rows
     rows = User.query.all()
+    #print rows
     return rows
 
 
