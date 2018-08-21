@@ -187,6 +187,8 @@ def add_book():
     author = request.form['author']
     cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
     db.commit()
+    genrepost = [(title, description,author)]
+    return genrepost
 
 
 def add_library():

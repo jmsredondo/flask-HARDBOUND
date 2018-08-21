@@ -9,24 +9,25 @@ from app import app
 @app.route('/')
 @app.route('/index',methods=['POST','GET'])
 def login():
-    if 'token' in session:
-        print "token: a  "+ session['token']
+     if 'token' in session:
+        print ("token: a  "+ session['token'])
         return render_template("dashboard.html")
-    else:
-        #print "token: "+ session['token']
-        return render_template("login.html")
-        current_user = session['token']
-        print "token: a  "+ session['token']
-        return render_template('dashboard.html',current_user=current_user)
+     else:
+         print ("token: "+ session['token'])
+         return render_template("login.html")
+         current_user = session['token']
+         print ("token: a  "+ session['token'])
+         return render_template('dashboard.html',current_user=current_user)
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    #current_user = session['token']
+    current_user = session['token']
     rows = getlogin()
     if rows is not None:
+        return render_template("dashboard.html")
         current_user = session['token']
         usertype = session['usertype']
-        #print "token b : "+ session['token']
+        print "token b : "+ session['token']
         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
         return redirect('/')
@@ -55,11 +56,10 @@ def getabooks(bid):
 
 @app.route('/book', methods=['POST'])
 def addbooks():
-    addbook()
     flash('New book successfully added!')
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html',books=books, genres=genres), 201
+    return jsonify(addbook()), 201
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
@@ -117,7 +117,6 @@ def getagenre(gid):
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
-    addgenre()
     flash('Genre successfully added!')
     return jsonify(addgenre()), 201
 
