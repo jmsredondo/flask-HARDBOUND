@@ -9,27 +9,28 @@ from app import app
 @app.route('/')
 @app.route('/index',methods=['POST','GET'])
 def login():
-    if 'token' in session:
-        print "token: a  "+ session['token']
-        return render_template("dashboard.html")
-    else:
-        #print "token: "+ session['token']
-        return render_template("login.html")
-        current_user = session['token']
-        print "token: a  "+ session['token']
-        return render_template('dashboard.html', current_user=current_user)
+     if 'token' in session:
+         print "token: a  "+ session['token']
+         return render_template("dashboard.html")
+     else:
+         print "token: "+ session['token']
+         return render_template("login.html")
+         current_user = session['token']
+         print "token: a  "+ session['token']
+         return render_template('dashboard.html', current_user=current_user)
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    #current_user = session['token']
+    current_user = session['token']
     rows = getlogin()
     if rows is not None:
         current_user = session['token']
         usertype = session['usertype']
-        #print "token b : "+ session['token']
+         #print "token b : "+ session['token']
         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
-        return redirect('/')
+         return redirect('/')
+    return render_template("dashboard.html")
 
 #getbooktemp and getbook methods used for rendering
 #generating json response
@@ -55,11 +56,10 @@ def getabooks(bid):
 
 @app.route('/book', methods=['POST'])
 def addbooks():
-    addbook()
     flash('New book successfully added!')
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html',books=books, genres=genres), 201
+    return jsonify(addbook()), 201
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
@@ -86,15 +86,14 @@ def getausers(uid):
     users = getauser(uid)
     return jsonify(users), 200
 
-@app.route('/users', methods=['GET'])
+@app.route('/register', methods=['GET'])
 def getregister():
     return render_template('register.html'), 200
 
 @app.route('/users', methods=['POST'])
 def register():
-    adduser()
     flash('New user successfully added!')
-    return render_template('register.html'), 201
+    return jsonify(adduser()), 201
 
 #get list of genres
 @app.route('/genres', methods=['GET'])
@@ -117,7 +116,6 @@ def getagenre(gid):
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
-    addgenre()
     flash('Genre successfully added!')
     return jsonify(addgenre()), 201
 

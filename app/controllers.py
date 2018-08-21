@@ -204,8 +204,19 @@ def getrating(bid):
     return rating_dict
 
 def adduser():
-    add_user()
+    adduser_dict = []
 
+    for aduser in add_user():
+        addusers_as_dict = {
+            'username': aduser[0],
+            'firstname': aduser[1],
+            'lastname': aduser[2],
+            'email': aduser[3],
+            'phonenumber': aduser[4]
+        }
+        adduser_dict.append(addusers_as_dict)
+    print (adduser_dict)
+    return adduser_dict
 def addgenre():
     addgenre_dict = []
 
@@ -220,7 +231,17 @@ def addgenre():
 
 
 def addbook():
-    add_book()
+    addbook_dict = []
+
+    for adbook in add_book():
+        addbook_as_dict = {
+            'title': adbook[0],
+            'description': adbook[1],
+            'author': adbook[2]
+        }
+        addbook_dict.append(addbook_as_dict)
+    print (addbook_dict)
+    return addbook_dict
 
 def addbookgenre(gid):
     add_book_genre(gid)

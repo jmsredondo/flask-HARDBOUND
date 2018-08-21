@@ -124,7 +124,8 @@ function init_getbooks() {
                     "<div class=\"desc\">" + data[i].description + "</div>" +
                     "</div>" +
                     "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
-                    "<form method=\"post\" action=\"/library\"><input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
+                    "<form method=\"post\" action=\"/library\">" +
+                    "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
                     "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>" +
                     "<form method=\"delete\"  action=\"/book" + "/" + data[i].book_id + "\">" +
                     "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
@@ -278,6 +279,20 @@ function savegenre() {
     console.log(data);
     $.ajax({
         url: '/genre',
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+}
+
+function addbook() {
+    var data = $('#bookpost').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/book',
         data: data,
         method: 'POST',
         dataType: 'JSON',

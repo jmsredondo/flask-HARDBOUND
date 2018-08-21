@@ -240,7 +240,7 @@
                                     </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/book" class="form-validate">
+                        <form id="bookpost" class="form-validate">
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Title</label>
                                 <input id="addBk" type="text" name="title" class="input-material">
@@ -258,7 +258,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button onclick="addbook()" type="button" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
