@@ -224,10 +224,13 @@ def get_a_genre(gid):
 
 
 def add_genres():
+
     genre_type = request.form['type']
     genre_name = request.form['genre']
     cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
     db.commit()
+    genrepost = [(genre_type,genre_name)]
+    return genrepost
 
 def add_rating():
     book_id=request.form['book_id']
