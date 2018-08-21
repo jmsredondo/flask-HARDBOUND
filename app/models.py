@@ -7,7 +7,7 @@ from flask import jsonify
 
 
 class User(db.Model):
-    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
+    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False,autoincrement=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
     lastname = db.Column(db.String(64), nullable=False)
@@ -41,9 +41,9 @@ class User(db.Model):
 
         }
 
-        response = '<User %s>' % data
-        return repr(response)
-
+        #response = '<User %s>' % data
+        #return repr(response)
+        return data
 
 class Genre(db.Model):
     genre_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
@@ -148,9 +148,13 @@ def get_book_per_cat():
 
 # get users
 def get_users():
-    cur.execute("select * from users")
-    rows = cur.fetchall()
+    #cur.execute("select * from users")
+    #rows = cur.fetchall()
+    #return rows
+    rows = User.query.all()
+    print rows
     return rows
+
 
 
 def get_a_user(uid):

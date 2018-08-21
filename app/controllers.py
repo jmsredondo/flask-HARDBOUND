@@ -83,9 +83,21 @@ def getcategories():
 def getbook_per_cat():
     pass
 def getusers():
-    users_dict = []
+    users_dict = User.query.all()
+    userlist=[]
+    for user in users_dict:
+        userlist.append({'username': user.username,
+                      'firstname': user.firstname,
+                      'lastname': user.lastname,
+                      'email': user.email,
+                      'balance': user.balance,
+                      'phone': user.phone,
+                      })
+        print userlist
+    return (userlist), 200
 
-    for user in get_users():
+
+    """for user in users_dict():
         user_as_dict = {
             'username': user[1],
             'firstname': user[2],
@@ -94,10 +106,10 @@ def getusers():
             'balance': user[5],
             'phone': user[6],
         }
-        users_dict.append(user_as_dict)
+        users_dict.append(user_as_dict)"""
 
     #print (users_dict)
-    return users_dict
+    #return jsonify(users_dict), 200
 
 def getauser(uid):
     users_dict = []
