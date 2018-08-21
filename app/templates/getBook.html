@@ -74,6 +74,21 @@
                       <div class="chart text-center">
                         <img src="../static/img/hp1.jpeg" alt="" style="width: 60%; height: 60%">
                         <div class="desc">Description of the book harry pottah magic wand snake etc</div>
+                            <h3>Rate this book!</h3>
+                            <form method = 'post' action = '/rate'>
+                              <select class="form-control" name="rating">
+                                <option value="5">5 star</option>
+                                <option value="4">4 star</option>
+                                <option value="3">3 star</option>
+                                <option value="2">2 star</option>
+                                <option value="1">1 star</option>
+                              </select>
+                              <input type = 'text' name="comment">
+                              <input type = 'hidden' name="book_id" value="/rate/2">
+
+                              </input>
+                              <button type="submit" class="btn btn-warning">Add</button>
+                            </form>
                       </div>
                     </div>
                   </div>

@@ -46,12 +46,12 @@ def getbooks():
     current_user = session['token']
     books = getbook()
    # genres = getgenres()
-    return jsonify(books)
+    return jsonify(books), 200
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
     books = getabook(bid)
-    return jsonify(books)
+    return jsonify(books), 200
 
 @app.route('/book', methods=['POST'])
 def addbooks():
@@ -59,111 +59,111 @@ def addbooks():
     flash('New book successfully added!')
     books = getbook()
     genres = getgenres()
-    return render_template('bookList.html',books=books, genres=genres)
+    return render_template('bookList.html',books=books, genres=genres), 201
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
     deletebook(bid)
     flash('Book successfully deleted.')
-    return redirect('/books')
+    return redirect('/books'), 200
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
-    return render_template('userList.html')
+    return render_template('userList.html'), 200
 
 @app.route('/user')
 def userbyusernametemp():
-    return render_template('getUser.html')
+    return render_template('getUser.html'), 200
 
 @app.route('/users', methods=['GET'])
 def userslist():
     rows = getusers()
     print rows
-    return jsonify(rows)
+    return jsonify(rows), 200
 
 @app.route('/users/<uid>', methods=['GET'])
 def getausers(uid):
     users = getauser(uid)
-    return jsonify(users)
+    return jsonify(users), 200
 
 @app.route('/users', methods=['GET'])
 def getregister():
-    return render_template('register.html')
+    return render_template('register.html'), 200
 
 @app.route('/users', methods=['POST'])
 def register():
     adduser()
     flash('New user successfully added!')
-    return render_template('register.html')
+    return render_template('register.html'), 201
 
 #get list of genres
 @app.route('/genres', methods=['GET'])
 def getgenretemp():
-    return render_template('dispCat_all.html')
+    return render_template('dispCat_all.html'), 200
 
 @app.route('/genrebyid')
 def getgenreidtemp():
-    return render_template('getGenre.html')
+    return render_template('getGenre.html'), 200
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
     genres = getgenres()
-    return jsonify(genres)
+    return jsonify(genres), 200
 
 @app.route('/genre/<gid>', methods=['GET'])
 def getagenre(gid):
     genres = getagenres(gid)
-    return jsonify(genres)
+    return jsonify(genres), 200
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
     addgenre()
     flash('Genre successfully added!')
-    return redirect('/genre')
+    return redirect('/genre'), 201
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
     deletegenre(gid)
     flash('Genre successfully deleted.')
-    return redirect('/genre')
+    return redirect('/genre'), 200
 
 @app.route('/genre/addbook/<gid>', methods=['GET'])
 def getbooktogenre(gid):
     books = getunassignedbook(gid)
-    return render_template('bookList2.html',books=books, gid=gid)
+    return render_template('bookList2.html',books=books, gid=gid), 200
 
 @app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):
     addbookgenre(gid)
     flash('Genre successfully assigned to book!')
-    return redirect('/genre/addbook/' + gid)
+    return redirect('/genre/addbook/' + gid), 200
 
 @app.route('/library', methods=['GET'])
 def getlibrary():
     username = 'arvincea'
     books = getuserbook(username)
-    return render_template('library.html', books=books)
+    return render_template('library.html', books=books), 200
 
 @app.route('/library', methods=['POST'])
 def addlibraries():
     addlibrary()
     flash('Added book to library!')
-    return redirect('/library')
+    return redirect('/library'), 201
 
 @app.route('/rate', methods=['POST'])
 def addratings():
     addrating()
     flash('Added rating!')
-    return redirect('/book')
+    return redirect('/book'), 201
 
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):
     ratings = getrating(bid)
     flash('Added rating!')
-    return render_template('getRating.html', ratings=ratings)
+    return render_template('getRating.html', ratings=ratings), 200
 
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there
    session.pop('token', None)
-   return redirect(url_for('login'))
+   return redirect(url_for('login')), 200
