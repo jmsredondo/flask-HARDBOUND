@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-<title>HARDBOUND | Register</title>
-  <body>
-       {% include 'layout/partials/head.html' %}
+{% extends 'layout/loginbase.html' %}
+{% block content %}
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             <ul class=flashes>
@@ -31,7 +28,7 @@
             <div class="col-lg-6 bg-white">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form class="form-validate" method = "post" action = '/users'>
+                  <form class="form-validate" id="userpost">
                     <div class="form-group">
                       <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">
                       <label for="register-username" class="label-material">User Name</label>
@@ -59,7 +56,7 @@
                     </div>
                     
                     <div class="form-group">
-                      <button id="register" type="submit" name="registerSubmit" class="btn btn-primary">Register</button>
+                      <button id="register" onclick="userregister()" type="button" name="registerSubmit" class="btn btn-primary">Register</button>
                     </div>
                   </form><small>Already have an account? </small><a href="login.html" class="signup">Login</a>
                 </div>
@@ -77,6 +74,4 @@
         -->
       </div>
     </div>
-    {% include 'layout/partials/scripts.html' %}
-  </body>
-</html>
+    {% endblock %}

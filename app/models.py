@@ -185,6 +185,8 @@ def add_user():
         "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
         (username, firstname, lastname, email, '0', phonenumber, '123456'))
     db.commit()
+    regpost = [(username,firstname, lastname,email,phonenumber)]
+    return regpost
 
 
 def add_book():
