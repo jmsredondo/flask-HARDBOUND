@@ -17,7 +17,7 @@ def login():
         return render_template("login.html")
         current_user = session['token']
         print "token: a  "+ session['token']
-        return render_template('dashboard.html',current_user=current_user)
+        return render_template('dashboard.html', current_user=current_user)
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
