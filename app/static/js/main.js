@@ -22,6 +22,11 @@ switch (windowurl) {
             init_getgenres(genreurl);
 
         });
+    $('#gensearch').on('input', function() {
+        if ($.trim($('#gensearch').val()) === ''){
+            init_getgenres('genre')
+        }
+    });
 
         if(genreid.length === 0){
             init_getgenres(genreurl)
