@@ -116,7 +116,7 @@ function init_getbooks() {
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src=\"static/img/hp6.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                    "<div class=\"image has-shadow\"><img src=\"static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
                     "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
