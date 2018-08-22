@@ -9,8 +9,27 @@ var windowurl = window.location.pathname;
 
 switch (windowurl) {
     case '/books':
-        init_getbooks();
+         var bookname = '';
+         var bookurl = 'book';
+
+        $("#bookbtnsearch").click(function () {
+            var buser = $("#booksearch");
+            bookname = buser.val();
+            bookurl = 'book/'+bookname;
+            init_getbooks(bookurl);
+
+        });
+    $('#booksearch').on('input', function() {
+        if ($.trim($('#booksearch').val()) === ''){
+            init_getbooks('book')
+        }
+    });
+
+        if(bookname.length === 0){
+            init_getbooks(bookurl)
+        }
         break;
+
     case '/genres':
         var genreid = '';
         var genreurl = 'genre';
@@ -124,13 +143,13 @@ function getgenrebyid() {
         });
 }
 // retrieve all books all books
-function init_getbooks() {
+function init_getbooks(bookurl) {
     var $listbook = $("#listbook");
 //var $genrecontainer = $("#genre"); temporary
     var div = [];
 //var genre = []; temporary
     $.ajax({
-        url: 'book',
+        url: bookurl,
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
