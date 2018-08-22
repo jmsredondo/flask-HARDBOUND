@@ -1,3 +1,4 @@
+'''
 # test_bucketlist.py
 import unittest
 import os
@@ -23,7 +24,7 @@ class UserTestCase(unittest.TestCase):
     db.init_app(app)
 
     def setUp(self):
-        self.host = 'http://phvm-isghp-dev2.ph.trendnet.org:9300'
+        self.host = 'http://localhost:5000'
         self.samplegenre1 = {'type': 'Fiction', 'genre': 'Fantasy'}
         self.samplegenre2 = {'type': '', 'genre': ''}
         self.samplegenre3 = {'type': '1', 'genre': '1'}
@@ -230,8 +231,6 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertIn("''", str(res.text))
 
-
-'''
     def test_api_get_genre_list(self):
         """Test get user list (GET request)."""
         res = res = requests.get(self.host+'/genre')
@@ -269,9 +268,9 @@ class UserTestCase(unittest.TestCase):
         res = res = requests.get(self.host+'/users/list')
         self.assertEqual(res.status_code, 200)
         self.assertIn('jsmith', str(res.text))
-'''
 
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
     unittest.main()
+''' 
