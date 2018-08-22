@@ -181,7 +181,7 @@ def get_users():
 
 
 def get_a_user(uid):
-    cur.execute("select * from users where username LIKE '%" + uid + "%'")
+    cur.execute("select * from user where username LIKE '%" + uid + "%'")
     rows = cur.fetchall()
     return rows
 
