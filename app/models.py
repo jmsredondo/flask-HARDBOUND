@@ -192,17 +192,20 @@ def login():
 
 
 def add_user():
-    username = request.form['registerUsername']
-    firstname = request.form['registerFirstname']
-    lastname = request.form['registerLastname']
-    email = request.form['registerEmail']
-    phonenumber = request.form['registerPhoneNum']
-    cur.execute(
-        "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
-        (username, firstname, lastname, email, '0', phonenumber, '123456'))
-    db.commit()
-    regpost = [(username,firstname, lastname,email,phonenumber)]
-    return regpost
+    if bool(re.search(r'\d', request.form['registerFirstname'])) or bool(re.search(r'\d', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
+        return 'error1'
+    else:
+        username = request.form['registerUsername']
+        firstname = request.form['registerFirstname']
+        lastname = request.form['registerLastname']
+        email = request.form['registerEmail']
+        phonenumber = request.form['registerPhoneNum']
+        cur.execute(
+            "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
+            (username, firstname, lastname, email, '0', phonenumber, '123456'))
+        db.commit()
+        regpost = [(username,firstname, lastname,email,phonenumber)]
+        return regpost
 
 
 def add_book():
