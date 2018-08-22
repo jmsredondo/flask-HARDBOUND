@@ -16,7 +16,7 @@ class User(db.Model):
     balance = db.Column(db.Float)
     phone = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(128), nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(128), nullable=True)
     usertype = db.Column(db.String(128))
     user_rate = db.relationship('Ratings', backref='user', lazy='dynamic')
 
@@ -54,6 +54,7 @@ class Genre(db.Model):
     genre_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False)
     genre = db.Column(db.String(64), unique=True, nullable=False)
     type = db.Column(db.String(64), nullable=False)
+    bookgenre = db.relationship('Book', backref='genre', lazy='dynamic')
 
     def __repr__(self):
         genre_data = {
@@ -72,6 +73,7 @@ class Book(db.Model):
     image = db.Column(db.BLOB)
     author = db.Column(db.String(64))
     description = db.Column(db.String(64))
+    genre_id = db.Column(db.Integer,db.ForeignKey('genre.genre_id'),nullable=False)
 
     book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
 
@@ -82,6 +84,7 @@ class Book(db.Model):
             'Image': self.image,
             'Author': self.author,
             'Description': self.description,
+            'Genre ID': self.genre_id,
             'Book Rate': self.book_rate
         }
 
@@ -141,7 +144,7 @@ def get_book():
 
 
 def get_unassigned_book(gid):
-    cur.execute("SELECT * FROM books where genre_id !=" + gid + " or genre_id is null")
+    cur.execute("SELECT * FROM book where genre_id !=" + gid + " or genre_id is null")
     query_ret = cur.fetchall()
 
     return (query_ret)
@@ -150,7 +153,7 @@ def get_unassigned_book(gid):
 def get_user_book(username):
     # query
     cur.execute(
-        "SELECT * FROM books INNER JOIN user_library ON books.book_id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
+        "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
     query_ret = cur.fetchall()
     print ('EY')
     print (query_ret)
@@ -216,12 +219,14 @@ def add_user():
         firstname = request.form['registerFirstname']
         lastname = request.form['registerLastname']
         email = request.form['registerEmail']
-        phonenumber = request.form['registerPhoneNum']
+        phone = request.form['registerPhoneNum']
+        usertype = request.form['registerUserType']
+        password_hash= generate_password_hash(password)
         cur.execute(
-            "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
-            (username, firstname, lastname, email, '0', phonenumber, '123456'))
+            "insert into user (username, firstname, lastname, email, balance, phone, password,usertype,password_hash) VALUES (?,?,?,?,?,?,?,?)",
+            (username, firstname, lastname, email, '0', phone, '123456',usertype,password_hash))
         db.commit()
-        regpost = [(username,firstname, lastname,email,phonenumber)]
+        regpost = [(username,firstname, lastname,email,phone,usertype,password_hash)]
         return regpost
 
 
@@ -234,7 +239,7 @@ def add_book():
         title=request.form['title']
         description=request.form['description']
         author=request.form['author']
-        cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
+        cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
         db.commit()
         genrepost = [(title, description, author)]
         return genrepost

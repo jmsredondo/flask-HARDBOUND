@@ -212,15 +212,17 @@ def adduser():
 
         for aduser in add_user():
             addusers_as_dict = {
-                'username': aduser[0],
-                'firstname': aduser[1],
-                'lastname': aduser[2],
-                'email': aduser[3],
-                'phonenumber': aduser[4]
+                'username': aduser.username,
+                'firstname': aduser.firstname,
+                'lastname': aduser.lastname,
+                'email': aduser.email,
+                'phonenumber': aduser.phone,
+                'usertype':aduser.usertype
             }
             adduser_dict.append(addusers_as_dict)
         print (adduser_dict)
         return adduser_dict
+
 def addgenre():
     # if add_genres() == 'error1' or add_genres() == 'error2':
     #     return add_genres()
@@ -245,9 +247,9 @@ def addbook():
 
         for adbook in add_book():
             addbook_as_dict = {
-                'title': adbook[0],
-                'description': adbook[1],
-                'author': adbook[2]
+                'title': adbook.title,
+                'description': adbook.description,
+                'author': adbook.author
             }
             addbook_dict.append(addbook_as_dict)
         print (addbook_dict)
