@@ -274,4 +274,4 @@ class UserTestCase(unittest.TestCase):
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(host='0.0.0.0', port=9300)
