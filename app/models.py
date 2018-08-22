@@ -257,8 +257,6 @@ def get_genres():
     rows = Genre.query.all()
     return rows
 
-
-
 def get_a_genre(gid):
     cur.execute("select * from genres where genre_id = " + (gid))
     genres = cur.fetchall()
