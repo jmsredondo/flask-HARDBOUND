@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, g
 from flask import flash
 from controllers import *
 from flask import redirect,url_for
@@ -7,30 +7,55 @@ from app import app
 
 #route to index
 @app.route('/')
-@app.route('/index',methods=['POST','GET'])
+@app.route('/user/login',methods=['POST','GET'])
 def login():
-     if 'token' in session:
-         print "token: a  "+ session['token']
-         return render_template("dashboard.html")
-     else:
-         print "token: "+ session['token']
-         return render_template("login.html")
-         current_user = session['token']
-         print "token: a  "+ session['token']
-         return render_template('dashboard.html', current_user=current_user)
+    if g.user is None:
+        #print "token: "+ session['token']
+        return render_template("login.html")
+    else:
+        if session['usertype'] is not None:
+            current_user = session['token']
+            print "token: a  "+ session['token']
+            return render_template('dashboard.html',current_user=current_user)
+        else:
+            return render_template("login.html")
+
+@app.route('/admin',methods=['POST','GET'])
+def adminlogin():
+    if g.user is None:
+        #print "token: "+ session['token']
+        return render_template("login2.html")
+    else:
+        if session['usertype'] is not None:
+            current_user = session['token']
+            print "token: a  "+ session['token']
+            return render_template('dashboard.html',current_user=current_user)
+        else:
+            return render_template("login2.html")
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    current_user = session['token']
-    rows = getlogin()
-    if rows is not None:
+    if g.user is not None and session['usertype'] is not None:
         current_user = session['token']
         usertype = session['usertype']
-         #print "token b : "+ session['token']
+        #print "token b : "+ session['token']
         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
-         return redirect('/')
-    return render_template("dashboard.html")
+        rows = getlogin()
+        if rows is not None and session['usertype'] is not None:
+            current_user = session['token']
+            usertype = session['usertype']
+            #print "token b : "+ session['token']
+            return render_template('dashboard.html',current_user=current_user,usertype=usertype)
+        else:
+            return redirect('/geterrorlogin')
+
+@app.before_request
+def before_request():
+    g.user = None
+    if 'token' in session:
+        g.user = session['token']
+
 
 #getbooktemp and getbook methods used for rendering
 #generating json response
