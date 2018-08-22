@@ -185,3 +185,113 @@ def logout():
    # remove the username from the session if it is there
    session.pop('token', None)
    return redirect(url_for('login')), 200
+
+
+#Error Handling
+
+@app.route('/geterrorlogin',methods=['GET'])
+def geterrorlogin():
+    errorlogin = []
+    print 'error 1'
+    error = {
+        'description': 'Invalid username/password supplied'
+    }
+    errorlogin.append(error)
+    return jsonify(errorlogin), 400
+    #return redirect('/errorlogin')
+
+#Error Handling
+
+@app.route('/errorlogin')
+def errorlogin():
+    return render_template("login.html")
+
+@app.route('/getaddgenereerror1',methods=['GET'])
+def getaddgenereerror1():
+    errorinput = []
+    #print 'error 2'
+    error = {
+        'description': 'Invalid input'
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 400
+
+@app.route('/getaddgenereerror2',methods=['GET'])
+def getaddgenereerror2():
+    errorinput = []
+    print 'error 3'
+    error = {
+        "message": "Authentication information is missing or invalid"
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 401
+
+@app.route('/getaddbookerror1',methods=['GET'])
+def getaddbookerror1():
+    errorinput = []
+    #print 'error 2'
+    error = {
+        'description': 'Invalid input'
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 400
+
+@app.route('/getaddbookerror2',methods=['GET'])
+def getaddbookerror2():
+    errorinput = []
+    #print 'error 3'
+    error = {
+        "message": "Authentication information is missing or invalid"
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 401
+
+@app.route('/getaddusererror1',methods=['GET'])
+def getaddusererror1():
+    errorinput = []
+    #print 'error 2'
+    error = {
+        'description': 'Invalid input'
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 400
+
+@app.route('/getaddliberror1',methods=['GET'])
+def getaddliberror1():
+    errorinput = []
+    #print 'error 2'
+    error = {
+        'description': 'Invalid input'
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 400
+
+@app.route('/getaddliberror2',methods=['GET'])
+def getaddliberror2():
+    errorinput = []
+    #print 'error 3'
+    error = {
+        "message": "Authentication information is missing or invalid"
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 401
+
+@app.route('/getaddrateerror1',methods=['GET'])
+def getaddrateerror1():
+    errorinput = []
+    #print 'error 2'
+    error = {
+        'description': 'Invalid input'
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 400
+
+@app.route('/getaddrateerror2',methods=['GET'])
+def getaddrateerror2():
+    errorinput = []
+    #print 'error 3'
+    error = {
+        "message": "Authentication information is missing or invalid"
+    }
+    errorinput.append(error)
+    return jsonify(errorinput), 401

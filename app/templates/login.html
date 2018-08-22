@@ -38,7 +38,7 @@
                     <h1><span>HARD</span><strong>BOUND</strong></h1>
                   </div>
                   <h4>User Login</h4>    
-                  <a href="" class="text-white">Click here for administrator</a>
+                  <a href="/admin" class="text-white">Click here for administrator</a>
                 </div>
               </div>
             </div>
@@ -48,11 +48,12 @@
                 <div class="content">
                   <form action="{{ url_for('dashboard') }}" method="POST">
                     <div class="form-group">
-                      <input required id="login-username" type="text" name="username" required data-msg="Please enter your username" class="input-material">
+                      <input id="login-username" type="text" name="username" required data-msg="Please enter your username" class="input-material">
                       <label for="login-username" class="label-material">User Name</label>
                     </div>
+                    <input name="usertype" type="hidden" value="user" >
                     <div class="form-group">
-                      <input required id="login-password" type="password" name="password" required data-msg="Please enter your password" class="input-material">
+                      <input id="login-password" type="password" name="password" required data-msg="Please enter your password" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
                     </div><button id="login" type="submit" class="btn btn-primary">Login</button>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
