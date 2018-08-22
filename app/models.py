@@ -1,5 +1,5 @@
 import sqlite3
-from flask import request
+from flask import request, session
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -175,11 +175,19 @@ def search_users(username):
 
 
 def login():
-    cur.execute(
-        "select lastname, password from users where username='" + request.form['username'] + "'and password = '" +
-        request.form['password'] + "'")
-    rows = cur.fetchone()
-    return rows
+     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     rows=cur.fetchone()
+     if rows != None:
+        session['token'] = rows[0]
+        if rows[2] == 'admin' and request.form['usertype'] == 'admin':
+            session['usertype'] = True
+        elif rows[2] == 'user' and request.form['usertype'] == 'user':
+            session['usertype'] = False
+        else:
+            session['usertype'] = None
+     else:
+        session['token'] = None
+     return rows
 
 
 def add_user():

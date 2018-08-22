@@ -147,6 +147,7 @@ def getlogin():
     print userlogin
     return userlogin
 
+"""
 def login():
      cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
@@ -159,6 +160,7 @@ def login():
      # else:
      #    session['token'] = None
      return rows
+"""
 
 def getgenres():
     genres_dict = []
