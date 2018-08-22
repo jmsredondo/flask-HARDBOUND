@@ -93,11 +93,11 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                     </div>
-                    <form id="genrepost" class="form-validate">
+                        <form method="post" action="/genre" class="form-validate">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="addCat" class="label-material">Genre</label>
-                                <input required id="addCat" type="text" name="genre" class="input-material">
+                                <input  id="addCat" type="text" name="genre" class="input-material">
                             </div>
                             <div class="form-group">
                                   <label for="sel1">Select Type</label>
@@ -107,7 +107,7 @@
                                   </select>
                                   </div>
                             <div class="modal-footer">
-                                <button type="button" onclick="savegenre()" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -131,7 +131,7 @@
                         <form method="post" class="form-validate">
                             <div class="form-group">
                                 <label for="addBookCat" class="label-material">Book Genre</label>
-                                <input required id="addBookCat" type="text" name="category" class="input-material">
+                                <input  id="addBookCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>
@@ -158,7 +158,7 @@
                         <form method="post" class="form-validate">
                             <div class="form-group">
                                 <label for="delCat" class="label-material">Genre</label>
-                                <input required id="delCat" type="text" name="category" class="input-material">
+                                <input  id="delCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>
@@ -230,25 +230,25 @@
                                     </button>
                     </div>
                     <div class="modal-body">
-                        <form id="bookpost" class="form-validate">
+                        <form id="bookpost" method="post" action="/book" class="form-validate">
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Title</label>
-                                <input required id="addBk" type="text" name="title" class="input-material">
+                                <input  id="addBk" type="text" name="title" class="input-material">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Description</label>
-                                <input required id="addBk" type="text" name="description" class="input-material">
+                                <input  id="addBk" type="text" name="description" class="input-material">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Author</label>
-                                <input required id="addBk" type="text" name="author" class="input-material">
+                                <input  id="addBk" type="text" name="author" class="input-material">
                             </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button onclick="addbook()" type="button" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
