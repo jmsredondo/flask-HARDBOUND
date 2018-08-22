@@ -59,10 +59,10 @@ def getunassignedbook(gid):
 
     for book in get_unassigned_book(gid):
         book_as_dict = {
-            'title': book[0],
-            'description': book[1],
-            'book_id': book[3],
-            'author': book[4],
+            'title': book[1],
+            'description': book[4],
+            'book_id': book[0],
+            'author': book[3],
             'genre_id': book[5]
         }
         query_dict.append(book_as_dict)
@@ -224,28 +224,30 @@ def adduser():
         return adduser_dict
 
 def addgenre():
-    # if add_genres() == 'error1' or add_genres() == 'error2':
-    #     return add_genres()
-    # else:
-        addgenre_dict = []
+    result = add_genres()
+    if result == 'error1' or result == 'error2':
+        return add_genres()
+    else:
+       addgenre_dict = []
 
-        for adgen in add_genres():
-            addgenres_as_dict = {
-                'type': adgen[0],
-                'genre': adgen[1]
-            }
-            addgenre_dict.append(addgenres_as_dict)
-        print (addgenre_dict)
-        return addgenre_dict
+       for adgen in result:
+           addgenres_as_dict = {
+               'type': adgen[0],
+               'genre': adgen[1]
+           }
+           addgenre_dict.append(addgenres_as_dict)
+       print (addgenre_dict)
+       return addgenre_dict
 
 
 def addbook():
-    # if add_book() == 'error1' or add_book() == 'error2':
-    #     return add_book()
-    # else:
+    result = add_book()
+    if result == 'error1' or result == 'error2':
+        return add_book()
+    else:
         addbook_dict = []
 
-        for adbook in add_book():
+        for adbook in result:
             addbook_as_dict = {
                 'title': adbook.title,
                 'description': adbook.description,
@@ -256,7 +258,16 @@ def addbook():
         return addbook_dict
 
 def addbookgenre(gid):
-    add_book_genre(gid)
+    addtogenre_dict = []
+
+    for adtogen in add_book_genre(gid):
+        addtogenre_as_dict = {
+            'genre_id': adtogen[0],
+            'book_id': adtogen[1]
+        }
+        addtogenre_dict.append(addtogenre_as_dict)
+    print (addtogenre_dict)
+    return addtogenre_dict
 
 def addlibrary():
     add_library()

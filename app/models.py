@@ -144,9 +144,8 @@ def get_book():
 
 
 def get_unassigned_book(gid):
-    cur.execute("SELECT * FROM book where genre_id !=" + gid + " or genre_id is null")
+    cur.execute("SELECT * FROM book")
     query_ret = cur.fetchall()
-
     return (query_ret)
 
 
@@ -231,11 +230,11 @@ def add_user():
 
 
 def add_book():
-    # if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
-    #     return 'error1'
-    # elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
-    #     return 'error2'
-    # else:
+    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+        return 'error1'
+    elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
+        return 'error2'
+    else:
         title=request.form['title']
         description=request.form['description']
         author=request.form['author']
@@ -268,8 +267,10 @@ def get_a_book(bid):
 
 def add_book_genre(gid):
     bid = request.form['book_id']
-    cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
+    cur.execute("update book set genre_id = ? where id = ?", (gid, bid))
     db.commit()
+    addto_genre = [(gid, bid)]
+    return addto_genre
 
 
 def get_genres():
@@ -286,13 +287,13 @@ def get_a_genre(gid):
 
 
 def add_genres():
-    # if bool(re.search(r'\d', request.form['genre'])):
-    #     return 'error1'
-    #
-    # elif request.form['genre'] == '':
-    #     return 'error2'
-    #
-    # else:
+     if bool(re.search(r'\d', request.form['genre'])):
+         return 'error1'
+
+     elif request.form['genre'] == '':
+         return 'error2'
+
+     else:
         genre_type=request.form['type']
         genre_name=request.form['genre']
         cur.execute("insert into genre (type, genre) VALUES (?,?)", (genre_type, genre_name))
