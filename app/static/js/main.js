@@ -80,8 +80,8 @@ switch (windowurl) {
     case '/genrebyid':
         getgenrebyid();
         break;
-    case '/genre/addbookstogenre':
-        displaybooksgenre()
+    case 6:
+        day = "Saturday";
 }
 });
 // all functions
@@ -110,9 +110,9 @@ switch (windowurl) {
                               "<td>" +
                 "<div class='row'>" +
                 "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"button\" onclick='' class=\"btn btn-danger\">Delete</button></form>" +
-                "<form method=\"get\" style=\"padding-left:2%\">" +
-                "<button type=\"button\" onclick='getbooktogenre("+data[i].genre_id+")' class=\"btn btn-warning\">Add Book</button></form>" +
+                "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
+                "<form method=\"get\" style=\"padding-left:2%\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
+                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form>" +
                 "</div>" +
                 "</td>"+
                             "</tr>";
@@ -124,40 +124,18 @@ switch (windowurl) {
     });
 
     }
-    // onclcik store to id to local storage
-    function getbooktogenre(gid){
-        localStorage.setItem('gid', gid);
-        document.location.href = ('/genre/addbookstogenre');
-
-
-    }
-
-    // get all books to add to genre
-    function displaybooksgenre(){
-          var genre_id = localStorage.getItem('gid');
-          $.ajax({
-        url: '/genre/getaddbook/'+ genre_id,
-        dataType: 'JSON',
-        success: function (data) {
-            console.log(data);
-
-
-
-        }
-    });
-}
 
     // get value of row and store in local storage for later use
-// $genreTable = $('#genretable');
-// var gentable = $genreTable;
-// $genreTable.on('click', 'tbody tr', function() {
-//  var tableData = $(this).children("td").map(function() {
-//         return $(this).text();
-//     }).get();
-//  var genreid= tableData[0];
-//     localStorage.setItem('genreid', genreid);
-//     document.location.href = ('/genrebyid');
-// });
+$genreTable = $('#genretable');
+var gentable = $genreTable;
+$genreTable.on('click', 'tbody tr', function() {
+ var tableData = $(this).children("td").map(function() {
+        return $(this).text();
+    }).get();
+ var genreid= tableData[0];
+    localStorage.setItem('genreid', genreid);
+    document.location.href = ('/genrebyid');
+});
 
 
 function getgenrebyid() {
@@ -199,7 +177,7 @@ function init_getbooks(bookurl) {
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src=\"static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                    "<div class=\"image has-shadow\"><img src=\"/static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
                     "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
@@ -214,7 +192,7 @@ function init_getbooks(bookurl) {
                     "<form method=\"post\" action=\"/library\">" +
                     "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
                     "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>" +
-                    "<form method=\"delete\"  action=\"/book" + "/" + data[i].book_id + "\">" +
+                    "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
                     "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
                     "</div>" +
                     "</div>";
