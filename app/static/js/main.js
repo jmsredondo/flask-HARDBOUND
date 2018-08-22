@@ -170,6 +170,8 @@ switch (windowurl) {
     });
 }
 
+
+
     // get value of row and store in local storage for later use
 // $genreTable = $('#genretable');
 // var gentable = $genreTable;
@@ -376,8 +378,10 @@ function savegenre() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
+
         }
     });
+     document.location.href = ('/genres');
 }
 
 function addbook() {
@@ -392,5 +396,6 @@ function addbook() {
             console.log(data)
         }
     });
+    document.location.href = ('/books');
 }
 
