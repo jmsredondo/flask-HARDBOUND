@@ -149,13 +149,13 @@ def getagenre(gid):
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
-    if addgenre() == 'error1':
-        return redirect('/getaddgenereerror1')
-    elif addgenre() == 'error2':
-        return redirect('/getaddgenereerror2')
-    else:
-        flash('Genre successfully added!')
-        return jsonify(addgenre()), 201
+    # if addgenre() == 'error1':
+    #     return redirect('/getaddgenereerror1')
+    # elif addgenre() == 'error2':
+    #     return redirect('/getaddgenereerror2')
+    # else:
+    #     flash('Genre successfully added!')
+    return jsonify(addgenre()), 201
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
