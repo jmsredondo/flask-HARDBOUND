@@ -424,6 +424,6 @@ function addbook() {
             console.log(data)
         }
     });
-   // document.location.href = ('/books');
+    document.location.href = ('/books');
 }
 

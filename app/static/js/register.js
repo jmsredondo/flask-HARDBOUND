@@ -10,5 +10,5 @@ function userregister() {
             console.log(data)
         }
     });
-   // document.location.href = ('/users/list');
+    document.location.href = ('/users/list');
 }

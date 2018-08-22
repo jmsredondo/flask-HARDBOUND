@@ -249,9 +249,9 @@ def addbook():
 
         for adbook in result:
             addbook_as_dict = {
-                'title': adbook.title,
-                'description': adbook.description,
-                'author': adbook.author
+                'title': adbook[0],
+                'description': adbook[1],
+                'author': adbook[2]
             }
             addbook_dict.append(addbook_as_dict)
         print (addbook_dict)
