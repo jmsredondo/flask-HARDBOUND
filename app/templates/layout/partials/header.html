@@ -47,16 +47,12 @@
                         <li><a href="#categorySubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list-ul"></i>GENRE </a></li>
                     <ul id="categorySubMenu" class="collapse list-unstyled ">
                         <li><a href="#addCatModal" data-toggle="modal">Add Genre</a></li>
-                        <li><a href="#addBookCatModal" data-toggle="modal">Add Books to Genre</a></li>
-                        <li><a href="genres">Display Genre</a></li>
-                        <li><a href="#addBookToCat" data-toggle="modal">Add Book to Genre</a></li>
+                        <li><a href="/genres">Display Genre</a></li>
                     </ul>
-
-
 
                     <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
                     <ul id="booksSubMenu" class="collapse list-unstyled ">
-                        <li><a id = "getbooks" href="books">Display All Books</a></li>
+                        <li><a id = "getbooks" href="/books">Display All Books</a></li>
                         <li><a href="#addBook" data-toggle="modal">Add New Book</a></li>
                     </ul>
 
@@ -65,22 +61,16 @@
 
                     <li><a href="#usersSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>USERS </a></li>
                     <ul id="usersSubMenu" class="collapse list-unstyled ">
-                        <li><a href="users/list">View User List</a></li>
+                        <li><a href="/users/list">View User List</a></li>
+                        <li><a href="/register">Register User</a></li>
                     </ul>
 
                     {% else: %}
 
                     <li><a href="#libSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list"></i>LIBRARY </a></li>
                     <ul id="libSubMenu" class="collapse list-unstyled ">
-                        <li><a href="">View User Library</a></li>
-                        <li><a href="">Add Book to Library</a></li>
-
-                    </ul>
-
-                    <li><a href="#rncSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-comment"></i>RATE AND COMMENT </a></li>
-                    <ul id="rncSubMenu" class="collapse list-unstyled ">
-                        <li><a href="">View User Library</a></li>
-                        <li><a href="">Add Book to Library</a></li>
+                        <li><a href="/library">View User Library</a></li>
+                        <li><a href="/books">Add Book to Library</a></li>
 
                     </ul>
 
@@ -103,11 +93,11 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                     </div>
-                    <form method="post" action="/genre" class="form-validate">
+                        <form method="post" action="/genre" class="form-validate">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="addCat" class="label-material">Genre</label>
-                                <input id="addCat" type="text" name="genre" class="input-material"></input>
+                                <input  id="addCat" type="text" name="genre" class="input-material">
                             </div>
                             <div class="form-group">
                                   <label for="sel1">Select Type</label>
@@ -141,7 +131,7 @@
                         <form method="post" class="form-validate">
                             <div class="form-group">
                                 <label for="addBookCat" class="label-material">Book Genre</label>
-                                <input id="addBookCat" type="text" name="category" class="input-material">
+                                <input  id="addBookCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>
@@ -168,7 +158,7 @@
                         <form method="post" class="form-validate">
                             <div class="form-group">
                                 <label for="delCat" class="label-material">Genre</label>
-                                <input id="delCat" type="text" name="category" class="input-material">
+                                <input  id="delCat" type="text" name="category" class="input-material">
                             </div>
                         </form>
                     </div>
@@ -240,20 +230,20 @@
                                     </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/book" class="form-validate">
+                        <form id="bookpost" method="post" action="/book" class="form-validate">
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Title</label>
-                                <input id="addBk" type="text" name="title" class="input-material">
+                                <input  id="addBk" type="text" name="title" class="input-material">
                             </div>
 
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Description</label>
-                                <input id="addBk" type="text" name="description" class="input-material">
+                                <input  id="addBk" type="text" name="description" class="input-material">
                             </div>
 
                             <div class="form-group">
                                 <label for="addBk" class="label-material">Author</label>
-                                <input id="addBk" type="text" name="author" class="input-material">
+                                <input  id="addBk" type="text" name="author" class="input-material">
                             </div>
                     </div>
                     <div class="modal-footer">
