@@ -81,10 +81,15 @@ def getabooks(bid):
 
 @app.route('/book', methods=['POST'])
 def addbooks():
-    flash('New book successfully added!')
-    books = getbook()
-    genres = getgenres()
-    return jsonify(addbook()), 201
+    if addbook() == 'error1':
+        return redirect('/getaddbookerror1')
+    elif addbook() == 'error2':
+        return redirect('/getaddbookerror2')
+    else:
+        flash('New book successfully added!')
+        books = getbook()
+        genres = getgenres()
+        return jsonify(addbook()), 201
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
@@ -117,8 +122,11 @@ def getregister():
 
 @app.route('/users', methods=['POST'])
 def register():
-    flash('New user successfully added!')
-    return jsonify(adduser()), 201
+    if adduser() == 'error1':
+        return redirect('/getaddusererror1')
+    else:
+        flash('New user successfully added!')
+        return jsonify(adduser()), 201
 
 #get list of genres
 @app.route('/genres', methods=['GET'])
@@ -141,8 +149,13 @@ def getagenre(gid):
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
-    flash('Genre successfully added!')
-    return jsonify(addgenre()), 201
+    if addgenre() == 'error1':
+        return redirect('/getaddgenereerror1')
+    elif addgenre() == 'error2':
+        return redirect('/getaddgenereerror2')
+    else:
+        flash('Genre successfully added!')
+        return jsonify(addgenre()), 201
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
@@ -169,12 +182,26 @@ def getlibrary():
 
 @app.route('/library', methods=['POST'])
 def addlibraries():
+    """
+    if addlibrary() == 'error1':
+        return redirect('/getaddlibeerror1')
+    elif addlibrary() == 'error2':
+        return redirect('/getaddlibeerror2')
+    else:
+    """
     addlibrary()
     flash('Added book to library!')
     return redirect('/library'), 201
 
 @app.route('/rate', methods=['POST'])
 def addratings():
+    """
+    if addrating() == 'error1':
+        return redirect('/getaddrateeerror1')
+    elif addrating() == 'error2':
+        return redirect('/getaddrateerror2')
+    else:
+    """
     addrating()
     flash('Added rating!')
     return redirect('/book'), 201
