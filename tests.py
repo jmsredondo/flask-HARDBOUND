@@ -23,7 +23,7 @@ class UserTestCase(unittest.TestCase):
     db.init_app(app)
 
     def setUp(self):
-        self.host = 'http://phvm-isghp-dev1.ph.trendnet.org:9300'
+        self.host = 'http://0.0.0.0:9300'
         self.samplegenre1 = {'type': 'Fiction', 'genre': 'Fantasy'}
         self.samplegenre2 = {'type': '', 'genre': ''}
         self.samplegenre3 = {'type': '1', 'genre': '1'}
