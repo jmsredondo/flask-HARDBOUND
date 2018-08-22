@@ -149,7 +149,7 @@ def getlogin():
 
 
 def login():
-     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password, usertype from user where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
      if rows != None:
         session['token'] = rows[0]
@@ -183,9 +183,9 @@ def getagenres(gid):
 
     for genre in get_a_genre(gid):
         genre_as_dict = {
-            'type': genre[0],
-            'genre': genre[1],
-            'genre_id': genre[2]
+            'type': genre.type,
+            'genre': genre.genre,
+            'genre_id': genre.genre_id
         }
         genres_dict.append(genre_as_dict)
 

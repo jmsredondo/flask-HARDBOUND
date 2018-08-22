@@ -8,7 +8,7 @@ from flask import jsonify
 
 
 class User(db.Model):
-    user_id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False,autoincrement=True)
+    id = db.Column(db.Integer, unique=True, primary_key=True, nullable=False,autoincrement=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
     lastname = db.Column(db.String(64), nullable=False)
@@ -17,6 +17,8 @@ class User(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(128), nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
+    usertype = db.Column(db.String(128))
+    user_rate = db.relationship('Ratings', backref='user', lazy='dynamic')
 
     # user_type = db.Column(ENUM('Admin', 'User'), nullable=False)
 
@@ -29,7 +31,7 @@ class User(db.Model):
 
     def __repr__(self):
         user_data = {
-            'user_id': self.user_id,
+            'user_id': self.id,
             'username': self.username,
             'firstname': self.firstname,
             'lastname': self.lastname,
@@ -37,7 +39,9 @@ class User(db.Model):
             'balance': self.balance,
             'phone': self.phone,
             'password': self.password,
-            'password_hash': self.password_hash
+            'password_hash': self.password_hash,
+            'usertype': self.usertype,
+            'user_rate': self.user_rate
             # 'user_type': self.user_type
 
         }
@@ -69,7 +73,7 @@ class Book(db.Model):
     author = db.Column(db.String(64))
     description = db.Column(db.String(64))
 
-    # book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
+    book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
 
     def __repr__(self):
         book_data = {
@@ -77,36 +81,49 @@ class Book(db.Model):
             'Book Name': self.title,
             'Image': self.image,
             'Author': self.author,
-            'Description': self.description
-            #  'Book Rate': self.book_rate
+            'Description': self.description,
+            'Book Rate': self.book_rate
         }
 
         #response = '<Book %s>' % data
         #return repr(response)
         return book_data
 
-"""class Ratings(db.Model):
+class Ratings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # user_id = db.Column(db.Integer, unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rating = db.Column(db.Integer, nullable=True)
     comment = db.Column(db.String(64))
 
-    # book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
 
     def __repr__(self):
-        data = {
+        ratings_data = {
             'Rating ID': self.id,
-            # 'Book ID': self.book_id,
-            # 'User ID': self.user_id,
+            'Book ID': self.book_id,
+            'User ID': self.user_id,
             'rating': self.rating,
             'comment': self.comment
         }
 
-        response = '<Ratings %s>' % data
-        return repr(response)
-"""
+        #response = '<Ratings %s>' % data
+        #return repr(response)
+        return ratings_data
 
-DATABASE = 'database/database_1.db'
+class User_Library(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+
+    def __repr__(self):
+        library_data = {
+            'Library ID': self.id,
+            'Book ID': self.book_id,
+            'User ID': self.user_id
+        }
+        return library_data
+
+DATABASE = 'app.db'
 # connect to database
 db = (sqlite3.connect(DATABASE, check_same_thread=False))
 cur = db.cursor()
@@ -264,19 +281,21 @@ def get_a_genre(gid):
 
 
 def add_genres():
-    if bool(re.search(r'\d', request.form['genre'])):
-        return 'error1'
-
-    elif request.form['genre'] == '':
-        return 'error2'
-
-    else:
+    # if bool(re.search(r'\d', request.form['genre'])):
+    #     return 'error1'
+    #
+    # elif request.form['genre'] == '':
+    #     return 'error2'
+    #
+    # else:
         genre_type=request.form['type']
         genre_name=request.form['genre']
-        cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
+        cur.execute("insert into genre (type, genre) VALUES (?,?)", (genre_type, genre_name))
         db.commit()
-        genrepost = [(genre_type, genre_name)]
+
+        genrepost = [(genre_type,genre_name)]
         return genrepost
+
 
 def add_rating():
     if bool(re.search(r'\d', request.form['book_id'])) or bool(re.search(r'\d', request.form['rating'])) or bool(re.search(r'\d', request.form['comment'])):
