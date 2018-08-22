@@ -52,7 +52,24 @@ switch (windowurl) {
         }
         break;
     case '/users/list':
-        init_userlist();
+        var uname = '';
+        var listurl = '/users';
+
+        $("#namesearch").click(function () {
+            var username = $("#username");
+            uname = username.val();
+            listurl = uname;
+            init_userlist('/users/'+listurl);
+
+        });
+        $('#username').on('input', function() {
+        if ($.trim($('#username').val()) === ''){
+            init_userlist('/users')
+        }
+    });
+        if(uname.length === 0){
+            init_userlist(listurl)
+        }
         break;
     case '/bookbyid':
         getbookbyid();
@@ -239,45 +256,26 @@ $(document).on('click', '.bookid', function() {
             init_userlist(listurl)
         }
     }*/
-function init_userlist() {
+function init_userlist(listurl) {
     $userTable = $('#userlist');
-    var table = $userTable;
-
+    var divtable = [];
+        $userbyusername = $('#getausername');
         $.ajax({
-            url: '/users',
+            url: listurl,
             dataType: 'JSON',
             success: function (data) {
                 console.log(data);
-                // $userTable.DataTable('refresh', {url: 'users/list'});
-                table.DataTable({
-                    retrieve: true,
-                    data: data,
-                    columns: [{
-                        "data": "username",
-                        "title": "Username"
-                    },
-                        {
-                            "data": "firstname",
-                            "title": 'First Name'
-                        },
-                        {
-                            "data": "lastname",
-                            "title": 'Last Name'
-                        },
-                        {
-                            "data": "email",
-                            "title": 'Email'
-                        },
-                        {
-                            "data": "balance",
-                            "title": 'Balance'
-                        },
-                        {
-                            "data": "phone",
-                            "title": 'Phone'
-                        },],
-
-                });
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].username+"</td>"+
+                              "<td>"+data[i].firstname+"</td>"+
+                       "<td>"+data[i].lastname+"</td>"+
+                       "<td>"+data[i].email+"</td>"+
+                        "<td>"+data[i].balance+"</td>"+
+                        "<td>"+data[i].phone+"</td>"+
+                            "</tr>";
+                }
+                $userbyusername.html(divtable)
             }
         });
 
@@ -288,14 +286,15 @@ function init_userlist() {
 $userTable = $('#userlist');
 var table = $userTable;
 $userTable.on('click', 'tbody tr', function() {
-
-  console.log('API row values : ', table.DataTable().row(this).data());
-  var data = table.DataTable().row(this).data();
-      var  username =data['username'];
-
+ var tableData = $(this).children("td").map(function() {
+        return $(this).text();
+    }).get();
+  var username= tableData[0];
     localStorage.setItem('username', username);
     document.location.href = ('/user');
 });
+
+
 // get user detail by username
 function getbyusername() {
      var username = localStorage.getItem('username');

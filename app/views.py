@@ -106,6 +106,11 @@ def userslist():
     print rows
     return jsonify(rows)
 
+@app.route('/users/<uid>',methods=['GET'])
+def getausers(uid):
+    users = getauser(uid)
+    return jsonify(users),200
+
 @app.route('/register', methods=['GET'])
 def getregister():
     return render_template('register.html'), 200

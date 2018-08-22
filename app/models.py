@@ -197,9 +197,10 @@ def add_user():
     lastname = request.form['registerLastname']
     email = request.form['registerEmail']
     phonenumber = request.form['registerPhoneNum']
+    usertype = request.form['registerUserType']
     cur.execute(
-        "insert into users (username, firstname, lastname, email, balance, phonenumber, password) VALUES (?,?,?,?,?,?,?)",
-        (username, firstname, lastname, email, '0', phonenumber, '123456'))
+        "insert into users (username, firstname, lastname, email, balance, phonenumber, password,usertype) VALUES (?,?,?,?,?,?,?,?)",
+        (username, firstname, lastname, email, '0', phonenumber, '123456',usertype))
     db.commit()
     regpost = [(username,firstname, lastname,email,phonenumber)]
     return regpost
