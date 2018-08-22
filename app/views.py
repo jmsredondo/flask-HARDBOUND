@@ -177,7 +177,6 @@ def addratings():
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):
     ratings = getrating(bid)
-    flash('Added rating!')
     return render_template('getRating.html', ratings=ratings), 200
 
 @app.route('/logout')
