@@ -161,9 +161,8 @@ def addgenres():
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
-    deletegenre(gid)
     flash('Genre successfully deleted.')
-    return redirect('/genre'), 200
+    return deletegenre(gid), 200
 
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():
