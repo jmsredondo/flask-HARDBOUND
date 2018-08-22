@@ -31,27 +31,11 @@
                       {% endif %}
                     {% endwith %}
               <!-- Project-->
-                {% for book in books %}
-                <div class="project">
-                  <div class="row bg-white has-shadow">
-                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                      <div class="project-title d-flex align-items-center">
-                        <div class="image has-shadow"><img src="/static/img/book.jpg " style="height: 100%; width: 100%;" alt="..." class="img-fluid"></div>
-                        <div class="text">
-                          <h2>{{book["title"]}}</h2>
-                          <i>Author: {{book["author"]}}</i>
-                        </div>
-                      </div>
-                      </div>
-                    <div class="right-col col-lg-5 d-flex align-items-center">
-                      <div class="desc">{{book["description"]}}</div>
-                    </div>
-                    <div class="right-col col-lg-1 d-flex align-items-center">
-                      <form method="post" action="/genre/addbook/{{gid}}"><input type="hidden" name="book_id" value="{{book['book_id']}}"><button type="submit" class="btn btn-warning">Add</button></form>
-                      </div>
-                    </div>
+
+                <div class="project" id="genrebooks">
+
+
                   </div>
-                {% endfor %}
 
                 </div>
 

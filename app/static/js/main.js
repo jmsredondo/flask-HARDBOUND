@@ -80,8 +80,8 @@ switch (windowurl) {
     case '/genrebyid':
         getgenrebyid();
         break;
-    case 6:
-        day = "Saturday";
+    case '/genre/addbookstogenre':
+        displaybooksgenre()
 }
 });
 // all functions
@@ -110,9 +110,9 @@ switch (windowurl) {
                               "<td>" +
                 "<div class='row'>" +
                 "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
-                "<form method=\"get\" style=\"padding-left:2%\" action=\"/genre/addbook"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"submit\" class=\"btn btn-warning\">Add Book</button></form>" +
+                "<button type=\"button\" onclick='' class=\"btn btn-danger\">Delete</button></form>" +
+                "<form method=\"get\" style=\"padding-left:2%\">" +
+                "<button type=\"button\" onclick='getbooktogenre("+data[i].genre_id+")' class=\"btn btn-warning\">Add Book</button></form>" +
                 "</div>" +
                 "</td>"+
                             "</tr>";
@@ -124,18 +124,65 @@ switch (windowurl) {
     });
 
     }
+    // onclcik store to id to local storage
+    function getbooktogenre(gid){
+        localStorage.setItem('gid', gid);
+        document.location.href = ('/genre/addbookstogenre');
+
+
+    }
+
+    // get all books to add to genre
+    function displaybooksgenre(){
+          var genre_id = localStorage.getItem('gid');
+          var $genrebooks = $("#genrebooks");
+        var genrebooksbody = [];
+          $.ajax({
+        url: '/genre/getaddbook/'+ genre_id,
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+             for(var i =0; i <= data.length-1; i++) {
+                 genrebooksbody += '<div class="row bg-white has-shadow">' +
+                     '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">' +
+                     '<div class="project-title d-flex align-items-center">' +
+                     '<div class="image has-shadow"><img src="/static/img/book.jpg " style="height: 100%; width: 100%;" alt="..." class="img-fluid"></div>' +
+                     '<div class="text">' +
+                     '<h2>'+data[i].title+'</h2>' +
+                     '<i>'+data[i].author+'</i>' +
+                     '</div>' +
+                     '</div>' +
+                     '</div>' +
+                     '<div class="right-col col-lg-5 d-flex align-items-center">' +
+                     '<div class="desc">'+data[i].description+'</div>' +
+                     '</div>' +
+                     '<div class="right-col col-lg-1 d-flex align-items-center">' +
+                     '<form method="post" action="/genre/addbook/{{gid}}">' +
+                     '<input type="hidden" name="book_id" value="{{book[\'book_id\']}}">' +
+                     '<button type="submit" class="btn btn-warning">Add</button></form>' +
+                     '</div>' +
+                     '</div>';
+
+
+             }
+             $genrebooks.html(genrebooksbody);
+        }
+    });
+}
+
+
 
     // get value of row and store in local storage for later use
-$genreTable = $('#genretable');
-var gentable = $genreTable;
-$genreTable.on('click', 'tbody tr', function() {
- var tableData = $(this).children("td").map(function() {
-        return $(this).text();
-    }).get();
- var genreid= tableData[0];
-    localStorage.setItem('genreid', genreid);
-    document.location.href = ('/genrebyid');
-});
+// $genreTable = $('#genretable');
+// var gentable = $genreTable;
+// $genreTable.on('click', 'tbody tr', function() {
+//  var tableData = $(this).children("td").map(function() {
+//         return $(this).text();
+//     }).get();
+//  var genreid= tableData[0];
+//     localStorage.setItem('genreid', genreid);
+//     document.location.href = ('/genrebyid');
+// });
 
 
 function getgenrebyid() {
@@ -331,8 +378,10 @@ function savegenre() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
+
         }
     });
+     document.location.href = ('/genres');
 }
 
 function addbook() {
@@ -347,5 +396,6 @@ function addbook() {
             console.log(data)
         }
     });
+    document.location.href = ('/books');
 }
 

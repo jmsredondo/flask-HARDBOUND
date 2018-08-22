@@ -23,7 +23,7 @@ class UserTestCase(unittest.TestCase):
     db.init_app(app)
 
     def setUp(self):
-        self.host = 'http://localhost:5000'
+        self.host = 'http://phvm-isghp-dev1.ph.trendnet.org:9300'
         self.samplegenre1 = {'type': 'Fiction', 'genre': 'Fantasy'}
         self.samplegenre2 = {'type': '', 'genre': ''}
         self.samplegenre3 = {'type': '1', 'genre': '1'}
@@ -55,7 +55,7 @@ class UserTestCase(unittest.TestCase):
     def test_get_genre_status(self):
         res = res = requests.get(self.host + '/genre')
         self.assertEqual(res.status_code, 200)
-
+'''
     def test_get_books_status(self):
         res = res = requests.get(self.host + '/book')
         self.assertEqual(res.status_code, 200)
@@ -230,14 +230,13 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertIn("''", str(res.text))
 
-
-'''
     def test_api_get_genre_list(self):
         """Test get user list (GET request)."""
         res = res = requests.get(self.host+'/genre')
         self.assertEqual(res.status_code, 200)
         self.assertIn('Action', str(res.text))
-
+'''
+'''
     def setUp(self):
         """Define test variables and initialize app."""
         self.host = 'http://localhost:5000'
@@ -270,7 +269,6 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertIn('jsmith', str(res.text))
 '''
-
 
 # Make the tests conveniently executable
 if __name__ == "__main__":

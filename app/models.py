@@ -226,16 +226,18 @@ def add_user():
 
 
 def add_book():
-    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
-        return 'error1'
-    elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
-        return 'error2'
-    else:
+    # if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+    #     return 'error1'
+    # elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
+    #     return 'error2'
+    # else:
         title=request.form['title']
         description=request.form['description']
         author=request.form['author']
         cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
         db.commit()
+        genrepost = [(title, description, author)]
+        return genrepost
 
 
 def add_library():
@@ -272,8 +274,6 @@ def get_genres():
     rows = Genre.query.all()
     return rows
 
-
-
 def get_a_genre(gid):
     cur.execute("select * from genres where genre_id = " + (gid))
     genres = cur.fetchall()
@@ -292,6 +292,7 @@ def add_genres():
         genre_name=request.form['genre']
         cur.execute("insert into genre (type, genre) VALUES (?,?)", (genre_type, genre_name))
         db.commit()
+
         genrepost = [(genre_type,genre_name)]
         return genrepost
 
