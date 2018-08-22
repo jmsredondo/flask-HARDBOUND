@@ -1,3 +1,4 @@
+import re
 import sqlite3
 from flask import request, session
 from app import db
@@ -205,23 +206,31 @@ def add_user():
 
 
 def add_book():
-    title = request.form['title']
-    description = request.form['description']
-    author = request.form['author']
-    cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
-    db.commit()
-    genrepost = [(title, description,author)]
-    return genrepost
+    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+        return 'error1'
+    elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
+        return 'error2'
+    else:
+        title=request.form['title']
+        description=request.form['description']
+        author=request.form['author']
+        cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
+        db.commit()
 
 
 def add_library():
-    book = request.form['book']
-    user = 'arvincea'
-    cur.execute("select id from users where username = '" + user + "'")
-    user = cur.fetchone()
-    user_id = user[0]
-    cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
-    db.commit()
+    if bool(re.search(r'\d', request.form['book'])):
+        return 'error1'
+    elif request.form['book'] == '':
+        return 'error2'
+    else:
+        book=request.form['book']
+        user=session['token']
+        cur.execute("select id from users where username = '" + user + "'")
+        user=cur.fetchone()
+        user_id=user[0]
+        cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
+        db.commit()
 
 
 def get_a_book(bid):
@@ -252,24 +261,33 @@ def get_a_genre(gid):
 
 
 def add_genres():
+    if bool(re.search(r'\d', request.form['genre'])):
+        return 'error1'
 
-    genre_type = request.form['type']
-    genre_name = request.form['genre']
-    cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
-    db.commit()
-    genrepost = [(genre_type,genre_name)]
-    return genrepost
+    elif request.form['genre'] == '':
+        return 'error2'
+
+    else:
+        genre_type=request.form['type']
+        genre_name=request.form['genre']
+        cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
+        db.commit()
 
 def add_rating():
-    book_id=request.form['book_id']
-    rating=request.form['rating']
-    comment=request.form['comment']
-    user='arvincea'
-    cur.execute("select id from users where username = '" + user + "'")
-    user=cur.fetchone()
-    user_id=user[0]
-    cur.execute("insert into ratings (book_id, user_id, rating, comment) VALUES (?,?,?,?)", (book_id, user_id, rating, comment))
-    db.commit()
+    if bool(re.search(r'\d', request.form['book_id'])) or bool(re.search(r'\d', request.form['rating'])) or bool(re.search(r'\d', request.form['comment'])):
+        return 'error1'
+    elif request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
+        return 'error2'
+    else:
+        book_id=request.form['book_id']
+        rating=request.form['rating']
+        comment=request.form['comment']
+        user=session['token']
+        cur.execute("select id from users where username = '" + user + "'")
+        user=cur.fetchone()
+        user_id=user[0]
+        cur.execute("insert into ratings (book_id, user_id, rating, comment) VALUES (?,?,?,?)", (book_id, user_id, rating, comment))
+        db.commit()
 
 def get_rating(bid):
     cur.execute("select * from ratings inner join books on ratings.book_id = books.book_id where ratings.book_id = " + (bid))

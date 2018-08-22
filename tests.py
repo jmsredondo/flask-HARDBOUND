@@ -40,13 +40,18 @@ class UserTestCase(unittest.TestCase):
         self.sampleuser2 = {'username:': '', 'firstname': '', 'lastname': '', 'email': '', 'balance': '', 'phonenumber': ''}
         self.sampleuser3 = {'username:': '1', 'firstname': '1', 'lastname': '1', 'email': '1', 'balance': '100', 'phonenumber': '1'}
         self.sampleuser4 = {'username:': 'ejcarantes', 'firstname': 'Ethnica Jaya', 'lastname': 'Carantes', 'email': 'ejcarantes@gmail.com', 'balance': '0', 'phonenumber': '7120538'}
-        self.sampleuser4 = {'username:': 'ejcarantes', 'firstname': 'Ethnica Jaya', 'lastname': 'Carantes', 'email': 'ejcarantes@gmail.com', 'balance': '0', 'phonenumber': '7120538'}
         self.sampleuser5 = {'username:': '_!@#$%^&*()', 'firstname': '_!@#$%^&*()', 'lastname': '_!@#$%^&*()', 'email': '_!@#$%^&*()', 'balance': '0', 'phonenumber': '_!@#$%^&*()'}
         self.sampleuser6 = {'username:': "''", 'firstname': "''", 'lastname': "''", 'email': "''", 'balance': '0', 'phonenumber': "''"}
         self.samplelibrary1 = {'user_id': '1', 'book_id': '1'}
         self.samplelibrary2 = {'user_id': '', 'book_id': ''}
         self.samplelibrary3 = {'user_id': 'Kanye West', 'book_id': 'A Wonderful Life'}
-
+        self.samplerating1 = {'book_id': '2', 'user_id': '2', 'rating': '5', 'comment': 'Good book'}
+        self.samplerating2 = {'book_id': '3', 'user_id': '2', 'rating': '1', 'comment': 'Bad book'}
+        self.samplerating3 = {'book_id': '4', 'user_id': '2', 'rating': '1', 'comment': ''}
+        self.samplerating4 = {'book_id': '5', 'user_id': '2', 'rating': '3', 'comment': '3'}
+        self.samplerating5 = {'book_id': '6', 'user_id': '2', 'rating': '3', 'comment': '_!@#$%^&*()'}
+        self.samplerating6 = {'book_id': "7", 'user_id': "2", 'rating': '3', 'comment': "''"}
+        
     def test_get_genre_status(self):
         res = res = requests.get(self.host + '/genre')
         self.assertEqual(res.status_code, 200)
@@ -183,12 +188,47 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertIn('2', str(res.text))
 
-    def test_get_users_id(self):
-        res = res = requests.get(self.host + '/users/janlorenz')
+    def test_get_ratings1(self):
+        res = requests.post(self.host='/rate', data=self.samplerating1)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/2')
         self.assertEqual(res.status_code, 200)
-        res = res = requests.get(self.host + '/users')
+        self.assertIn('Good book', str(res.text))
+
+    def test_get_ratings2(self):
+        res = requests.post(self.host='/rate', data=self.samplerating2)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/3')
         self.assertEqual(res.status_code, 200)
-        self.assertIn('janlorenz', str(res.text))
+        self.assertIn('Bad book', str(res.text))
+
+    def test_get_ratings3(self):
+        res = requests.post(self.host='/rate', data=self.samplerating3)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/4')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('', str(res.text))
+
+    def test_get_ratings4(self):
+        res = requests.post(self.host='/rate', data=self.samplerating4)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/5')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('3', str(res.text))
+
+    def test_get_ratings5(self):
+        res = requests.post(self.host='/rate', data=self.samplerating5)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/6')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('_!@#$%^&*()', str(res.text))
+
+    def test_get_ratings6(self):
+        res = requests.post(self.host='/rate', data=self.samplerating6)
+        self.assertEqual(res.status_code, 201)
+        res = res = requests.get(self.host + '/rate/7')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn("''", str(res.text))
 
 
 '''
