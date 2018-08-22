@@ -174,9 +174,9 @@ def getbooktogenre(gid):
 
 @app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):
-    addbookgenre(gid)
+
     flash('Genre successfully assigned to book!')
-    return redirect('/genre/addbook/' + gid), 200
+    return jsonify(addbookgenre(gid))
 
 @app.route('/library', methods=['GET'])
 def getlibrary():

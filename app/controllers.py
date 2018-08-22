@@ -59,10 +59,10 @@ def getunassignedbook(gid):
 
     for book in get_unassigned_book(gid):
         book_as_dict = {
-            'title': book[0],
-            'description': book[1],
-            'book_id': book[3],
-            'author': book[4],
+            'title': book[1],
+            'description': book[4],
+            'book_id': book[0],
+            'author': book[3],
             'genre_id': book[5]
         }
         query_dict.append(book_as_dict)
@@ -254,7 +254,16 @@ def addbook():
         return addbook_dict
 
 def addbookgenre(gid):
-    add_book_genre(gid)
+    addtogenre_dict = []
+
+    for adtogen in add_book_genre(gid):
+        addtogenre_as_dict = {
+            'genre_id': adtogen[0],
+            'book_id': adtogen[1]
+        }
+        addtogenre_dict.append(addtogenre_as_dict)
+    print (addtogenre_dict)
+    return addtogenre_dict
 
 def addlibrary():
     add_library()

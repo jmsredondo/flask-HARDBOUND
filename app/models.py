@@ -141,7 +141,7 @@ def get_book():
 
 
 def get_unassigned_book(gid):
-    cur.execute("SELECT * FROM books where genre_id !=" + gid + " or genre_id is null")
+    cur.execute("SELECT * FROM book")
     query_ret = cur.fetchall()
 
     return (query_ret)
@@ -263,8 +263,10 @@ def get_a_book(bid):
 
 def add_book_genre(gid):
     bid = request.form['book_id']
-    cur.execute("update books set genre_id = ? where book_id = ?", (gid, bid))
+    cur.execute("update book set genre_id = ? where id = ?", (gid, bid))
     db.commit()
+    addto_genre = [(gid, bid)]
+    return addto_genre
 
 
 def get_genres():

@@ -129,7 +129,6 @@ switch (windowurl) {
         localStorage.setItem('gid', gid);
         document.location.href = ('/genre/addbookstogenre');
 
-
     }
 
     // get all books to add to genre
@@ -157,9 +156,9 @@ switch (windowurl) {
                      '<div class="desc">'+data[i].description+'</div>' +
                      '</div>' +
                      '<div class="right-col col-lg-1 d-flex align-items-center">' +
-                     '<form method="post" action="/genre/addbook/{{gid}}">' +
-                     '<input type="hidden" name="book_id" value="{{book[\'book_id\']}}">' +
-                     '<button type="submit" class="btn btn-warning">Add</button></form>' +
+                     '<form">' +
+                     '<button type="button" onclick=openModal("confirmModal",'+data[i].book_id+','+genre_id+')>SARAP</button>'+
+                     '</form>' +
                      '</div>' +
                      '</div>';
 
@@ -168,6 +167,24 @@ switch (windowurl) {
              $genrebooks.html(genrebooksbody);
         }
     });
+}
+
+function addbooktogenre() {
+ var bookid = $("#bookmodal").serialize();
+ var genreid = $("#genremodalid");
+ //var bid = bookid.val();
+ var gid = genreid.val();
+     $.ajax({
+        url: '/genre/addbook/' + gid,
+        data: bookid,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+
+        }
+    });
+     document.location.href = ('/genre/addbookstogenre');
 }
 
 
@@ -184,7 +201,18 @@ switch (windowurl) {
 //     document.location.href = ('/genrebyid');
 // });
 
+function openModal(id,bookid,genreid) {
+    console.log(bookid)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#bookmodal").val(bookid);
+    $("#genremodalid").val(genreid);
 
+    $("#yesbtn").click(function () {
+        addbooktogenre();
+
+    });
+}
 function getgenrebyid() {
 
      var genre_id = localStorage.getItem('genreid');
