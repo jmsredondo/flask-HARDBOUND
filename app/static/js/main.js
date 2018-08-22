@@ -199,7 +199,7 @@ function init_getbooks(bookurl) {
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src=\"static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                    "<div class=\"image has-shadow\"><img src=\"/static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
                     "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
@@ -214,7 +214,7 @@ function init_getbooks(bookurl) {
                     "<form method=\"post\" action=\"/library\">" +
                     "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
                     "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>" +
-                    "<form method=\"delete\"  action=\"/book" + "/" + data[i].book_id + "\">" +
+                    "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
                     "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
                     "</div>" +
                     "</div>";

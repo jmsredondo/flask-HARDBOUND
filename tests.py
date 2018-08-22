@@ -23,7 +23,7 @@ class UserTestCase(unittest.TestCase):
     db.init_app(app)
 
     def setUp(self):
-        self.host = 'http://localhost:5000'
+        self.host = 'http://phvm-isghp-dev2.ph.trendnet.org:9300'
         self.samplegenre1 = {'type': 'Fiction', 'genre': 'Fantasy'}
         self.samplegenre2 = {'type': '', 'genre': ''}
         self.samplegenre3 = {'type': '1', 'genre': '1'}
@@ -106,72 +106,72 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 201)
 
     def test_add_book1(self):
-        res = requests.post(self.host='/book', data=self.samplebook1)
+        res = requests.post(self.host+'/book', data=self.samplebook1)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/book')
         self.assertEqual(res.status_code, 200)
         self.assertIn('A Wonderful Life', str(res.text))
 
     def test_add_book2(self):
-        res = requests.post(self.host='/book', data=self.samplebook2)
+        res = requests.post(self.host+'/book', data=self.samplebook2)
         self.assertEqual(res.status_code, 201)
 
     def test_add_book3(self):
-        res = requests.post(self.host='/book', data=self.samplebook3)
+        res = requests.post(self.host+'/book', data=self.samplebook3)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/book')
         self.assertEqual(res.status_code, 200)
         self.assertIn('2', str(res.text))
 
     def test_add_book4(self):
-        res = requests.post(self.host='/book', data=self.samplebook4)
+        res = requests.post(self.host+'/book', data=self.samplebook4)
         self.assertEqual(res.status_code, 201)
 
     def test_add_book5(self):
-        res = requests.post(self.host='/book', data=self.samplebook5)
+        res = requests.post(self.host+'/book', data=self.samplebook5)
         self.assertEqual(res.status_code, 201)
 
     def test_add_book6(self):
-        res = requests.post(self.host='/book', data=self.samplebook5)
+        res = requests.post(self.host+'/book', data=self.samplebook5)
         self.assertEqual(res.status_code, 201)
 
     def test_add_user1(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/book')
         self.assertEqual(res.status_code, 200)
         self.assertIn('jlaurelio', str(res.text))
 
     def test_add_user2(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_user3(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_user4(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_user5(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_user6(self):
-        res = requests.post(self.host='/users', data=self.sampleuser1)
+        res = requests.post(self.host+'/users', data=self.sampleuser1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_library1(self):
-        res = requests.post(self.host='/library', data=self.samplelibrary1)
+        res = requests.post(self.host+'/library', data=self.samplelibrary1)
         self.assertEqual(res.status_code, 201)
 
     def test_add_library2(self):
-        res = requests.post(self.host='/library', data=self.samplelibrary2)
+        res = requests.post(self.host+'/library', data=self.samplelibrary2)
         self.assertEqual(res.status_code, 201)
 
     def test_add_library3(self):
-        res = requests.post(self.host='/library', data=self.samplelibrary3)
+        res = requests.post(self.host+'/library', data=self.samplelibrary3)
         self.assertEqual(res.status_code, 201)
 
     def test_get_books_id(self):
@@ -189,42 +189,42 @@ class UserTestCase(unittest.TestCase):
         self.assertIn('2', str(res.text))
 
     def test_get_ratings1(self):
-        res = requests.post(self.host='/rate', data=self.samplerating1)
+        res = requests.post(self.host+'/rate', data=self.samplerating1)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/2')
         self.assertEqual(res.status_code, 200)
         self.assertIn('Good book', str(res.text))
 
     def test_get_ratings2(self):
-        res = requests.post(self.host='/rate', data=self.samplerating2)
+        res = requests.post(self.host+'/rate', data=self.samplerating2)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/3')
         self.assertEqual(res.status_code, 200)
         self.assertIn('Bad book', str(res.text))
 
     def test_get_ratings3(self):
-        res = requests.post(self.host='/rate', data=self.samplerating3)
+        res = requests.post(self.host+'/rate', data=self.samplerating3)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/4')
         self.assertEqual(res.status_code, 200)
         self.assertIn('', str(res.text))
 
     def test_get_ratings4(self):
-        res = requests.post(self.host='/rate', data=self.samplerating4)
+        res = requests.post(self.host+'/rate', data=self.samplerating4)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/5')
         self.assertEqual(res.status_code, 200)
         self.assertIn('3', str(res.text))
 
     def test_get_ratings5(self):
-        res = requests.post(self.host='/rate', data=self.samplerating5)
+        res = requests.post(self.host+'/rate', data=self.samplerating5)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/6')
         self.assertEqual(res.status_code, 200)
         self.assertIn('_!@#$%^&*()', str(res.text))
 
     def test_get_ratings6(self):
-        res = requests.post(self.host='/rate', data=self.samplerating6)
+        res = requests.post(self.host+'/rate', data=self.samplerating6)
         self.assertEqual(res.status_code, 201)
         res = res = requests.get(self.host + '/rate/7')
         self.assertEqual(res.status_code, 200)
