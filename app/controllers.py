@@ -222,9 +222,9 @@ def adduser():
         print (adduser_dict)
         return adduser_dict
 def addgenre():
-    if add_genres() == 'error1' or add_genres() == 'error2':
-        return add_genres()
-    else:
+    # if add_genres() == 'error1' or add_genres() == 'error2':
+    #     return add_genres()
+    # else:
         addgenre_dict = []
 
         for adgen in add_genres():
@@ -238,9 +238,9 @@ def addgenre():
 
 
 def addbook():
-    if add_book() == 'error1' or add_book() == 'error2':
-        return add_book()
-    else:
+    # if add_book() == 'error1' or add_book() == 'error2':
+    #     return add_book()
+    # else:
         addbook_dict = []
 
         for adbook in add_book():

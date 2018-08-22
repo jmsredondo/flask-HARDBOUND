@@ -135,14 +135,37 @@ switch (windowurl) {
     // get all books to add to genre
     function displaybooksgenre(){
           var genre_id = localStorage.getItem('gid');
+          var $genrebooks = $("#genrebooks");
+        var genrebooksbody = [];
           $.ajax({
         url: '/genre/getaddbook/'+ genre_id,
         dataType: 'JSON',
         success: function (data) {
             console.log(data);
+             for(var i =0; i <= data.length-1; i++) {
+                 genrebooksbody += '<div class="row bg-white has-shadow">' +
+                     '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">' +
+                     '<div class="project-title d-flex align-items-center">' +
+                     '<div class="image has-shadow"><img src="/static/img/book.jpg " style="height: 100%; width: 100%;" alt="..." class="img-fluid"></div>' +
+                     '<div class="text">' +
+                     '<h2>'+data[i].title+'</h2>' +
+                     '<i>'+data[i].author+'</i>' +
+                     '</div>' +
+                     '</div>' +
+                     '</div>' +
+                     '<div class="right-col col-lg-5 d-flex align-items-center">' +
+                     '<div class="desc">'+data[i].description+'</div>' +
+                     '</div>' +
+                     '<div class="right-col col-lg-1 d-flex align-items-center">' +
+                     '<form method="post" action="/genre/addbook/{{gid}}">' +
+                     '<input type="hidden" name="book_id" value="{{book[\'book_id\']}}">' +
+                     '<button type="submit" class="btn btn-warning">Add</button></form>' +
+                     '</div>' +
+                     '</div>';
 
 
-
+             }
+             $genrebooks.html(genrebooksbody);
         }
     });
 }
