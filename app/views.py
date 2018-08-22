@@ -150,10 +150,14 @@ def deletegenres(gid):
     flash('Genre successfully deleted.')
     return redirect('/genre'), 200
 
-@app.route('/genre/addbook/<gid>', methods=['GET'])
+@app.route('/genre/addbookstogenre')
+def getbookstoadd():
+    return render_template("bookList2.html")
+
+@app.route('/genre/getaddbook/<gid>', methods=['GET'])
 def getbooktogenre(gid):
     books = getunassignedbook(gid)
-    return render_template('bookList2.html',books=books, gid=gid), 200
+    return jsonify(books), 200
 
 @app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):

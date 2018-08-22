@@ -217,6 +217,8 @@ def add_book():
         author=request.form['author']
         cur.execute("insert into books (title, description, author) VALUES (?,?,?)", (title, description, author))
         db.commit()
+        genrepost = [(title, description, author)]
+        return genrepost
 
 
 def add_library():
@@ -273,6 +275,8 @@ def add_genres():
         genre_name=request.form['genre']
         cur.execute("insert into genres (type, genre) VALUES (?,?)", (genre_type, genre_name))
         db.commit()
+        genrepost = [(genre_type, genre_name)]
+        return genrepost
 
 def add_rating():
     if bool(re.search(r'\d', request.form['book_id'])) or bool(re.search(r'\d', request.form['rating'])) or bool(re.search(r'\d', request.form['comment'])):
