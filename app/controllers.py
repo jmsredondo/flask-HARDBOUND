@@ -147,20 +147,22 @@ def getlogin():
     print userlogin
     return userlogin
 
-"""
+
 def login():
-     cur.execute("select username, password from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
      rows=cur.fetchone()
-     # if rows != None:
-     #    session['token'] = rows[0]
-     #    if rows[2] == 'admin':
-     #        session['usertype'] = True
-     #    else:
-     #        session['usertype'] = False
-     # else:
-     #    session['token'] = None
+     if rows != None:
+        session['token'] = rows[0]
+        if rows[2] == 'admin' and request.form['usertype'] == 'admin':
+            session['usertype'] = True
+        elif rows[2] == 'user' and request.form['usertype'] == 'user':
+            session['usertype'] = False
+        else:
+            session['usertype'] = None
+     else:
+        session['token'] = None
      return rows
-"""
+
 
 def getgenres():
     genres_dict = []
