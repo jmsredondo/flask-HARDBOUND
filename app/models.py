@@ -226,11 +226,11 @@ def add_user():
 
 
 def add_book():
-    # if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
-    #     return 'error1'
-    # elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
-    #     return 'error2'
-    # else:
+    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+        return 'error1'
+    elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
+        return 'error2'
+    else:
         title=request.form['title']
         description=request.form['description']
         author=request.form['author']
@@ -283,13 +283,13 @@ def get_a_genre(gid):
 
 
 def add_genres():
-    # if bool(re.search(r'\d', request.form['genre'])):
-    #     return 'error1'
-    #
-    # elif request.form['genre'] == '':
-    #     return 'error2'
-    #
-    # else:
+     if bool(re.search(r'\d', request.form['genre'])):
+         return 'error1'
+
+     elif request.form['genre'] == '':
+         return 'error2'
+
+     else:
         genre_type=request.form['type']
         genre_name=request.form['genre']
         cur.execute("insert into genre (type, genre) VALUES (?,?)", (genre_type, genre_name))

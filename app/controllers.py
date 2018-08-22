@@ -222,28 +222,30 @@ def adduser():
         print (adduser_dict)
         return adduser_dict
 def addgenre():
-    # if add_genres() == 'error1' or add_genres() == 'error2':
-    #     return add_genres()
-    # else:
-        addgenre_dict = []
+    result = add_genres()
+    if result == 'error1' or result == 'error2':
+        return add_genres()
+    else:
+       addgenre_dict = []
 
-        for adgen in add_genres():
-            addgenres_as_dict = {
-                'type': adgen[0],
-                'genre': adgen[1]
-            }
-            addgenre_dict.append(addgenres_as_dict)
-        print (addgenre_dict)
-        return addgenre_dict
+       for adgen in result:
+           addgenres_as_dict = {
+               'type': adgen[0],
+               'genre': adgen[1]
+           }
+           addgenre_dict.append(addgenres_as_dict)
+       print (addgenre_dict)
+       return addgenre_dict
 
 
 def addbook():
-    # if add_book() == 'error1' or add_book() == 'error2':
-    #     return add_book()
-    # else:
+    result = add_book()
+    if result == 'error1' or result == 'error2':
+        return add_book()
+    else:
         addbook_dict = []
 
-        for adbook in add_book():
+        for adbook in result:
             addbook_as_dict = {
                 'title': adbook[0],
                 'description': adbook[1],

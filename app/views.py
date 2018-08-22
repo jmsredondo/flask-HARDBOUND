@@ -81,15 +81,16 @@ def getabooks(bid):
 
 @app.route('/book', methods=['POST'])
 def addbooks():
-    # if addbook() == 'error1':
-    #     return redirect('/getaddbookerror1')
-    # elif addbook() == 'error2':
-    #     return redirect('/getaddbookerror2')
-    # else:
-    #     flash('New book successfully added!')
-    #     books = getbook()
-    #     genres = getgenres()
-        return jsonify(addbook()), 201
+    result = addbook()
+    if result == 'error1':
+        return redirect('/getaddbookerror1')
+    elif result == 'error2':
+        return redirect('/getaddbookerror2')
+    else:
+        flash('New book successfully added!')
+        books = getbook()
+        genres = getgenres()
+        return jsonify(result), 201
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
@@ -149,13 +150,14 @@ def getagenre(gid):
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
-    # if addgenre() == 'error1':
-    #     return redirect('/getaddgenereerror1')
-    # elif addgenre() == 'error2':
-    #     return redirect('/getaddgenereerror2')
-    # else:
-    #     flash('Genre successfully added!')
-    return jsonify(addgenre()), 201
+    result = addgenre()
+    if result == 'error1':
+        return redirect('/getaddgenereerror1')
+    elif result == 'error2':
+        return redirect('/getaddgenereerror2')
+    else:
+        flash('Genre successfully added!')
+    return jsonify(result), 201
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
