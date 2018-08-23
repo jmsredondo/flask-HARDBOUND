@@ -351,7 +351,7 @@ def getaddbookerror1():
     errorinput = []
     #print 'error 2'
     error = {
-      "field": "title, description, or author",
+      "field": "author",
       "reason": "Invalid input"
     }
     errorinput.append(error)

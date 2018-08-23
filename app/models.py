@@ -230,7 +230,7 @@ def add_user():
 
 
 def add_book():
-    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+    if bool(re.search(r'\d', request.form['author'])):
         return 'error1'
     elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
         return 'error2'
