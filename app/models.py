@@ -261,7 +261,7 @@ def add_library():
 
 
 def get_a_book(bid):
-    cur.execute("select * from book inner join user_library on book.id = user_library.book_id where book_id = " + (bid) + " and book.id not in user_library.book_id")
+    cur.execute("select * from book where id = " + (bid))
     books = cur.fetchall()
     return books
 

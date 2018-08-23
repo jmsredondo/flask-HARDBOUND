@@ -76,8 +76,7 @@ def getbooks():
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
-    books = getabook(bid)
-    return jsonify(books), 200
+    return jsonify(getabook(bid)), 200
 
 @app.route('/book', methods=['POST'])
 def addbooks():
