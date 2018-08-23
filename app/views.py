@@ -62,14 +62,16 @@ def before_request():
 @app.route('/books')
 def getbooktemp():
     if g.user is not None and session['usertype'] is not None:
-        return render_template("bookList.html")
+        current_user = session['token']
+        return render_template("bookList.html", current_user=current_user)
     else:
         return render_template("login.html")
 
 @app.route('/bookbyid')
 def getbookbyidtem():
     if g.user is not None and session['usertype'] is not None:
-        return render_template("getBook.html")
+        current_user = session['token']
+        return render_template("getBook.html", current_user=current_user)
     else:
         return render_template("login.html")
 
@@ -119,14 +121,16 @@ def deletebooks(bid):
 @app.route('/users/list', methods=['GET'])
 def listuser():
     if g.user is not None and session['usertype'] is not None:
-        return render_template('userList.html'), 200
+        current_user = session['token']
+        return render_template('userList.html', current_user=current_user), 200
     else:
         return render_template("login.html")
 
 @app.route('/user')
 def userbyusernametemp():
     if g.user is not None and session['usertype'] is not None:
-        return render_template('getUser.html'), 200
+        current_user = session['token']
+        return render_template('getUser.html', current_user=current_user), 200
     else:
         return render_template("login.html")
 
@@ -169,14 +173,16 @@ def register():
 @app.route('/genres', methods=['GET'])
 def getgenretemp():
     if g.user is not None and session['usertype'] is not None:
-        return render_template('dispCat_all.html'), 200
+        current_user = session['token']
+        return render_template('dispCat_all.html', current_user=current_user), 200
     else:
         return render_template("login.html")
 
 @app.route('/genrebyid')
 def getgenreidtemp():
     if g.user is not None and session['usertype'] is not None:
-        return render_template('getGenre.html'), 200
+        current_user = session['token']
+        return render_template('getGenre.html', current_user=current_user), 200
     else:
         return render_template("login.html")
 
@@ -221,7 +227,8 @@ def deletegenres(gid):
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():
     if g.user is not None and session['usertype'] is not None:
-        return render_template("bookList2.html")
+        current_user = session['token']
+        return render_template("bookList2.html", current_user=current_user)
     else:
         return render_template("login.html")
 
@@ -245,8 +252,9 @@ def addbooktogenre(gid):
 def getlibrary():
     if g.user is not None and session['usertype'] is not None:
         username = session['token']
+        current_user = session['token']
         books = getuserbook(username)
-        return render_template('library.html', books=books), 200
+        return render_template('library.html', books=books, current_user=current_user), 200
     else:
         return render_template("login.html")
 
@@ -286,7 +294,8 @@ def addratings():
 def getratings(bid):
     if g.user is not None and session['usertype'] is not None:
         ratings = getrating(bid)
-        return render_template('getRating.html', ratings=ratings), 200
+        current_user = session['token']
+        return render_template('getRating.html', ratings=ratings, current_user=current_user), 200
     else:
         return render_template("login.html")
 
