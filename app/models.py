@@ -152,7 +152,7 @@ def get_unassigned_book(gid):
 def get_user_book(username):
     # query
     cur.execute(
-        "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
+        "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN user ON user.id = user_library.user_id where username = '" + username + "'")
     query_ret = cur.fetchall()
     print ('EY')
     print (query_ret)
@@ -245,22 +245,23 @@ def add_book():
 
 
 def add_library():
-    if bool(re.search(r'\d', request.form['book'])):
-        return 'error1'
-    elif request.form['book'] == '':
+    if request.form['book'] == '':
         return 'error2'
     else:
         book=request.form['book']
         user=session['token']
-        cur.execute("select id from users where username = '" + user + "'")
+        cur.execute("select id from user where username = '" + user + "'")
         user=cur.fetchone()
         user_id=user[0]
         cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
         db.commit()
+        lib = [(book,user_id)]
+        print(lib)
+        return lib
 
 
 def get_a_book(bid):
-    cur.execute("select * from books where book_id = " + (bid))
+    cur.execute("select * from books inner join user_library on books.book_id = user_library.book_id where book_id = " + (bid) + " and books.book_id not in user_library.book_id")
     books = cur.fetchall()
     return books
 
@@ -281,7 +282,7 @@ def get_genres():
     return rows
 
 def get_a_genre(gid):
-    cur.execute("select * from genres where genre_id = " + (gid))
+    cur.execute("select * from genre where genre_id = " + (gid))
     genres = cur.fetchall()
     return genres
 

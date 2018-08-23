@@ -29,9 +29,10 @@ def getuserbook(username):
 
     for book in get_user_book(username):
         book_as_dict = {
-            'title': book[0],
-            'book_id': book[3],
-            'author': book[4]
+            'title': book[1],
+            'book_id': book[0],
+            'author': book[3],
+            'description': book[4]
         }
         query_dict.append(book_as_dict)
     print query_dict
@@ -270,8 +271,15 @@ def addbookgenre(gid):
     return addtogenre_dict
 
 def addlibrary():
-    add_library()
-    return add_library()
+    addtolib_dict = []
+    for adlib in add_library():
+        addtolib_as_dict = {
+            'book': adlib[0],
+            'user': adlib[1]
+        }
+        addtolib_dict.append(addtolib_as_dict)
+    print (addtolib_dict)
+    return addtolib_dict
 
 def addrating():
     add_rating()

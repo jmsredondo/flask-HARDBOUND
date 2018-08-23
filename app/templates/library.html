@@ -1,3 +1,4 @@
+<title>HARDBOUND | Book List</title>
 {% extends 'layout/base.html' %}
 
 {% block content %}
@@ -7,16 +8,16 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">My books</h2>
+              <h2 class="no-margin-bottom">Book List</h2>
             </div>
           </header>
           <!-- Projects Section-->
            <section class="<projects></projects>">
-            <div class="container-fluid">
+            <div id="genre" class="container-fluid">
                     {% with messages = get_flashed_messages() %}
                       {% if messages %}
                        
-                        {% for message in messages %} 
+                        {% for message in messages %}
 
                    <div class="col-lg-12">
                   <div class="card bg-success text-white bg-lighten-3">
@@ -25,40 +26,41 @@
                   </div>
                     </div>
                 </div>
-                  
+
                   {% endfor %}
-                        
+
                       {% endif %}
                     {% endwith %}
               <!-- Project-->
-                {% for book in books %}
-                <div class="project">
-                  <div class="row bg-white has-shadow">
-                    <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                      <div class="project-title d-flex align-items-center">
-                        <div class="image has-shadow"><img src="/static/img/book.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>
-                        <div class="text">
-                          <h2>{{book["title"]}}</h2>
-                          <i>Author: {{book["author"]}}</i>
-                        </div>
-                      </div>
-                      </div>
-                    <div class="right-col col-lg-5 d-flex align-items-center">
-                      <div class="desc">{{book["description"]}}</div>
-                    </div>
-                    <div class="right-col col-lg-1 d-flex align-items-center">
-                      </div>
+            
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row float-right" style="padding-right: 5%">
+                    <input required id="booksearch" type="text">
+                    <div class="float-right" style="padding-left: 2%">
+                      <button type="button" class="btn btn-primary" id="bookbtnsearch">Search</button>
                     </div>
                   </div>
-                {% endfor %}
+                    </div>
+                    <div class="card-body">
+                        <div id="listbooklib" class="project">
+                    <!--content generated using javascript-->
 
+                  </div>
+                    </div>
                 </div>
-
-              <!-- Project-->
             </div>
-          </section>
+            
+                </div>
+           </section>
+
           <!-- Page Footer-->
 {% endblock %}
         </div>
     </div>
     </div>
+
+
+
+

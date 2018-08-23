@@ -81,7 +81,11 @@ switch (windowurl) {
         getgenrebyid();
         break;
     case '/genre/addbookstogenre':
-        displaybooksgenre()
+        displaybooksgenre();
+        break;
+    case '/libraries':
+        getuserlibrary();
+
 }
 });
 // all functions
@@ -157,7 +161,7 @@ switch (windowurl) {
                      '</div>' +
                      '<div class="right-col col-lg-1 d-flex align-items-center">' +
                      '<form">' +
-                     '<button type="button" onclick=openModal("confirmModal",'+data[i].book_id+','+genre_id+')>SARAP</button>'+
+                     '<button type="button" class="btn btn-primary" onclick=openModal("confirmModal",'+data[i].book_id+','+genre_id+')>Add Book to Genre</button>'+
                      '</form>' +
                      '</div>' +
                      '</div>';
@@ -264,9 +268,9 @@ function init_getbooks(bookurl) {
                     "<div class=\"desc\">" + data[i].description + "</div>" +
                     "</div>" +
                     "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
-                    "<form method=\"post\" action=\"/library\">" +
+                    "<form id='addtolib'>" +
                     "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
-                    "<button type=\"submit\" class=\"btn btn-warning\">Add book</button></form>" +
+                    "<button type=\"button\" onclick=\"openModallib('confirmModallib',"+data[i].book_id+")\" class=\"btn btn-warning\">Add book</button></form>" +
                     "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
                     "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
                     "</div>" +
@@ -396,6 +400,45 @@ function getbyusername() {
 
 }
 
+function getuserlibrary() {
+      var $listbook = $("#listbooklib");
+
+
+    var div = [];
+    $.ajax({
+        url: 'library',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+
+            for (var i = 0; i <= data.length - 1; i++) {
+
+                div += '<div class="row bg-white has-shadow">'+
+                    '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">'+
+                      '<div class="project-title d-flex align-items-center">'+
+                        '<div class="image has-shadow"><img src="../static/img/book.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>'+
+                        '<div class="text">'+
+                          '<h2>'+data[i].title+'</h2>'+
+                          '<i>'+data[i].author+'</i>'+
+                        '</div>'+
+                      '</div>'+
+                      '</div>'+
+                    '<div class="right-col col-lg-5 d-flex align-items-center">'+
+                      '<div class="desc">'+data[i].description+'</div>'+
+                    '</div>'+
+                    '<div class="right-col col-lg-1 d-flex align-items-center">'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>';
+            }
+            $listbook.html(div);
+
+        }
+    });
+
+
+}
+
 function savegenre() {
     var data = $('#genrepost').serialize();
     console.log(data);
@@ -425,5 +468,33 @@ function addbook() {
         }
     });
     document.location.href = ('/books');
+}
+
+function openModallib(id,bookid) {
+    //console.log(id)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#bookmodallib").val(bookid);
+    //$("#genremodalid").val(genreid);
+
+    $("#yesbtnlib").click(function () {
+        addbooktolib();
+
+    });
+}
+
+function addbooktolib() {
+    var data = $('#addbooklib').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/library',
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+    document.location.href = ('/libraries');
 }
 
