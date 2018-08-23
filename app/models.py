@@ -304,9 +304,7 @@ def add_genres():
 
 
 def add_rating():
-    if bool(re.search(r'\d', request.form['book_id'])) or bool(re.search(r'\d', request.form['rating'])) or bool(re.search(r'\d', request.form['comment'])):
-        return 'error1'
-    elif request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
+    if request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
         return 'error2'
     else:
         book_id=request.form['book_id']

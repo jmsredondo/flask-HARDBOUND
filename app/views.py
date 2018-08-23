@@ -330,7 +330,8 @@ def getaddgenereerror1():
     errorinput = []
     #print 'error 2'
     error = {
-        'description': 'Invalid input'
+      "field": "genre",
+      "reason": "Invalid input"
     }
     errorinput.append(error)
     return jsonify(errorinput), 400
@@ -350,7 +351,8 @@ def getaddbookerror1():
     errorinput = []
     #print 'error 2'
     error = {
-        'description': 'Invalid input'
+      "field": "title, description, or author",
+      "reason": "Invalid input"
     }
     errorinput.append(error)
     return jsonify(errorinput), 400
@@ -370,7 +372,8 @@ def getaddusererror1():
     errorinput = []
     #print 'error 2'
     error = {
-        'description': 'Invalid input'
+      "field": "first name or last name",
+      "reason": "Invalid input"
     }
     errorinput.append(error)
     return jsonify(errorinput), 400
@@ -380,7 +383,8 @@ def getaddliberror1():
     errorinput = []
     #print 'error 2'
     error = {
-        'description': 'Invalid input'
+      "field": "book",
+      "reason": "Invalid input"
     }
     errorinput.append(error)
     return jsonify(errorinput), 400
@@ -394,17 +398,18 @@ def getaddliberror2():
     }
     errorinput.append(error)
     return jsonify(errorinput), 401
-
+"""
 @app.route('/getaddrateerror1',methods=['GET'])
 def getaddrateerror1():
     errorinput = []
     #print 'error 2'
     error = {
-        'description': 'Invalid input'
+      "field": "genre",
+      "reason": "Invalid input"
     }
     errorinput.append(error)
     return jsonify(errorinput), 400
-
+"""
 @app.route('/getaddrateerror2',methods=['GET'])
 def getaddrateerror2():
     errorinput = []
