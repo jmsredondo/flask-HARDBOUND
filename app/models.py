@@ -152,11 +152,11 @@ def get_unassigned_book(gid):
 def get_user_book(username):
     # query
     cur.execute(
-        "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN users ON users.id = user_library.user_id where username = '" + username + "'")
+        "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN user ON user.id = user_library.user_id where username = '" + username + "'")
     query_ret = cur.fetchall()
     print ('EY')
     print (query_ret)
-    return (query_ret)
+    return query_ret
 
 
 # get book categories
