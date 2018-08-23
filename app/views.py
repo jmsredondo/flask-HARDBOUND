@@ -120,7 +120,7 @@ def deletebooks(bid):
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         current_user = session['token']
         return render_template('userList.html', current_user=current_user), 200
     else:
@@ -128,7 +128,7 @@ def listuser():
 
 @app.route('/user')
 def userbyusernametemp():
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         current_user = session['token']
         return render_template('getUser.html', current_user=current_user), 200
     else:
@@ -136,7 +136,7 @@ def userbyusernametemp():
 
 @app.route('/users', methods=['GET'])
 def userslist():
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         rows = getusers()
         print rows
         return jsonify(rows)
@@ -145,7 +145,7 @@ def userslist():
 
 @app.route('/users/<uid>',methods=['GET'])
 def getausers(uid):
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         users = getauser(uid)
         return jsonify(users),200
     else:
@@ -153,14 +153,14 @@ def getausers(uid):
 
 @app.route('/register', methods=['GET'])
 def getregister():
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         return render_template('register.html'), 200
     else:
         return render_template("login.html")
 
 @app.route('/users', methods=['POST'])
 def register():
-    if g.user is not None and session['usertype'] is not None:
+    if g.user is not None and session['usertype'] == True:
         if adduser() == 'error1':
             return redirect('/getaddusererror1')
         else:
