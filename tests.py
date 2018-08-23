@@ -23,7 +23,7 @@ class UserTestCase(unittest.TestCase):
     db.init_app(app)
 
     def setUp(self):
-        self.host = '0.0.0.0:9300'
+        self.host = 'http://localhost:5000'
         self.samplegenre1 = {'type': 'Fiction', 'genre': 'Fantasy'}
         self.samplegenre2 = {'type': '', 'genre': ''}
         self.samplegenre3 = {'type': '1', 'genre': '1'}
@@ -51,11 +51,12 @@ class UserTestCase(unittest.TestCase):
         self.samplerating4 = {'book_id': '5', 'user_id': '2', 'rating': '3', 'comment': '3'}
         self.samplerating5 = {'book_id': '6', 'user_id': '2', 'rating': '3', 'comment': '_!@#$%^&*()'}
         self.samplerating6 = {'book_id': "7", 'user_id': "2", 'rating': '3', 'comment': "''"}
-        
+        self.login = {'username: arvincea', 'password: arvincea'}
+
     def test_get_genre_status(self):
         res = res = requests.get(self.host + '/genre')
         self.assertEqual(res.status_code, 200)
-'''
+
     def test_get_books_status(self):
         res = res = requests.get(self.host + '/book')
         self.assertEqual(res.status_code, 200)
@@ -71,6 +72,7 @@ class UserTestCase(unittest.TestCase):
     def test_get_logout_status(self):
         res = res = requests.get(self.host + '/users/logout')
         self.assertEqual(res.status_code, 200)
+'''
             
     def test_add_genre1(self):
         res = requests.post(self.host+'/genre', data=self.samplegenre1)
@@ -81,11 +83,11 @@ class UserTestCase(unittest.TestCase):
 
     def test_add_genre2(self):
         res = requests.post(self.host+'/genre', data=self.samplegenre2)
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 401)
 
     def test_add_genre3(self):
         res = requests.post(self.host+'/genre', data=self.samplegenre3)
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 400
 
     def test_add_genre4(self):
         res = requests.post(self.host+'/genre', data=self.samplegenre4)
@@ -144,11 +146,11 @@ class UserTestCase(unittest.TestCase):
 
     def test_add_user2(self):
         res = requests.post(self.host+'/users', data=self.sampleuser1)
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 401)
 
     def test_add_user3(self):
         res = requests.post(self.host+'/users', data=self.sampleuser1)
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 400)
 
     def test_add_user4(self):
         res = requests.post(self.host+'/users', data=self.sampleuser1)
@@ -231,6 +233,12 @@ class UserTestCase(unittest.TestCase):
         self.assertIn("''", str(res.text))
 
     def test_api_get_genre_list(self):
+        """Test get user list (GET request)."""
+        res = res = requests.get(self.host+'/genre')
+        self.assertEqual(res.status_code, 200)
+        self.assertIn('Action', str(res.text))
+
+        def test_api_get_genre_list(self):
         """Test get user list (GET request)."""
         res = res = requests.get(self.host+'/genre')
         self.assertEqual(res.status_code, 200)
