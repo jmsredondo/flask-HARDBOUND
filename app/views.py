@@ -323,7 +323,7 @@ def geterrorlogin():
         'description': 'Invalid username/password supplied'
     }
     errorlogin.append(error)
-    return jsonify(errorlogin), 400
+    return jsonify(errorlogin)
     #return redirect('/errorlogin')
 
 #Error Handling
