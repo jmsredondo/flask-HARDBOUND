@@ -36,7 +36,7 @@
             <div class="avatar"><img src="../../../static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{current_user}}</h1>
-              <p>{{session['usertype']}}</p>
+                {% if session['usertype'] == True: %} <p>Admin</p> {% else: %} <p>User</p> {% endif%}
             </div>
           </div>
           <!-- Sidebar Navidation Menus-->
