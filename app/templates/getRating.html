@@ -32,19 +32,20 @@
                       {% endif %}
                     {% endwith %}
                    
-                <div class="col-lg-12">
-                  <div class="card">
-
-                    <div class="card-body">
-                      <div class="table-responsive">
-                            {% for rating in ratings %}
-                            {{rating["rating"]}} - {{rating["comment"]}}<br>
-                            Comment by arvincea
-                            {% endfor %}
+                      {% for rating in ratings %}
+                       <div class="item clearfix">
+                        <div class="feed d-flex justify-content-between">
+                          <div class="feed-body d-flex justify-content-between">
+                            <div class="content">
+                              <h4>{{rating['username']}}</h4>
+                              <h1>{{rating['rating']}} <i class="fa fa-star text-orange"></i></h1>
+                            </div>
+                          </div>
+                          <div class="date text-right"><small>{{rating['date']}}</small></div>
+                        </div>
+                        <div class="quote has-shadow"> <p>{{rating['comment']}}</p></div>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                      {% endfor %}
                 
                 <div class="col-lg-12">
                   <div class="daily-feeds card"> 
