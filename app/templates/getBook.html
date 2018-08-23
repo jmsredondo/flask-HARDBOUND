@@ -69,6 +69,9 @@
                       </div>
                     </div>
                     eto gagalawin mo mark v v v 
+                           
+                    <div class="card-body">
+                        <h3> Rating <i class="fa fa-star text-orange"></i></h3>
                             <form method = 'post' action = '/rate'>
                               <select class="form-control" name="rating">
                                 <option value="5">5 star</option>
@@ -78,12 +81,13 @@
                                 <option value="1">1 star</option>
                               </select>
                               <h3 style="padding-top: 2%">Comments <i class="fa fa-comment text-success"></i></h3>
-                              <input type = 'text' name="comment" class="form-control" placeholder="Comment">
+                              <textarea rows="4" cols="50" name="comment" form="usrform" class="form-control"> Enter text here...</textarea>
 {#                              <input type = 'hidden' name="book_id" value="{{book['book_id']}}">#}
                               <div style="padding-top: 2%">
                               <button type="submit" class="btn btn-warning">Add</button>
                               </div>
                             </form>
+                    </div>
 {#                            <a href="'rate' {{book['book_id]}">Go to ratings</a>#}
                   </div>
                 </div>
