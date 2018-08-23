@@ -36,7 +36,7 @@
             <div class="avatar"><img src="../../../static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{current_user}}</h1>
-              <p>{{session['usertype']}}</p>
+                {% if session['usertype'] == True: %} <p>Admin</p> {% else: %} <p>User</p> {% endif%}
             </div>
           </div>
           <!-- Sidebar Navidation Menus-->
@@ -46,7 +46,7 @@
 
                         <li><a href="#categorySubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-list-ul"></i>GENRE </a></li>
                     <ul id="categorySubMenu" class="collapse list-unstyled ">
-                        <li><a href="#addCatModal" data-toggle="modal">Add Genre</a></li>
+                        {% if session['usertype'] == True: %}<li><a href="#addCatModal" data-toggle="modal">Add Genre</a></li>{% else: %}{% endif%}
                         <li><a href="/genres">Display Genre</a></li>
                     </ul>
 

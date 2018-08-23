@@ -156,7 +156,7 @@ def get_user_book(username):
     query_ret = cur.fetchall()
     print ('EY')
     print (query_ret)
-    return (query_ret)
+    return query_ret
 
 
 # get book categories
@@ -211,7 +211,7 @@ def login():
 
 
 def add_user():
-    if bool(re.search(r'\d', request.form['registerFirstname'])) or bool(re.search(r'\d', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
+    if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerFirstname'])) or bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
         return 'error1'
     else:
         username = request.form['registerUsername']
@@ -230,7 +230,7 @@ def add_user():
 
 
 def add_book():
-    if bool(re.search(r'\d', request.form['title'])) or bool(re.search(r'\d', request.form['description'])) or bool(re.search(r'\d', request.form['author'])):
+    if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['author'])):
         return 'error1'
     elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
         return 'error2'
@@ -288,7 +288,7 @@ def get_a_genre(gid):
 
 
 def add_genres():
-     if bool(re.search(r'\d', request.form['genre'])):
+     if bool(re.search(r'[\d!#$%&*+.^_`|~:]+$', request.form['genre'])):
          return 'error1'
 
      elif request.form['genre'] == '':
@@ -305,9 +305,7 @@ def add_genres():
 
 
 def add_rating():
-    if bool(re.search(r'\d', request.form['book_id'])) or bool(re.search(r'\d', request.form['rating'])) or bool(re.search(r'\d', request.form['comment'])):
-        return 'error1'
-    elif request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
+    if request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
         return 'error2'
     else:
         book_id=request.form['book_id']
