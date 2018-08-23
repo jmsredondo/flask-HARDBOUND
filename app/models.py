@@ -97,6 +97,7 @@ class Ratings(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rating = db.Column(db.Integer, nullable=True)
     comment = db.Column(db.String(64))
+    date = db.Column(db.INTEGER, nullable=False, date=True)
 
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
 
@@ -106,7 +107,8 @@ class Ratings(db.Model):
             'Book ID': self.book_id,
             'User ID': self.user_id,
             'rating': self.rating,
-            'comment': self.comment
+            'comment': self.comment,
+            'date': self.date
         }
 
         #response = '<Ratings %s>' % data
@@ -319,7 +321,7 @@ def add_rating():
         db.commit()
 
 def get_rating(bid):
-    cur.execute("select * from ratings inner join books on ratings.book_id = books.book_id where ratings.book_id = " + (bid))
+    cur.execute("select * from ratings inner join book on ratings.book_id = book.id inner join user on ratings.user_id = user.id where ratings.book_id = " + (bid))
     books=cur.fetchall()
     return books
 

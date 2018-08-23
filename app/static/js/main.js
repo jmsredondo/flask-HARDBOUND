@@ -73,6 +73,7 @@ switch (windowurl) {
         break;
     case '/bookbyid':
         getbookbyid();
+        getratings();
         break;
     case '/user':
         getbyusername();
@@ -401,9 +402,7 @@ function getbyusername() {
 }
 
 function getuserlibrary() {
-      var $listbook = $("#listbooklib");
-
-
+    var $listbook = $("#listbooklib");
     var div = [];
     $.ajax({
         url: 'library',
@@ -437,6 +436,27 @@ function getuserlibrary() {
     });
 
 
+}
+
+function getratings(){
+    var book_id = localStorage.getItem('bid');
+    var $listrating = $("#ratingcontent");
+    var content = [];
+    $.ajax({
+        url: 'rate/'+book_id,
+        dataType: 'JSON',
+        success: function (data) {
+        console.log(data);
+
+            for (var i = 0; i <= data.length - 1; i++) {
+            content += '<h4>'+data[i].username+'</h4>\n' +
+                       '<h1>'+data[i].rating+'<i class="fa fa-star text-orange">';
+
+            }
+            $listrating.html(content);
+
+        }
+    })
 }
 
 function savegenre() {
