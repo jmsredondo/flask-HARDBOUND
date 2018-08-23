@@ -211,7 +211,7 @@ def login():
 
 
 def add_user():
-    if bool(re.search(r'\d', request.form['registerFirstname'])) or bool(re.search(r'\d', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
+    if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerFirstname'])) or bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
         return 'error1'
     else:
         username = request.form['registerUsername']
@@ -230,7 +230,7 @@ def add_user():
 
 
 def add_book():
-    if bool(re.search(r'\d', request.form['author'])):
+    if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['author'])):
         return 'error1'
     elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
         return 'error2'
@@ -245,9 +245,7 @@ def add_book():
 
 
 def add_library():
-    if bool(re.search(r'\d', request.form['book'])):
-        return 'error1'
-    elif request.form['book'] == '':
+    if request.form['book'] == '':
         return 'error2'
     else:
         book=request.form['book']
@@ -287,7 +285,7 @@ def get_a_genre(gid):
 
 
 def add_genres():
-     if bool(re.search(r'\d', request.form['genre'])):
+     if bool(re.search(r'[\d!#$%&*+.^_`|~:]+$', request.form['genre'])):
          return 'error1'
 
      elif request.form['genre'] == '':

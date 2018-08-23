@@ -65,7 +65,7 @@ def getbooktemp():
         current_user = session['token']
         return render_template("bookList.html", current_user=current_user)
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/bookbyid')
 def getbookbyidtem():
@@ -73,7 +73,7 @@ def getbookbyidtem():
         current_user = session['token']
         return render_template("getBook.html", current_user=current_user)
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/book',methods=['GET'])
 def getbooks():
@@ -83,7 +83,7 @@ def getbooks():
        # genres = getgenres()
         return jsonify(books), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/book/<bid>', methods=['GET'])
 def getabooks(bid):
@@ -91,7 +91,7 @@ def getabooks(bid):
         books = getabook(bid)
         return jsonify(books), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/book', methods=['POST'])
 def addbooks():
@@ -107,7 +107,7 @@ def addbooks():
             genres = getgenres()
             return jsonify(result), 201
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
@@ -116,7 +116,7 @@ def deletebooks(bid):
         flash('Book successfully deleted.')
         return redirect('/books'), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
@@ -124,7 +124,7 @@ def listuser():
         current_user = session['token']
         return render_template('userList.html', current_user=current_user), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/user')
 def userbyusernametemp():
@@ -141,7 +141,7 @@ def userslist():
         print rows
         return jsonify(rows)
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/users/<uid>',methods=['GET'])
 def getausers(uid):
@@ -149,14 +149,14 @@ def getausers(uid):
         users = getauser(uid)
         return jsonify(users),200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/register', methods=['GET'])
 def getregister():
     if g.user is not None and session['usertype'] == True:
         return render_template('register.html'), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -167,7 +167,7 @@ def register():
             flash('New user successfully added!')
             return jsonify(adduser()), 201
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 #get list of genres
 @app.route('/genres', methods=['GET'])
@@ -176,7 +176,7 @@ def getgenretemp():
         current_user = session['token']
         return render_template('dispCat_all.html', current_user=current_user), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genrebyid')
 def getgenreidtemp():
@@ -184,7 +184,7 @@ def getgenreidtemp():
         current_user = session['token']
         return render_template('getGenre.html', current_user=current_user), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
@@ -192,7 +192,7 @@ def getgenre():
         genres = getgenres()
         return jsonify(genres), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre/<gid>', methods=['GET'])
 def getagenre(gid):
@@ -200,7 +200,7 @@ def getagenre(gid):
         genres = getagenres(gid)
         return jsonify(genres), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre', methods=['POST'])
 def addgenres():
@@ -214,7 +214,7 @@ def addgenres():
             flash('Genre successfully added!')
         return jsonify(result), 201
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre/<gid>')
 def deletegenres(gid):
@@ -222,7 +222,7 @@ def deletegenres(gid):
         flash('Genre successfully deleted.')
         return deletegenre(gid), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():
@@ -230,7 +230,7 @@ def getbookstoadd():
         current_user = session['token']
         return render_template("bookList2.html", current_user=current_user)
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre/getaddbook/<gid>', methods=['GET'])
 def getbooktogenre(gid):
@@ -238,7 +238,7 @@ def getbooktogenre(gid):
         books = getunassignedbook(gid)
         return jsonify(books), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):
@@ -246,7 +246,7 @@ def addbooktogenre(gid):
         flash('Genre successfully assigned to book!')
         return jsonify(addbookgenre(gid))
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/library', methods=['GET'])
 def getlibrary():
@@ -256,7 +256,7 @@ def getlibrary():
         books = getuserbook(username)
         return render_template('library.html', books=books, current_user=current_user), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/library', methods=['POST'])
 def addlibraries():
@@ -272,7 +272,7 @@ def addlibraries():
         flash('Added book to library!')
         return redirect('/library'), 201
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/rate', methods=['POST'])
 def addratings():
@@ -288,7 +288,7 @@ def addratings():
         flash('Added rating!')
         return redirect('/book'), 201
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):
@@ -297,7 +297,7 @@ def getratings(bid):
         current_user = session['token']
         return render_template('getRating.html', ratings=ratings, current_user=current_user), 200
     else:
-        return render_template("login.html")
+        return render_template("login.html"), 400
 
 @app.route('/logout')
 def logout():
