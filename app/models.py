@@ -97,7 +97,7 @@ class Ratings(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     rating = db.Column(db.Integer, nullable=True)
     comment = db.Column(db.String(64))
-    date = db.Column(db.INTEGER, nullable=False, date=True)
+   # date = db.Column(db.INTEGER, nullable=False, date=True)
 
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
 
@@ -108,7 +108,7 @@ class Ratings(db.Model):
             'User ID': self.user_id,
             'rating': self.rating,
             'comment': self.comment,
-            'date': self.date
+           # 'date': self.date
         }
 
         #response = '<Ratings %s>' % data
@@ -328,11 +328,21 @@ def get_rating(bid):
 def delete_genres(gid):
     cur.execute("delete from genres where genre_id = " + (gid))
     db.commit()
+    #gen=Genre.query.get(gid)
+    #db.session.delete(gen)
+    #db.session.commit()
+    #print gen
+    #return
 
 
 def delete_books(bid):
     cur.execute("delete from books where book_id = " + (bid))
     db.commit()
+    # book=Book.query.get(bid)
+    # db.session.delete(book)
+    # db.session.commit()
+    # print book
+    # return
 
 
 """      
