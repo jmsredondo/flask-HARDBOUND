@@ -73,16 +73,16 @@
                     <div class="card-body no-padding">
 
                       <!-- Item-->
-                      <div class="item clearfix">
+                      <div class="item clearfix" id="ratinguser">
                         <div class="feed d-flex justify-content-between">
                           <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
-                            <div class="content" id="ratinguser">
+                            <div class="content">
 
                             </div>
                           </div>
 
                         </div>
-                        <div class="quote has-shadow" id="comment"></div>
+                        <div class="quote has-shadow"></div>
                       </div>
                     </div>
                   </div>
@@ -99,19 +99,20 @@
 
                     <div class="card-body">
                         <h3> Rating <i class="fa fa-star text-orange"></i></h3>
-                            <form method = 'post' action = '/rate'>
+                            <form id="addrating">
+
                               <select class="form-control" name="rating">
-                                <option value="5">5 star</option>
-                                <option value="4">4 star</option>
-                                <option value="3">3 star</option>
-                                <option value="2">2 star</option>
+                                <option value="5">5 stars</option>
+                                <option value="4">4 stars</option>
+                                <option value="3">3 stars</option>
+                                <option value="2">2 stars</option>
                                 <option value="1">1 star</option>
                               </select>
                               <h3 style="padding-top: 2%">Comments <i class="fa fa-comment text-success"></i></h3>
-                              <textarea rows="4" cols="50" name="comment" form="usrform" class="form-control"> Enter text here...</textarea>
-{#                              <input type = 'hidden' name="book_id" value="{{book['book_id']}}">#}
+                              <input type="hidden" id="bookid" name="book_id">
+                                <textarea rows="4" cols="50" name="comment" class="form-control"> Enter text here...</textarea>
                               <div style="padding-top: 2%">
-                              <button type="button"  onclick="openModalrate('rate')" class="btn btn-warning">Add</button>
+                              <button type="button"  onclick="addrating()" class="btn btn-warning">Add</button>
                               </div>
                             </form>
                     </div>
@@ -119,31 +120,6 @@
                   </div>
                 </div>
 
-
-          <div class="modal fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="Yes or No?" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                </div>
-                <form id="genrepost" class="form-validate">
-                    <div class="modal-body">
-                    <div class="form-group text-center">
-                        <form>
-                        <button type="button" id="ratebtn" class="btn btn-success btn-lg">YES</button>
-                        <button type="button" class="btn btn-danger btn-lg">NO</button>
-                            </form>
-
-                    </div>
-
-                    </div>
-                </form>
-            </div>
-          </div>
-          </div>
 {% endblock %}
         </div>
 

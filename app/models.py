@@ -313,11 +313,13 @@ def add_rating():
         rating=request.form['rating']
         comment=request.form['comment']
         user=session['token']
-        cur.execute("select id from users where username = '" + user + "'")
+        cur.execute("select id from user where username = '" + user + "'")
         user=cur.fetchone()
         user_id=user[0]
         cur.execute("insert into ratings (book_id, user_id, rating, comment) VALUES (?,?,?,?)", (book_id, user_id, rating, comment))
         db.commit()
+        retrate = [(book_id,rating,comment)]
+        return retrate
 
 def get_rating(bid):
     cur.execute("select * from ratings inner join book on ratings.book_id = book.id inner join user on ratings.user_id = user.id where ratings.book_id = " + (bid))

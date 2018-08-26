@@ -221,9 +221,8 @@ def addratings():
         return redirect('/getaddrateerror2')
     else:
     """
-    addrating()
     flash('Added rating!')
-    return redirect('/book'), 201
+    return jsonify(addrating()), 201
 
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):

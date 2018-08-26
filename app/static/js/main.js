@@ -118,14 +118,6 @@ function openModallib(id,bookid) {
     });
 }
 
-function openModalrate(id,bookid) {
-    $('#' + id).modal();
-
-    $("#ratebtn").click(function () {
-        addrating()
-
-    });
-}
 // all functions
 
     //retrieve genre by id
@@ -344,30 +336,35 @@ function openModalrate(id,bookid) {
 }
 
     //get ratings for book
-    function getratings(){
-    var book_id = localStorage.getItem('bid');
-    var $listrating = $("#ratinguser");
-    var $listcomment = $("#comment");
-    var content = [];
-    var comment = [];
-    $.ajax({
-        url: 'rate/'+book_id,
-        dataType: 'JSON',
-        success: function (data) {
-        console.log(data);
+    function getratings() {
+        var book_id = localStorage.getItem('bid');
+        var $listrating = $("#ratinguser");
 
-            for (var i = 0; i <= data.length - 1; i++) {
-            content += '<h2>'+data[i].username+'<h2>'+
-                              '<h3>'+data[i].rating+' Stars <i class="fa fa-star text-orange"></i></h3>'+
-                              '<div class="full-date"><small>Date</small></div>';
-            comment += '<p>'+data[i].comment+'</p>'
+        var content = [];
+
+        $.ajax({
+            url: 'rate/' + book_id,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+
+                for (var i = 0; i <= data.length - 1; i++) {
+                    content += '<div class="feed d-flex justify-content-between">' +
+                        '<div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>' +
+                        '<div class="content">' +
+                        '<h2>' + data[i].username + '<h2>' +
+                        '<h3>' + data[i].rating + ' Stars <i class="fa fa-star text-orange"></i></h3>' +
+                        '<div class="full-date"><small>Date</small></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="quote has-shadow"><p>' + data[i].comment +'</p></div>';
+                    $listrating.html(content);
+
+                }
             }
-            $listcomment.html(comment);
-            $listrating.html(content);
-
-        }
-    })
-}
+        })
+    }
 
     //get book by id
     function getbookbyid() {
@@ -543,12 +540,14 @@ $(document).on('click', '.bookid', function() {
 }
 
     //add rating
+    var book_id = localStorage.getItem('bid');
+    $("#bookid").val(book_id);
     function addrating() {
-    var book_id = localStorage.getItem('bidd');
-    //var data = $('#addbooklib').serialize();
+    var book_id = localStorage.getItem('bid');
+    var data = $('#addrating').serialize();
     console.log(data);
     $.ajax({
-        url: '/rate'+book_id,
+        url: '/rate',
         data: data,
         method: 'POST',
         dataType: 'JSON',

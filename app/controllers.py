@@ -284,8 +284,16 @@ def addlibrary():
     return addtolib_dict
 
 def addrating():
-    add_rating()
-    return add_rating()
+    addtorate_dict = []
+    for adrate in add_rating():
+        addtorating_as_dict = {
+            'book_id': adrate[0],
+            'rating': adrate[1],
+            'comment': adrate[2]
+        }
+        addtorate_dict.append(addtorating_as_dict)
+    print (addtorate_dict)
+    return addtorate_dict
 
 def deletegenre(gid):
     delete_genres(gid)
