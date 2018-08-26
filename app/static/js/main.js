@@ -72,10 +72,10 @@ switch (windowurl) {
         }
         break;
     case '/bookbyid':
-        getbookbyid();
-        if(getbookbyid()=== true) {
+        //getbookbyid();
+       // if(getbookbyid()=== true) {
              getratings();
-        }
+        //}
 
         break;
     case '/user':
@@ -92,12 +92,66 @@ switch (windowurl) {
 
 }
 });
+
+//open modal functions
+
+function openModal(id,bookid) {
+    console.log(bookid)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#bookmodal").val(bookid);
+    $("#yesbtn").click(function () {
+        addbooktogenre();
+
+    });
+}
+//for add book to library
+function openModallib(id,bookid) {
+    //console.log(id)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#bookmodallib").val(bookid);
+
+    $("#yesbtnlib").click(function () {
+        addbooktolib();
+
+    });
+}
+
+function openModalrate(id,bookid) {
+    $('#' + id).modal();
+
+    $("#ratebtn").click(function () {
+        addrating()
+
+    });
+}
 // all functions
 
+    //retrieve genre by id
+    function getgenrebyid() {
 
+     var genre_id = localStorage.getItem('genreid');
+        var divtable = [];
+        $genrebyid = $('#getgenrebydtbody');
+        $.ajax({
+            url: 'genre/' + genre_id,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].genre_id+"</td>"+
+                              "<td>"+data[i].type+"</td>"+
+                       "<td>"+data[i].genre+"</td>"+
+                            "</tr>";
+                }
+                $genrebyid.html(divtable)
+            }
+        });
+}
 
-//retrieve all book genres
-
+    //retrieve all book genres
     function init_getgenres(gurl) {
 
         var $genretable = $("#genretbody");
@@ -132,6 +186,7 @@ switch (windowurl) {
     });
 
     }
+
     // onclcik store to id to local storage
     function getbooktogenre(gid){
         localStorage.setItem('gid', gid);
@@ -177,70 +232,8 @@ switch (windowurl) {
     });
 }
 
-function addbooktogenre() {
- var bookid = $("#bookmodal").serialize();
- var genre_id = localStorage.getItem('gid');
-
-     $.ajax({
-        url: '/genre/addbook/' + genre_id,
-        data: bookid,
-        method: 'POST',
-        dataType: 'JSON',
-        success: function (data) {
-            console.log(data)
-
-        }
-    });
-     document.location.href = ('/genre/addbookstogenre');
-}
-
-
-
-    // get value of row and store in local storage for later use
-// $genreTable = $('#genretable');
-// var gentable = $genreTable;
-// $genreTable.on('click', 'tbody tr', function() {
-//  var tableData = $(this).children("td").map(function() {
-//         return $(this).text();
-//     }).get();
-//  var genreid= tableData[0];
-//     localStorage.setItem('genreid', genreid);
-//     document.location.href = ('/genrebyid');
-// });
-
-function openModal(id,bookid) {
-    console.log(bookid)
-    console.log($('#' + id));
-    $('#' + id).modal();
-    $("#bookmodal").val(bookid);
-    $("#yesbtn").click(function () {
-        addbooktogenre();
-
-    });
-}
-function getgenrebyid() {
-
-     var genre_id = localStorage.getItem('genreid');
-        var divtable = [];
-        $genrebyid = $('#getgenrebydtbody');
-        $.ajax({
-            url: 'genre/' + genre_id,
-            dataType: 'JSON',
-            success: function (data) {
-                console.log(data);
-                for(var i =0; i <= data.length-1; i++) {
-                   divtable += "<tr>"+
-                              "<td>"+data[i].genre_id+"</td>"+
-                              "<td>"+data[i].type+"</td>"+
-                       "<td>"+data[i].genre+"</td>"+
-                            "</tr>";
-                }
-                $genrebyid.html(divtable)
-            }
-        });
-}
-// retrieve all books all books
-function init_getbooks(bookurl) {
+    // retrieve all books all books
+    function init_getbooks(bookurl) {
     var $listbook = $("#listbook");
 //var $genrecontainer = $("#genre"); temporary
     var div = [];
@@ -284,17 +277,99 @@ function init_getbooks(bookurl) {
     });
 
 }
-// get value of row and store in local storage for later use
-$(document).on('click', '.bookid', function() {
 
-    var div = $(this).closest('div');
-    var bookid = (div.find('input').val());
-    localStorage.setItem('bid', bookid);
+    // get value of row and store in local storage for later use
+    // get user detail by username
+    function getbyusername() {
+     var username = localStorage.getItem('username');
+        var divtable = [];
+        $userbyusername = $('#getusername');
+        $.ajax({
+            url: 'users/'+username,
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                for(var i =0; i <= data.length-1; i++) {
+                   divtable += "<tr>"+
+                              "<td>"+data[i].username+"</td>"+
+                              "<td>"+data[i].firstname+"</td>"+
+                       "<td>"+data[i].lastname+"</td>"+
+                       "<td>"+data[i].email+"</td>"+
+                        "<td>"+data[i].balance+"</td>"+
+                        "<td>"+data[i].phone+"</td>"+
+                            "</tr>";
+                }
+                $userbyusername.html(divtable)
+            }
+        });
 
-});
+}
+
+    //get users library
+    function getuserlibrary() {
+    var $listbook = $("#listbooklib");
+    var div = [];
+    $.ajax({
+        url: 'library',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+
+            for (var i = 0; i <= data.length - 1; i++) {
+
+                div += '<div class="row bg-white has-shadow">'+
+                    '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">'+
+                      '<div class="project-title d-flex align-items-center">'+
+                        '<div class="image has-shadow"><img src="../static/img/book.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>'+
+                        '<div class="text">'+
+                          '<h2>'+data[i].title+'</h2>'+
+                          '<i>'+data[i].author+'</i>'+
+                        '</div>'+
+                      '</div>'+
+                      '</div>'+
+                    '<div class="right-col col-lg-5 d-flex align-items-center">'+
+                      '<div class="desc">'+data[i].description+'</div>'+
+                    '</div>'+
+                    '<div class="right-col col-lg-1 d-flex align-items-center">'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>';
+            }
+            $listbook.html(div);
+
+        }
+    });
 
 
-  //get book by id
+}
+
+    //get ratings for book
+    function getratings(){
+    var book_id = localStorage.getItem('bid');
+    var $listrating = $("#ratinguser");
+    var $listcomment = $("#comment");
+    var content = [];
+    var comment = [];
+    $.ajax({
+        url: 'rate/'+book_id,
+        dataType: 'JSON',
+        success: function (data) {
+        console.log(data);
+
+            for (var i = 0; i <= data.length - 1; i++) {
+            content += '<h2>'+data[i].username+'<h2>'+
+                              '<h3>'+data[i].rating+' Stars <i class="fa fa-star text-orange"></i></h3>'+
+                              '<div class="full-date"><small>Date</small></div>';
+            comment += '<p>'+data[i].comment+'</p>'
+            }
+            $listcomment.html(comment);
+            $listrating.html(content);
+
+        }
+    })
+}
+
+    //get book by id
     function getbookbyid() {
     var book_id = localStorage.getItem('bid');
         var divtable = [];
@@ -338,7 +413,8 @@ $(document).on('click', '.bookid', function() {
             init_userlist(listurl)
         }
     }*/
-function init_userlist(listurl) {
+    //list all users
+    function init_userlist(listurl) {
     $userTable = $('#userlist');
     var divtable = [];
         $userbyusername = $('#getausername');
@@ -364,11 +440,12 @@ function init_userlist(listurl) {
 
 
 }
-// get value of row and store in local storage for later use
-$userTable = $('#userlist');
-var table = $userTable;
-$userTable.on('click', 'tbody tr', function() {
- var tableData = $(this).children("td").map(function() {
+
+    // get value of row and store in local storage for later use
+    $userTable = $('#userlist');
+    var table = $userTable;
+    $userTable.on('click', 'tbody tr', function() {
+    var tableData = $(this).children("td").map(function() {
         return $(this).text();
     }).get();
   var username= tableData[0];
@@ -376,96 +453,48 @@ $userTable.on('click', 'tbody tr', function() {
     document.location.href = ('/user');
 });
 
+$(document).on('click', '.bookid', function() {
 
-// get user detail by username
-function getbyusername() {
-     var username = localStorage.getItem('username');
-        var divtable = [];
-        $userbyusername = $('#getusername');
-        $.ajax({
-            url: 'users/'+username,
-            dataType: 'JSON',
-            success: function (data) {
-                console.log(data);
-                for(var i =0; i <= data.length-1; i++) {
-                   divtable += "<tr>"+
-                              "<td>"+data[i].username+"</td>"+
-                              "<td>"+data[i].firstname+"</td>"+
-                       "<td>"+data[i].lastname+"</td>"+
-                       "<td>"+data[i].email+"</td>"+
-                        "<td>"+data[i].balance+"</td>"+
-                        "<td>"+data[i].phone+"</td>"+
-                            "</tr>";
-                }
-                $userbyusername.html(divtable)
-            }
-        });
+    var div = $(this).closest('div');
+    var bookid = (div.find('input').val());
+    localStorage.setItem('bid', bookid);
 
-}
+});
 
-function getuserlibrary() {
-    var $listbook = $("#listbooklib");
-    var div = [];
-    $.ajax({
-        url: 'library',
+
+//post functions
+    //post add book
+    function addbooktogenre() {
+ var bookid = $("#bookmodal").serialize();
+ var genre_id = localStorage.getItem('gid');
+
+     $.ajax({
+        url: '/genre/addbook/' + genre_id,
+        data: bookid,
+        method: 'POST',
         dataType: 'JSON',
         success: function (data) {
-            console.log(data);
-
-            for (var i = 0; i <= data.length - 1; i++) {
-
-                div += '<div class="row bg-white has-shadow">'+
-                    '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">'+
-                      '<div class="project-title d-flex align-items-center">'+
-                        '<div class="image has-shadow"><img src="../static/img/book.jpg " style="height: 110%; width: 100%;" alt="..." class="img-fluid"></div>'+
-                        '<div class="text">'+
-                          '<h2>'+data[i].title+'</h2>'+
-                          '<i>'+data[i].author+'</i>'+
-                        '</div>'+
-                      '</div>'+
-                      '</div>'+
-                    '<div class="right-col col-lg-5 d-flex align-items-center">'+
-                      '<div class="desc">'+data[i].description+'</div>'+
-                    '</div>'+
-                    '<div class="right-col col-lg-1 d-flex align-items-center">'+
-                      '</div>'+
-                    '</div>'+
-                  '</div>';
-            }
-            $listbook.html(div);
+            console.log(data)
 
         }
     });
-
-
+     document.location.href = ('/genre/addbookstogenre');
 }
 
-function getratings(){
-    var book_id = localStorage.getItem('bid');
-    var $listrating = $("#ratinguser");
-    var $listcomment = $("#comment");
-    var content = [];
-    var comment = [];
-    $.ajax({
-        url: 'rate/'+book_id,
-        dataType: 'JSON',
-        success: function (data) {
-        console.log(data);
+    // get value of row and store in local storage for later use
+// $genreTable = $('#genretable');
+// var gentable = $genreTable;
+// $genreTable.on('click', 'tbody tr', function() {
+//  var tableData = $(this).children("td").map(function() {
+//         return $(this).text();
+//     }).get();
+//  var genreid= tableData[0];
+//     localStorage.setItem('genreid', genreid);
+//     document.location.href = ('/genrebyid');
+// });
 
-            for (var i = 0; i <= data.length - 1; i++) {
-            content += '<h2>'+data[i].username+'<h2>'+
-                              '<h3>'+data[i].rating+' Stars <i class="fa fa-star text-orange"></i></h3>'+
-                              '<div class="full-date"><small>Date</small></div>';
-            comment += '<p>'+data[i].comment+'</p>'
-            }
-            $listcomment.html(comment);
-            $listrating.html(content);
-
-        }
-    })
-}
-
-function savegenre() {
+    //add genre
+    function savegenre() {
     var data = $('#genrepost').serialize();
     console.log(data);
     $.ajax({
@@ -481,7 +510,8 @@ function savegenre() {
      document.location.href = ('/genres');
 }
 
-function addbook() {
+    //add new book
+    function addbook() {
     var data = $('#bookpost').serialize();
     console.log(data);
     $.ajax({
@@ -496,19 +526,8 @@ function addbook() {
     document.location.href = ('/books');
 }
 
-function openModallib(id,bookid) {
-    //console.log(id)
-    console.log($('#' + id));
-    $('#' + id).modal();
-    $("#bookmodallib").val(bookid);
-
-    $("#yesbtnlib").click(function () {
-        addbooktolib();
-
-    });
-}
-
-function addbooktolib() {
+    //add book to library
+    function addbooktolib() {
     var data = $('#addbooklib').serialize();
     console.log(data);
     $.ajax({
@@ -522,4 +541,21 @@ function addbooktolib() {
     });
     document.location.href = ('/libraries');
 }
+
+    //add rating
+    function addrating() {
+    var book_id = localStorage.getItem('bidd');
+    //var data = $('#addbooklib').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/rate'+book_id,
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+    //document.location.href = ('/bookbyid');
+    }
 
