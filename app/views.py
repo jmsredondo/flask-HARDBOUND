@@ -61,11 +61,13 @@ def before_request():
 #generating json response
 @app.route('/books')
 def getbooktemp():
-    return render_template("bookList.html")
+    current_user = session['token']
+    return render_template("bookList.html",current_user=current_user)
 
 @app.route('/bookbyid')
 def getbookbyidtem():
-    return render_template("getBook.html")
+    current_user = session['token']
+    return render_template("getBook.html",current_user=current_user)
 
 @app.route('/book',methods=['GET'])
 def getbooks():
@@ -100,11 +102,13 @@ def deletebooks(bid):
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
-    return render_template('userList.html'), 200
+    current_user = session['token']
+    return render_template('userList.html',current_user=current_user), 200
 
 @app.route('/user')
 def userbyusernametemp():
-    return render_template('getUser.html'), 200
+    current_user = session['token']
+    return render_template('getUser.html',current_user=current_user), 200
 
 @app.route('/users', methods=['GET'])
 def userslist():
@@ -119,7 +123,8 @@ def getausers(uid):
 
 @app.route('/register', methods=['GET'])
 def getregister():
-    return render_template('register.html'), 200
+    current_user = session['token']
+    return render_template('register.html',current_user=current_user), 200
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -132,11 +137,13 @@ def register():
 #get list of genres
 @app.route('/genres', methods=['GET'])
 def getgenretemp():
-    return render_template('dispCat_all.html'), 200
+    current_user = session['token']
+    return render_template('dispCat_all.html',current_user=current_user), 200
 
 @app.route('/genrebyid')
 def getgenreidtemp():
-    return render_template('getGenre.html'), 200
+    current_user = session['token']
+    return render_template('getGenre.html',current_user=current_user), 200
 
 @app.route('/genre', methods=['GET'])
 def getgenre():
@@ -166,7 +173,8 @@ def deletegenres(gid):
 
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():
-    return render_template("bookList2.html")
+    current_user = session['token']
+    return render_template("bookList2.html",current_user=current_user)
 
 @app.route('/genre/getaddbook/<gid>', methods=['GET'])
 def getbooktogenre(gid):
@@ -181,8 +189,9 @@ def addbooktogenre(gid):
 
 @app.route('/libraries', methods=['GET'])
 def getlibraries():
+    current_user = session['token']
     flash('Book successfully added to your library!')
-    return render_template('library.html')
+    return render_template('library.html',current_user=current_user)
 
 @app.route('/library', methods=['GET'])
 def getlibrary():

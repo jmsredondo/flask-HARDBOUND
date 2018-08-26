@@ -1,27 +1,27 @@
-// //Register
-// $( "#userpost" ).validate({
-//     rules: {
-//         registerUserName: {
-//             required: true,
-//         },
-//         registerFirstname:{
-//             required: true,
-//             field: { accept: "[a-zA-Z]+" }
-//         },
-//         registerLastname:{
-//             required: true,
-//             field: { accept: "[a-zA-Z]+" }
-//         },
-//         registerEmail:{
-//             required: true,
-//             email: true
-//         },
-//         registerPhoneNum:{
-//             required: true,
-//             digits: true
-//         },
-//     }
-// });
+ //Register
+ $( "#userpost" ).validate({
+     rules: {
+         registerUserName: {
+             required: true,
+         },
+         registerFirstname:{
+             required: true,
+             field: { accept: "[a-zA-Z]+" }
+         },
+         registerLastname:{
+             required: true,
+             field: { accept: "[a-zA-Z]+" }
+         },
+         registerEmail:{
+             required: true,
+             email: true
+         },
+         registerPhoneNum:{
+             required: true,
+             digits: true
+         },
+     }
+ });
 
 
 $('#register').click(function() {
