@@ -3,6 +3,9 @@ import sqlite3
 from flask import request, session
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
+from app import app
+import os
 
 from flask import jsonify
 
@@ -231,19 +234,30 @@ def add_user():
 
 
 def add_book():
+    APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    target = os.path.join(APP_ROOT, 'static/img/books')
     if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['author'])):
         return 'error1'
     elif request.form['title'] == '' or request.form['description'] == '' or request.form['author'] == '':
         return 'error2'
     else:
-        title=request.form['title']
-        description=request.form['description']
-        author=request.form['author']
-        cur.execute("insert into book (title, description, author) VALUES (?,?,?)", (title, description, author))
-        db.commit()
-        genrepost = [(title, description, author)]
-        return genrepost
-
+         title=request.form['title']
+         description=request.form['description']
+         author=request.form['author']
+         image = request.files['image']
+         filename = (secure_filename(image.filename))
+         destination = ("/".join([target,filename]))
+         path = "/static/img/books/"+filename
+         print (path)
+         print(author)
+         print(destination)
+         image.save(destination)
+         cur.execute("insert into book (title, description, author,image)"
+                     " VALUES (?,?,?,?)", (title, description, author,path))
+         db.commit()
+         genrepost = [(title, description, author,filename)]
+         print (genrepost)
+         return genrepost
 
 def add_library():
     if request.form['book'] == '':

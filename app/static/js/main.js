@@ -242,7 +242,7 @@ function openModallib(id,bookid) {
                 div += "<div class=\"row bg-white has-shadow\">" +
                     "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
                     "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src=\"/static/img/book.jpg \" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                    "<div class=\"image has-shadow\"><img src="+data[i].image+" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
                     "<div class=\"text\">" +
                     "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
                     "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
@@ -508,20 +508,31 @@ $(document).on('click', '.bookid', function() {
 }
 
     //add new book
-    function addbook() {
-    var data = $('#bookpost').serialize();
-    console.log(data);
+   $("#addbookbtn").click(function (e) {
+       e.preventDefault();
+       var formData = new FormData($("#adddata")[0]);
+       console.log(formData)
+      // var form_data = new FormData($('#upload-file')[0]);
+    //    var object = {};
+    // formData.forEach(function(value, key){
+    // object[key] = value;
+    // console.log(value)
+    //     });
+    //console.log(object);
     $.ajax({
         url: '/book',
-        data: data,
+        data: formData,
         method: 'POST',
-        dataType: 'JSON',
+        contentType: false,
+        cache: false,
+        processData: false,
         success: function (data) {
             console.log(data)
         }
     });
-    document.location.href = ('/books');
-}
+     document.location.href = ('/books');
+     });
+
 
     //add book to library
     function addbooktolib() {
@@ -555,6 +566,6 @@ $(document).on('click', '.bookid', function() {
             console.log(data)
         }
     });
-    //document.location.href = ('/bookbyid');
+    document.location.href = ('/bookbyid');
     }
 

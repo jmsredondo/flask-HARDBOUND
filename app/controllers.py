@@ -254,11 +254,13 @@ def addbook():
             addbook_as_dict = {
                 'title': adbook[0],
                 'description': adbook[1],
-                'author': adbook[2]
+                'author': adbook[2],
+                'image': adbook[3]
             }
             addbook_dict.append(addbook_as_dict)
         print (addbook_dict)
         return addbook_dict
+    add_book()
 
 def addbookgenre(gid):
     addtogenre_dict = []
