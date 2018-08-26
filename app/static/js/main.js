@@ -73,7 +73,10 @@ switch (windowurl) {
         break;
     case '/bookbyid':
         getbookbyid();
-        getratings();
+        if(getbookbyid()=== true) {
+             getratings();
+        }
+
         break;
     case '/user':
         getbyusername();
@@ -312,6 +315,8 @@ $(document).on('click', '.bookid', function() {
                 $bookbyid.html(divtable)
             }
         });
+
+        return true;
     }
     /*function getbyusername()
     {
@@ -437,8 +442,10 @@ function getuserlibrary() {
 
 function getratings(){
     var book_id = localStorage.getItem('bid');
-    var $listrating = $("#ratingcontent");
+    var $listrating = $("#ratinguser");
+    var $listcomment = $("#comment");
     var content = [];
+    var comment = [];
     $.ajax({
         url: 'rate/'+book_id,
         dataType: 'JSON',
@@ -446,10 +453,12 @@ function getratings(){
         console.log(data);
 
             for (var i = 0; i <= data.length - 1; i++) {
-            content += '<h4>'+data[i].username+'</h4>\n' +
-                       '<h1>'+data[i].rating+'<i class="fa fa-star text-orange">';
-
+            content += '<h2>'+data[i].username+'<h2>'+
+                              '<h3>'+data[i].rating+' Stars <i class="fa fa-star text-orange"></i></h3>'+
+                              '<div class="full-date"><small>Date</small></div>';
+            comment += '<p>'+data[i].comment+'</p>'
             }
+            $listcomment.html(comment);
             $listrating.html(content);
 
         }

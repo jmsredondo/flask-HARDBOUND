@@ -219,6 +219,7 @@ def addratings():
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):
     ratings = getrating(bid)
+    print(ratings)
     return jsonify(ratings)
 
 @app.route('/logout')
