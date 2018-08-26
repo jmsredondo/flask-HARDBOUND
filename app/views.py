@@ -179,11 +179,16 @@ def addbooktogenre(gid):
     flash('Genre successfully assigned to book!')
     return jsonify(addbookgenre(gid))
 
+@app.route('/libraries', methods=['GET'])
+def getlibraries():
+    flash('Book successfully added to your library!')
+    return render_template('library.html')
+
 @app.route('/library', methods=['GET'])
 def getlibrary():
-    username = 'arvincea'
+    username = session['token']
     books = getuserbook(username)
-    return render_template('library.html', books=books), 200
+    return jsonify(books), 200
 
 @app.route('/library', methods=['POST'])
 def addlibraries():

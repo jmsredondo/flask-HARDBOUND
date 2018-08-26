@@ -162,7 +162,7 @@ switch (windowurl) {
                      '</div>' +
                      '<div class="right-col col-lg-1 d-flex align-items-center">' +
                      '<form">' +
-                     '<button type="button" class="btn btn-primary" onclick=openModal("confirmModal",'+data[i].book_id+','+genre_id+')>Add Book to Genre</button>'+
+                     '<button type="button" class="btn btn-primary" onclick=openModal("confirmModal",'+data[i].book_id+')>Add Book to Genre</button>'+
                      '</form>' +
                      '</div>' +
                      '</div>';
@@ -176,11 +176,10 @@ switch (windowurl) {
 
 function addbooktogenre() {
  var bookid = $("#bookmodal").serialize();
- var genreid = $("#genremodalid");
- //var bid = bookid.val();
- var gid = genreid.val();
+ var genre_id = localStorage.getItem('gid');
+
      $.ajax({
-        url: '/genre/addbook/' + gid,
+        url: '/genre/addbook/' + genre_id,
         data: bookid,
         method: 'POST',
         dataType: 'JSON',
@@ -206,13 +205,11 @@ function addbooktogenre() {
 //     document.location.href = ('/genrebyid');
 // });
 
-function openModal(id,bookid,genreid) {
+function openModal(id,bookid) {
     console.log(bookid)
     console.log($('#' + id));
     $('#' + id).modal();
     $("#bookmodal").val(bookid);
-    $("#genremodalid").val(genreid);
-
     $("#yesbtn").click(function () {
         addbooktogenre();
 
@@ -495,7 +492,6 @@ function openModallib(id,bookid) {
     console.log($('#' + id));
     $('#' + id).modal();
     $("#bookmodallib").val(bookid);
-    //$("#genremodalid").val(genreid);
 
     $("#yesbtnlib").click(function () {
         addbooktolib();
