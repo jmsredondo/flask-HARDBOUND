@@ -32,25 +32,26 @@ $('#register').click(function() {
     }
 });
 
-// //User Login
-// $( "#loginpost" ).validate({
-//     rules: {
-//         username: {
-//             required: true,
-//         },
-//         password:{
-//             required: true,
-//         },
-//     }
-// });
-// $('#login').click(function() {
-//     if($("#loginpost").valid()) {
-//         userregister()
-//     }else {
-//         alert('incomplete information')
-//     }
-// });
-
+/*
+//User Login
+ $( "#loginpost" ).validate({
+     rules: {
+         username: {
+             required: true,
+         },
+         password:{
+             required: true,
+        },
+    }
+ });
+ $('#login').click(function() {
+     if($("#loginpost").valid()) {
+         userregister()
+     }else {
+        alert('incomplete information')
+     }
+ });
+*/
 // //Admin Login
 // $( "#loginpostadmin" ).validate({
 //     rules: {
