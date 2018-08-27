@@ -189,7 +189,7 @@ def addbooktogenre(gid):
 
 @app.route('/libraries', methods=['GET'])
 def getlibraries():
-    current_user = 'test'
+    current_user = session['token']
     flash('Book successfully added to your library!')
     return render_template('library.html',current_user=current_user)
 
