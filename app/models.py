@@ -198,9 +198,10 @@ def search_users(username):
 
 
 def login():
-     cur.execute("select username, password, usertype from users where username='"+request.form['username']+"'and password = '"+request.form['password']+"'")
+     cur.execute("select username, password_hash, usertype from users where username='"+request.form['username']+"'")
+     login=cur.fetchone()
      rows=cur.fetchone()
-     if rows != None:
+     if rows != None and check_password_hash(login[1],request.form['password']):
         session['token'] = rows[0]
         if rows[2] == 'admin' and request.form['usertype'] == 'admin':
             session['usertype'] = True
