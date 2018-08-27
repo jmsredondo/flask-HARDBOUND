@@ -72,9 +72,9 @@ switch (windowurl) {
         }
         break;
     case '/bookbyid':
-        //getbookbyid();
+        getbookbyid();
        // if(getbookbyid()=== true) {
-             getratings();
+
         //}
 
         break;
@@ -416,10 +416,10 @@ function openModaldelbook(id,bookid,title,image,description) {
                             "</tr>";
                 }
                 $bookbyid.html(divtable)
+                getratings();
             }
-        });
 
-        return true;
+        });
     }
     /*function getbyusername()
     {

@@ -283,7 +283,8 @@ def add_library():
 def get_a_book(bid):
     cur.execute("select * from book where id = " + (bid))
     books = cur.fetchall()
-    return books
+    bookdict = books
+    return bookdict
 
 
 def add_book_genre(gid):
@@ -345,7 +346,8 @@ def add_rating():
 def get_rating(bid):
     cur.execute("select * from ratings inner join book on ratings.book_id = book.id inner join user on ratings.user_id = user.id where ratings.book_id = " + (bid))
     books=cur.fetchall()
-    return books
+    bookrating = books
+    return bookrating
 
 def delete_genres(gid):
     genre_id = request.form['id']
