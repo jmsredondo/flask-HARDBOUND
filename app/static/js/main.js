@@ -125,7 +125,7 @@ function openModaldelgenre(id,genreid,genre,type) {
     $("#typedel").val(type);
     $("#genredel").val(genre);
     $("#iddel").val(genreid);
-    $("#yesbtnlib").click(function () {
+    $("#deletegenrebtn").click(function () {
         deletegenre(genreid);
 
     });
@@ -140,7 +140,7 @@ function openModaldelbook(id,bookid,title,image,description) {
     $("#descdel").val(description);
     $("#bookiddel").val(bookid);
     $("#imagedel").val(image);
-    $("#yesbtnlib").click(function () {
+    $("#bookdeletebtn").click(function () {
         deletebook(bookid);
 
     });
