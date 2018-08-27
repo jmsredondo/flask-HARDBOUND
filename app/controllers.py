@@ -303,9 +303,10 @@ def deletegenre(gid):
     delete_genre_dict = []
     for delgen in delete_genres(gid):
         delete_genre_as_dict = {
-            'genre_id': delgen[0],
-            'genre': delgen[1],
-            'type': delgen[2]
+            'genre_id': delgen.genre_id,
+            'genre': delgen.genre,
+            'type': delgen.type,
+            'status':delgen.status
         }
         delete_genre_dict.append(delete_genre_as_dict)
     print (delete_genre_dict)

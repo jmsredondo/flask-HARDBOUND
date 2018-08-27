@@ -351,9 +351,13 @@ def delete_genres(gid):
     genre_id = request.form['id']
     genre = request.form['genre']
     type = request.form['type']
-    delgenre = [(genre_id,genre,type)]
-    update(Genre).where(Genre.genre_id == gid).values(Genre.status == '0')
-    db.commit()
+    status =request.form['status']
+
+    #gen= update(Genre).where(Genre.genre_id == gid).values(Genre.status == '0')
+    gen = Genre.query.filter_by(genre_id == gid).update(Genre.status == 0)
+    db.session.commit()
+    delgenre = [(genre_id, genre, type,status)]
+    print gen
     return delgenre
 
 
