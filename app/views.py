@@ -85,9 +85,9 @@ def getabooks(bid):
 def addbooks():
     result = addbook()
     if result == 'error1':
-        return redirect('/getaddbookerror1')
+        return redirect('/getaddbookerror1'),400
     elif result == 'error2':
-        return redirect('/getaddbookerror2')
+        return redirect('/getaddbookerror2'),401
     else:
         flash('New book successfully added!')
         books = getbook()
@@ -129,7 +129,7 @@ def getregister():
 @app.route('/users', methods=['POST'])
 def register():
     if adduser() == 'error1':
-        return redirect('/getaddusererror1')
+        return redirect('/getaddusererror1'),400
     else:
         flash('New user successfully added!')
         return jsonify(adduser()), 201
@@ -159,9 +159,9 @@ def getagenre(gid):
 def addgenres():
     result = addgenre()
     if result == 'error1':
-        return redirect('/getaddgenereerror1')
+        return redirect('/getaddgenereerror1'),400
     elif result == 'error2':
-        return redirect('/getaddgenereerror2')
+        return redirect('/getaddgenereerror2'),401
     else:
         flash('Genre successfully added!')
     return jsonify(result), 201
@@ -189,7 +189,7 @@ def addbooktogenre(gid):
 
 @app.route('/libraries', methods=['GET'])
 def getlibraries():
-    current_user = 'test'
+    current_user = session['token']
     flash('Book successfully added to your library!')
     return render_template('library.html',current_user=current_user)
 
@@ -201,28 +201,28 @@ def getlibrary():
 
 @app.route('/library', methods=['POST'])
 def addlibraries():
-    """
+
     if addlibrary() == 'error1':
-        return redirect('/getaddlibeerror1')
+        return redirect('/getaddlibeerror1'),400
     elif addlibrary() == 'error2':
-        return redirect('/getaddlibeerror2')
+        return redirect('/getaddlibeerror2'),401
     else:
-    """
-    addlibrary()
-    flash('Added book to library!')
-    return redirect('/library'), 201
+
+        addlibrary()
+        flash('Added book to library!')
+        return redirect('/library'), 201
 
 @app.route('/rate', methods=['POST'])
 def addratings():
-    """
+
     if addrating() == 'error1':
-        return redirect('/getaddrateeerror1')
+        return redirect('/getaddrateeerror1'),400
     elif addrating() == 'error2':
-        return redirect('/getaddrateerror2')
+        return redirect('/getaddrateerror2'),401
     else:
-    """
-    flash('Added rating!')
-    return jsonify(addrating()), 201
+
+        flash('Added rating!')
+        return jsonify(addrating()), 201
 
 @app.route('/rate/<bid>', methods=['GET'])
 def getratings(bid):
