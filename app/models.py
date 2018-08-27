@@ -317,9 +317,9 @@ def add_genres():
 
 
 def add_rating():
-    if request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
-        return 'error2'
-    else:
+    # if request.form['book_id'] == '' or request.form['rating'] == '' or request.form['comment'] == '':
+    #     return 'error2'
+    # else:
         book_id=request.form['book_id']
         rating=request.form['rating']
         comment=request.form['comment']

@@ -595,9 +595,9 @@ $(document).on('click', '.bookid', function() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
+            location.reload(true);
         }
     });
-    document.location.href = ('/bookbyid');
     }
 
     //delete or update functions

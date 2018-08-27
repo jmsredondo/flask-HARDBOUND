@@ -208,11 +208,11 @@ def addlibraries():
 @app.route('/rate', methods=['POST'])
 def addratings():
 
-    if addrating() == 'error1':
-        return redirect('/getaddrateeerror1'),400
-    elif addrating() == 'error2':
-        return redirect('/getaddrateerror2'),401
-    else:
+    # if addrating() == 'error1':
+    #     return redirect('/getaddrateeerror1'),400
+    # elif addrating() == 'error2':
+    #     return redirect('/getaddrateerror2'),401
+    # else:
 
         flash('Added rating!')
         return jsonify(addrating()), 201
