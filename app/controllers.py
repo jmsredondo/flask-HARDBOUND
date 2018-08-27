@@ -208,11 +208,11 @@ def adduser():
 
         for aduser in add_user():
             addusers_as_dict = {
-                'username': aduser[0],
-                'firstname': aduser[1],
-                'lastname': aduser[2],
-                'email': aduser[3],
-                'phonenumber': aduser[4],
+                'username': aduser.username,
+                'firstname': aduser.firstname,
+                'lastname': aduser.lastname,
+                'email': aduser.email,
+                'phonenumber': aduser.phone,
             }
             adduser_dict.append(addusers_as_dict)
         return adduser_dict
