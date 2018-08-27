@@ -15,7 +15,7 @@ def login():
     else:
         if session['usertype'] is not None:
             current_user = 'test'
-            print "token: a  "+ session['token']
+            print ("token: a  "+ session['token'])
             return render_template('dashboard.html',current_user=current_user)
         else:
             return render_template("login.html")
@@ -28,7 +28,7 @@ def adminlogin():
     else:
         if session['usertype'] is not None:
             current_user = 'test'
-            print "token: a  "+ session['token']
+            print ("token: a  "+ session['token'])
             return render_template('dashboard.html',current_user=current_user)
         else:
             return render_template("login2.html")
@@ -112,7 +112,6 @@ def userbyusernametemp():
 @app.route('/users', methods=['GET'])
 def userslist():
     rows = getusers()
-    print rows
     return jsonify(rows)
 
 @app.route('/users/<uid>',methods=['GET'])
@@ -242,7 +241,7 @@ def logout():
 @app.route('/geterrorlogin',methods=['GET'])
 def geterrorlogin():
     errorlogin = []
-    print 'error 1'
+    print ('error 1')
     error = {
         'description': 'Invalid username/password supplied'
     }

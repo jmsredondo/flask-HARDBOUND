@@ -50,8 +50,6 @@ def getabook(bid):
             'genre_id': book[5]
         }
     query_dict.append(book_as_dict)
-
-    print (query_dict)
     return (query_dict)
 
 #same as top function, but do not delete
@@ -69,7 +67,6 @@ def getunassignedbook(gid):
         }
         query_dict.append(book_as_dict)
 
-    print (query_dict)
     return (query_dict)
 
 
@@ -92,7 +89,6 @@ def getusers():
             'phone': user.phone,
         }
         userlist.append(userli)
-    print (userlist)
     return userlist
 
 
@@ -107,7 +103,6 @@ def getusers():
         }
         users_dict.append(user_as_dict)"""
 
-    #print (users_dict)
     #return jsonify(users_dict), 200
 
 def getauser(uid):
@@ -124,7 +119,6 @@ def getauser(uid):
         }
         users_dict.append(user_as_dict)
 
-    #print (users_dict)
     return users_dict
 
 def searchusers(username):
@@ -141,12 +135,10 @@ def searchusers(username):
         }
         users_dict.append(user_as_dict)
 
-    #print (users_dict)
     return users_dict
 
 def getlogin():
     userlogin = login()
-    print userlogin
     return userlogin
 
 
@@ -178,7 +170,6 @@ def getgenres():
         }
         genres_dict.append(genre_as_dict)
 
-    print (genres_dict)
     return genres_dict
 
 def getagenres(gid):
@@ -192,7 +183,6 @@ def getagenres(gid):
         }
         genres_dict.append(genre_as_dict)
 
-    print (genres_dict)
     return genres_dict
 
 def getrating(bid):
@@ -225,7 +215,6 @@ def adduser():
                 'usertype':aduser.usertype
             }
             adduser_dict.append(addusers_as_dict)
-        print (adduser_dict)
         return adduser_dict
 
 def addgenre():
@@ -241,7 +230,6 @@ def addgenre():
                'genre': adgen[1]
            }
            addgenre_dict.append(addgenres_as_dict)
-       print (addgenre_dict)
        return addgenre_dict
 
 
@@ -260,9 +248,7 @@ def addbook():
                 'image': adbook[3]
             }
             addbook_dict.append(addbook_as_dict)
-        print (addbook_dict)
         return addbook_dict
-    add_book()
 
 def addbookgenre(gid):
     addtogenre_dict = []
@@ -273,7 +259,6 @@ def addbookgenre(gid):
             'book_id': adtogen[1]
         }
         addtogenre_dict.append(addtogenre_as_dict)
-    print (addtogenre_dict)
     return addtogenre_dict
 
 def addlibrary():
@@ -284,7 +269,6 @@ def addlibrary():
             'user': adlib[1]
         }
         addtolib_dict.append(addtolib_as_dict)
-    print (addtolib_dict)
     return addtolib_dict
 
 def addrating():
@@ -296,7 +280,6 @@ def addrating():
             'comment': adrate[2]
         }
         addtorate_dict.append(addtorating_as_dict)
-    print (addtorate_dict)
     return addtorate_dict
 
 def deletegenre(gid):
@@ -309,7 +292,6 @@ def deletegenre(gid):
             'status':delgen.status
         }
         delete_genre_dict.append(delete_genre_as_dict)
-    print (delete_genre_dict)
     return delete_genre_dict
 
 def deletebook(bid):
@@ -322,5 +304,4 @@ def deletebook(bid):
             'image': delbook[3]
         }
         delete_book_dict.append(delete_book_as_dict)
-    print (delete_book_dict)
     return delete_book_dict

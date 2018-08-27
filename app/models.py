@@ -149,7 +149,6 @@ def get_book():
     #query_ret = cur.fetchall()
     #return (query_ret)
     rows = Book.query.filter(Book.status == 1)
-    print rows
     return rows
 
 
@@ -164,7 +163,6 @@ def get_user_book(username):
     cur.execute(
         "SELECT * FROM book INNER JOIN user_library ON book.id = user_library.book_id INNER JOIN user ON user.id = user_library.user_id where username = '" + username + "'")
     query_ret = cur.fetchall()
-    print (query_ret)
     return query_ret
 
 
@@ -180,10 +178,6 @@ def get_book_per_cat():
 
 # get users
 def get_users():
-    #cur.execute("select * from users")
-    #rows = cur.fetchall()
-    #return rows
-    # print rows
     rows = User.query.all()
     return rows
 
@@ -254,15 +248,11 @@ def add_book():
          filename = (secure_filename(image.filename))
          destination = ("/".join([target,filename]))
          path = "/static/img/books/"+filename
-         print (path)
-         print(author)
-         print(destination)
          image.save(destination)
          cur.execute("insert into book (title, description, author,image)"
                      " VALUES (?,?,?,?)", (title, description, author,path))
          db.commit()
          genrepost = [(title, description, author,filename)]
-         print (genrepost)
          return genrepost
 
 def add_library():
@@ -277,7 +267,6 @@ def add_library():
         cur.execute("insert into user_library (user_id, book_id) VALUES (?,?)", (user_id, book))
         db.commit()
         lib = [(book,user_id)]
-        print(lib)
         return lib
 
 
@@ -302,7 +291,6 @@ def get_genres():
     #return genres
     #rows = Genre.query.all()
     rows = Genre.query.filter(Genre.status == 1)
-    print rows
     return rows
 
 def get_a_genre(gid):
@@ -370,11 +358,6 @@ def delete_books(bid):
     cur.execute("UPDATE book set status = 0 where id = " + bid + "")
     db.commit()
     return delbook
-    # book=Book.query.get(bid)
-    # db.session.delete(book)
-    # db.session.commit()
-    # print book
-    # return
 
 
 """      
