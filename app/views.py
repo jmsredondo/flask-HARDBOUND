@@ -182,20 +182,18 @@ def getbooktogenre(gid):
 
 @app.route('/genre/addbook/<gid>', methods=['POST'])
 def addbooktogenre(gid):
-
     flash('Genre successfully assigned to book!')
     return jsonify(addbookgenre(gid))
 
 @app.route('/libraries', methods=['GET'])
 def getlibraries():
     current_user = session['token']
-    flash('Book successfully added to your library!')
     return render_template('library.html',current_user=current_user)
 
 @app.route('/library', methods=['GET'])
 def getlibrary():
-    #username = session['token']
-    books = getuserbook('arvincea')
+    username = session['token']
+    books = getuserbook(username)
     return jsonify(books), 200
 
 @app.route('/library', methods=['POST'])
@@ -208,7 +206,7 @@ def addlibraries():
     else:
 
         addlibrary()
-        flash('Added book to library!')
+        flash('Book successfully added to your library!')
         return redirect('/library'), 201
 
 @app.route('/rate', methods=['POST'])

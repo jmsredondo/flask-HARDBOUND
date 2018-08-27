@@ -503,10 +503,9 @@ $(document).on('click', '.bookid', function() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
-
+            location.reload(true);
         }
     });
-     document.location.href = ('/genre/addbookstogenre');
 }
 
     // get value of row and store in local storage for later use
@@ -614,9 +613,9 @@ function deletegenre(genre_id) {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
+            location.reload(true);
         }
     });
-    document.location.href = ('/genres');
     }
 
 
@@ -632,9 +631,10 @@ function deletebook(book_id) {
         dataType: 'JSON',
         success: function (decodedata) {
             console.log(decodedata)
+            location.reload(true);
         }
     });
-    document.location.href = ('/books');
+    //
     }
 
 
