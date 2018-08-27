@@ -63,5 +63,206 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/users/logout', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+    def test_add_genre1(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre1)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Fantasy', str(response.data))
+
+    def test_add_genre2(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre2)
+        self.assertEqual(response.status_code, 401)
+
+    def test_add_genre3(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre3)
+        self.assertEqual(response.status_code, 400)
+
+    def test_add_genre4(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre4)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Non-Fiction', str(res.data))
+
+    def test_add_genre5(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre5)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('_!@#$%^&*()', str(response.data))
+
+    def test_add_genre6(self):
+        tester = app.test_client(self)
+        response = tester.post('/genre', data=self.samplegenre5)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_book1(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook1)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/book', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('A Wonderful Life', str(response.data))
+
+    def test_add_book2(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook2)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_book3(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook3)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/book', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('2', str(response.data))
+
+    def test_add_book4(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook4)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_book5(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook5)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_book6(self):
+        tester = app.test_client(self)
+        response = tester.post('/book', data=self.samplebook5)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_user1(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/book', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('jlaurelio', str(response.data))
+
+    def test_add_user2(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 401)
+
+    def test_add_user3(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 400)
+
+    def test_add_user4(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_user5(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_user6(self):
+        tester = app.test_client(self)
+        response = tester.post('/users', data=self.sampleuser1)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_library1(self):
+        tester = app.test_client(self)
+        response = tester.post('/library', data=self.samplelibrary1)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_library2(self):
+        tester = app.test_client(self)
+        response = tester.post('/library', data=self.samplelibrary2)
+        self.assertEqual(response.status_code, 201)
+
+    def test_add_library3(self):
+        tester = app.test_client(self)
+        response = tester.post('/library', data=self.samplelibrary3)
+        self.assertEqual(response.status_code, 201)
+
+    def test_get_books_id(self):
+        tester = app.test_client(self)
+        response = tester.get('/books/2', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        response = tester.get('/book', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('2', str(response.data))
+
+    def test_get_genre_id(self):
+        tester = app.test_client(self)
+        response = tester.get('/genre/2', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('2', str(response.data))
+
+    def test_get_ratings1(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating1)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/2', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Good book', str(response.data))
+
+    def test_get_ratings2(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating2)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/3', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Bad book', str(response.data))
+
+    def test_get_ratings3(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating3)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/4', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('', str(response.data))
+
+    def test_get_ratings4(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating4)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/5', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('3', str(response.data))
+
+    def test_get_ratings5(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating5)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/6', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('_!@#$%^&*()', str(response.data))
+
+    def test_get_ratings6(self):
+        tester = app.test_client(self)
+        response = tester.post('/rate', data=self.samplerating6)
+        self.assertEqual(response.status_code, 201)
+        response = tester.get('/rate/7', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("''", str(response.data))
+
+    def test_api_get_genre_list(self):
+        tester = app.test_client(self)
+        """Test get user list (GET request)."""
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Action', str(response.data))
+
+    def test_api_get_genre_list(self):
+        tester = app.test_client(self)
+        """Test get user list (GET request)."""
+        response = tester.get('/genre', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Action', str(response.data))
+
 if __name__ == '__main__':
     unittest.main()
