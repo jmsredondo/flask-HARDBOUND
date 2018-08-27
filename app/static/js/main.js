@@ -601,7 +601,7 @@ function deletegenre(genre_id) {
             console.log(data)
         }
     });
-    document.location.href = ('/bookbyid');
+    //document.location.href = ('/bookbyid');
     }
-}
+
 
