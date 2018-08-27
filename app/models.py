@@ -360,8 +360,14 @@ def delete_genres(gid):
 
 
 def delete_books(bid):
+    book_id = request.form['bookid']
+    title = request.form['book_name']
+    description = request.form['description']
+    image = request.form['image']
     cur.execute("delete from books where book_id = " + (bid))
     db.commit()
+    delbook = [(book_id,title,description,image)]
+    return delbook
     # book=Book.query.get(bid)
     # db.session.delete(book)
     # db.session.commit()

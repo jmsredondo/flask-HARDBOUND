@@ -54,6 +54,8 @@
             
                 </div>
            </section>
+
+    <!--modal for add book to library-->
      <div class="modal fade" id="confirmModallib" tabindex="-1" role="dialog" aria-labelledby="Yes or No?" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -69,6 +71,36 @@
                         <form>
                             <input name="book" id="bookmodallib">
                         <button type="button" id="yesbtnlib" class="btn btn-success btn-lg">YES</button>
+                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">NO</button>
+                            </form>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+     </div>
+
+    <!-- modal for delete book-->
+<div class="modal fade" id="deletebook" tabindex="-1" role="dialog" aria-labelledby="Yes or No?" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+            </div>
+            <form id="bookdel" class="form-validate">
+                <div class="modal-body">
+                    <div class="form-group text-center">
+                        <form>
+                            <input type="hidden" name="book_name" id="titledel">
+                            <input type="hidden" name="image" id="imagedel">
+                            <input type="hidden" name="description" id="descdel">
+                            <input type="hidden" name="bookid" id="bookiddel">
+                        <button type="button" id="bookdelete" class="btn btn-success btn-lg">YES</button>
                         <button type="button" class="btn btn-danger btn-lg">NO</button>
                             </form>
 
@@ -78,7 +110,7 @@
             </form>
         </div>
     </div>
-
+</div>
           <!-- Page Footer-->
 {% endblock %}
         </div>

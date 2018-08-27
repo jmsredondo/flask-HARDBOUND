@@ -96,9 +96,8 @@ def addbooks():
 
 @app.route('/book/<bid>')
 def deletebooks(bid):
-    deletebook(bid)
     flash('Book successfully deleted.')
-    return redirect('/books'), 200
+    return jsonify(deletebook(bid)), 200
 
 @app.route('/users/list', methods=['GET'])
 def listuser():

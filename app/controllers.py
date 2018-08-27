@@ -310,4 +310,14 @@ def deletegenre(gid):
     return delete_genre_dict
 
 def deletebook(bid):
-    delete_books(bid)
+    delete_book_dict = []
+    for delbook in delete_books(bid):
+        delete_book_as_dict = {
+            'book_id': delbook[0],
+            'title': delbook[1],
+            'description': delbook[2],
+            'image': delbook[3]
+        }
+        delete_book_dict.append(delete_book_as_dict)
+    print (delete_book_dict)
+    return delete_book_dict
