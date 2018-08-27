@@ -198,8 +198,8 @@ def getlibraries():
 
 @app.route('/library', methods=['GET'])
 def getlibrary():
-    username = session['token']
-    books = getuserbook(username)
+    #username = session['token']
+    books = getuserbook('arvincea')
     return jsonify(books), 200
 
 @app.route('/library', methods=['POST'])
