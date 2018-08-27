@@ -351,18 +351,9 @@ def delete_genres(gid):
     genre_id = request.form['id']
     genre = request.form['genre']
     type = request.form['type']
-    #cur.execute("delete from genres where genre_id = " + (gid))
-    #db.commit()
     delgenre = [(genre_id,genre,type)]
-    #return delgenre
-    #gen=Genre.query.get(gid)
-    #db.session.delete(gen)
-    #db.session.commit()
-    #print gen
-    #return
-    gen=update(Genre).where(Genre.status == 1).values(Genre.status == 0)
+    update(Genre).where(Genre.genre_id == gid).values(Genre.status == '0')
     db.commit()
-    print gen
     return delgenre
 
 

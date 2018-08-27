@@ -168,10 +168,10 @@ def addgenres():
         flash('Genre successfully added!')
     return jsonify(result), 201
 
-@app.route('/genre/<gid>')
+@app.route('/genre/<gid>', methods=['POST'])
 def deletegenres(gid):
     flash('Genre successfully deleted.')
-    return deletegenre(gid), 200
+    return jsonify(deletegenre(gid)), 200
 
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():

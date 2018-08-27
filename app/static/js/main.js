@@ -123,7 +123,7 @@ function openModaldelgenre(id,genreid,genre,type) {
     console.log($('#' + id));
     $('#' + id).modal();
     $("#typedel").val(type);
-    $("#genredel").val(genre);
+    $("#genredelete").val(genre);
     $("#iddel").val(genreid);
     $("#deletegenrebtn").click(function () {
         deletegenre(genreid);
@@ -608,7 +608,7 @@ function deletegenre(genre_id) {
     var data = $('#genredel').serialize();
     console.log(data);
     $.ajax({
-        url: '/genre/'+genre_id,
+        url: 'genre/'+genre_id,
         data: data,
         method: 'POST',
         dataType: 'JSON',
