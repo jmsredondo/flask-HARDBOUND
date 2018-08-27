@@ -131,6 +131,21 @@ function openModaldelgenre(id,genreid,genre,type) {
     });
 }
 
+//open modal for delete book
+function openModaldelbook(id,bookid,title,image,description) {
+    //console.log(id)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#titledel").val(title);
+    $("#descdel").val(description);
+    $("#bookiddel").val(bookid);
+    $("#imagedel").val(image);
+    //$("#yesbtnlib").click(function () {
+        //deletegenre();
+
+    //});
+}
+
 // all functions
 
     //retrieve genre by id
@@ -274,7 +289,7 @@ function openModaldelgenre(id,genreid,genre,type) {
                     "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
                     "<button type=\"button\" onclick=\"openModallib('confirmModallib',"+data[i].book_id+")\" class=\"btn btn-warning\">Add book</button></form>" +
                     "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
-                    "<button type=\"submit\" class=\"btn btn-danger\">Delete</button></form>" +
+                    "<button type=\"button\" onclick=\"openModaldelbook('deletebook',"+data[i].book_id+",'"+data[i].title+"','"+data[i].image+"','"+data[i].description+"')\" class=\"btn btn-danger\">Delete</button></form>" +
                     "</div>" +
                     "</div>";
             }
@@ -593,7 +608,7 @@ function deletegenre(genre_id) {
     var data = $('#genredel').serialize();
     console.log(data);
     $.ajax({
-        url: '/rate',
+        url: '/genre/'+genre_id,
         data: data,
         method: 'POST',
         dataType: 'JSON',
@@ -601,7 +616,24 @@ function deletegenre(genre_id) {
             console.log(data)
         }
     });
-    //document.location.href = ('/bookbyid');
+    //document.location.href = ('/genres');
+    }
+
+
+    //delete book
+function deletebook() {
+    var data = $('#genredel').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/genre/'+genre_id,
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+    //document.location.href = ('/books');
     }
 
 
