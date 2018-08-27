@@ -126,7 +126,7 @@ function openModaldelgenre(id,genreid,genre,type) {
     $("#genredel").val(genre);
     $("#iddel").val(genreid);
     $("#yesbtnlib").click(function () {
-        deletegenre();
+        deletegenre(genreid);
 
     });
 }
@@ -140,10 +140,10 @@ function openModaldelbook(id,bookid,title,image,description) {
     $("#descdel").val(description);
     $("#bookiddel").val(bookid);
     $("#imagedel").val(image);
-    //$("#yesbtnlib").click(function () {
-        //deletegenre();
+    $("#yesbtnlib").click(function () {
+        deletebook(bookid);
 
-    //});
+    });
 }
 
 // all functions
@@ -621,11 +621,11 @@ function deletegenre(genre_id) {
 
 
     //delete book
-function deletebook() {
+function deletebook(book_id) {
     var data = $('#genredel').serialize();
     console.log(data);
     $.ajax({
-        url: '/genre/'+genre_id,
+        url: '/genre/'+book_id,
         data: data,
         method: 'POST',
         dataType: 'JSON',
