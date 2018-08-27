@@ -229,12 +229,13 @@ def add_user():
         email = request.form['registerEmail']
         phone = request.form['registerPhoneNum']
         usertype = request.form['registerUserType']
-        password_hash= generate_password_hash('123456')
+        password = request.form['registerPassword']
+        password_hash= generate_password_hash(password)
         cur.execute(
             "insert into user (username, firstname, lastname, email, balance, phone, password,usertype,password_hash) VALUES (?,?,?,?,?,?,?,?,?)",
-            (username, firstname, lastname, email, '0', phone, '123456',usertype,password_hash))
+            (username, firstname, lastname, email, '0', phone, password ,usertype,password_hash))
         db.commit()
-        regpost = [(username,firstname, lastname,email,phone,usertype,password_hash)]
+        regpost = [(username,firstname, lastname,email,phone,usertype,password,password_hash)]
         return regpost
 
 
