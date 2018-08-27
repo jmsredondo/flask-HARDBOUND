@@ -117,6 +117,19 @@ function openModallib(id,bookid) {
 
     });
 }
+// open modal for delete genre
+function openModaldelgenre(id,genreid,genre,type) {
+    //console.log(id)
+    console.log($('#' + id));
+    $('#' + id).modal();
+    $("#typedel").val(type);
+    $("#genredel").val(genre);
+    $("#iddel").val(genreid);
+    $("#yesbtnlib").click(function () {
+        deletegenre();
+
+    });
+}
 
 // all functions
 
@@ -156,6 +169,9 @@ function openModallib(id,bookid) {
             console.log(data);
 
             for(var i =0; i <= data.length-1; i++){
+                var getgenre = data[i].genre;
+                var gettype = data[i].type;
+                var getgenreid = data[i].genre_id;
            // genre += "<h1>Genre(For udpate)</h1>";
             genretbody += "<tr>"+
                                 "<td hidden>"+data[i].genre_id+"</td>"+
@@ -164,7 +180,7 @@ function openModallib(id,bookid) {
                               "<td>" +
                 "<div class='row'>" +
                 "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"button\" onclick='' class=\"btn btn-danger\">Delete</button></form>" +
+                "<button type=\"button\" onclick=\"openModaldelgenre('deletegenre',"+data[i].genre_id+",'"+data[i].genre+"','"+data[i].type+"')\" class=\"btn btn-danger\">Delete</button></form>" +
                 "<form method=\"get\" style=\"padding-left:2%\">" +
                 "<button type=\"button\" onclick='getbooktogenre("+data[i].genre_id+")' class=\"btn btn-warning\">Add Book</button></form>" +
                 "</div>" +
@@ -568,4 +584,24 @@ $(document).on('click', '.bookid', function() {
     });
     document.location.href = ('/bookbyid');
     }
+
+    //delete or update functions
+
+//delete genre
+function deletegenre(genre_id) {
+
+    var data = $('#genredel').serialize();
+    console.log(data);
+    $.ajax({
+        url: '/rate',
+        data: data,
+        method: 'POST',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data)
+        }
+    });
+    document.location.href = ('/bookbyid');
+    }
+}
 

@@ -298,7 +298,16 @@ def addrating():
     return addtorate_dict
 
 def deletegenre(gid):
-    delete_genres(gid)
+    delete_genre_dict = []
+    for delgen in delete_genres(gid):
+        delete_genre_as_dict = {
+            'genre_id': delgen[0],
+            'genre': delgen[1],
+            'type': delgen[2]
+        }
+        delete_genre_dict.append(delete_genre_as_dict)
+    print (delete_genre_dict)
+    return delete_genre_dict
 
 def deletebook(bid):
     delete_books(bid)

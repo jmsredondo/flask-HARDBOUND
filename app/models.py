@@ -341,8 +341,13 @@ def get_rating(bid):
     return books
 
 def delete_genres(gid):
+    genre_id = request.form['id']
+    genre = request.form['genre']
+    type = request.form['type']
     cur.execute("delete from genres where genre_id = " + (gid))
     db.commit()
+    delgenre = [(genre_id,genre,type)]
+    return delgenre
     #gen=Genre.query.get(gid)
     #db.session.delete(gen)
     #db.session.commit()
