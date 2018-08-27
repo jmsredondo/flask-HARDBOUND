@@ -168,11 +168,12 @@ def login():
 def getgenres():
     genres_dict = []
 
-    for genre in Genre.query.all():
+    for genre in get_genres():
         genre_as_dict = {
             'type': genre.type,
             'genre': genre.genre,
-            'genre_id': genre.genre_id
+            'genre_id': genre.genre_id,
+            'status': genre.status
         }
         genres_dict.append(genre_as_dict)
 

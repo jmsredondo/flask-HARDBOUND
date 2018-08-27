@@ -297,7 +297,9 @@ def get_genres():
     #cur.execute("select * from genres")
     #genres = cur.fetchall()
     #return genres
-    rows = Genre.query.all()
+    #rows = Genre.query.all()
+    rows = Genre.query.filter(Genre.status == 1)
+    print rows
     return rows
 
 def get_a_genre(gid):
