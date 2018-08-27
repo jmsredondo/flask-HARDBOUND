@@ -9,13 +9,14 @@ from app import app
 #get list of books
 def getbook():
     book_list = []
-    for book in Book.query.all():
+    for book in get_book():
         book_as_dict = {
             'title': book.title,
             'image':book.image,
             'description': book.description,
             'book_id': book.id,
             'author': book.author,
+            'status':book.status
             #'genre_id': book[5]
         }
         book_list.append(book_as_dict)

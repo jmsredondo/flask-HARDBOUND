@@ -147,8 +147,8 @@ def get_book():
     #cur.execute("SELECT * FROM books")
     #query_ret = cur.fetchall()
     #return (query_ret)
-    rows = Book.query.all()
-    #print rows
+    rows = Book.query.filter(Book.status == 1)
+    print rows
     return rows
 
 
