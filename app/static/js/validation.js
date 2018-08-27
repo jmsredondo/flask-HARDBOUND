@@ -1,5 +1,5 @@
  //Register
- $( "#userpost" ).validate({
+ /*$( "#userpost" ).validate({
      rules: {
          registerUserName: {
              required: true,
@@ -21,7 +21,7 @@
              digits: true
          },
      }
- });
+ });*/
 
 
 $('#register').click(function() {
