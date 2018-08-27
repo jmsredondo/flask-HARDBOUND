@@ -58,12 +58,14 @@ class Genre(db.Model):
     genre = db.Column(db.String(64), unique=True, nullable=False)
     type = db.Column(db.String(64), nullable=False)
     bookgenre = db.relationship('Book', backref='genre', lazy='dynamic')
+    status = db.Column(db.Integer, default=1)
 
     def __repr__(self):
         genre_data = {
             'Genre ID': self.genre_id,
             'Genre': self.genre,
-            'Type': self.type
+            'Type': self.type,
+            'Status':self.status
         }
 
         #response = '<Genre %s>' % data
@@ -79,6 +81,7 @@ class Book(db.Model):
     genre_id = db.Column(db.Integer,db.ForeignKey('genre.genre_id'),nullable=False)
 
     book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
+    status = db.Column(db.Integer, default=1)
 
     def __repr__(self):
         book_data = {
@@ -88,7 +91,8 @@ class Book(db.Model):
             'Author': self.author,
             'Description': self.description,
             'Genre ID': self.genre_id,
-            'Book Rate': self.book_rate
+            'Book Rate': self.book_rate,
+            'Status': self.status
         }
 
         #response = '<Book %s>' % data
