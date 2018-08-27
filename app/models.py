@@ -249,8 +249,8 @@ def add_book():
          destination = ("/".join([target,filename]))
          path = "/static/img/books/"+filename
          image.save(destination)
-         cur.execute("insert into book (title, description, author,image)"
-                     " VALUES (?,?,?,?)", (title, description, author,path))
+         cur.execute("insert into book (title, description, author,image,status)"
+                     " VALUES (?,?,?,?,?)", (title, description, author,path,'1'))
          db.commit()
          genrepost = [(title, description, author,filename)]
          return genrepost
