@@ -87,7 +87,7 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         response = tester.get('/genre', content_type='html/text')
         self.assertEqual(response.status_code, 200)
-        self.assertIn('Non-Fiction', str(res.data))
+        self.assertIn('Non-Fiction', str(response.data))
 
     def test_add_genre5(self):
         tester = app.test_client(self)
@@ -99,7 +99,7 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_add_genre6(self):
         tester = app.test_client(self)
-        response = tester.post('/genre', data=self.samplegenre5)
+        response = tester.post('/genre', data=self.samplegenre6)
         self.assertEqual(response.status_code, 201)
 
     def test_add_book1(self):
@@ -113,12 +113,12 @@ class FlaskTestCase(unittest.TestCase):
     def test_add_book2(self):
         tester = app.test_client(self)
         response = tester.post('/book', data=self.samplebook2)
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 401)
 
     def test_add_book3(self):
         tester = app.test_client(self)
         response = tester.post('/book', data=self.samplebook3)
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 400)
         response = tester.get('/book', content_type='html/text')
         self.assertEqual(response.status_code, 200)
         self.assertIn('2', str(response.data))
@@ -145,30 +145,30 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/book', content_type='html/text')
         self.assertEqual(response.status_code, 200)
         self.assertIn('jlaurelio', str(response.data))
-
+    
     def test_add_user2(self):
         tester = app.test_client(self)
-        response = tester.post('/users', data=self.sampleuser1)
+        response = tester.post('/users', data=self.sampleuser2)
         self.assertEqual(response.status_code, 401)
-
+    
     def test_add_user3(self):
         tester = app.test_client(self)
-        response = tester.post('/users', data=self.sampleuser1)
+        response = tester.post('/users', data=self.sampleuser3)
         self.assertEqual(response.status_code, 400)
-
+    
     def test_add_user4(self):
         tester = app.test_client(self)
-        response = tester.post('/users', data=self.sampleuser1)
+        response = tester.post('/users', data=self.sampleuser4)
         self.assertEqual(response.status_code, 201)
-
+    
     def test_add_user5(self):
         tester = app.test_client(self)
-        response = tester.post('/users', data=self.sampleuser1)
+        response = tester.post('/users', data=self.sampleuser5)
         self.assertEqual(response.status_code, 201)
-
+    
     def test_add_user6(self):
         tester = app.test_client(self)
-        response = tester.post('/users', data=self.sampleuser1)
+        response = tester.post('/users', data=self.sampleuser6)
         self.assertEqual(response.status_code, 201)
 
     def test_add_library1(self):
@@ -188,7 +188,7 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_get_books_id(self):
         tester = app.test_client(self)
-        response = tester.get('/books/2', content_type='html/text')
+        response = tester.get('/book/2', content_type='html/text')
         self.assertEqual(response.status_code, 200)
         response = tester.get('/book', content_type='html/text')
         self.assertEqual(response.status_code, 200)
@@ -250,19 +250,19 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("''", str(response.data))
 
-    def test_api_get_genre_list(self):
+    def test_api_get_genre_list1(self):
         tester = app.test_client(self)
         """Test get user list (GET request)."""
         response = tester.get('/genre', content_type='html/text')
         self.assertEqual(response.status_code, 200)
-        self.assertIn('Action', str(response.data))
+        self.assertIn('Romance', str(response.data))
 
-    def test_api_get_genre_list(self):
+    def test_api_get_genre_list2(self):
         tester = app.test_client(self)
         """Test get user list (GET request)."""
         response = tester.get('/genre', content_type='html/text')
         self.assertEqual(response.status_code, 200)
-        self.assertIn('Action', str(response.data))
+        self.assertIn('horror', str(response.data))
 
 if __name__ == '__main__':
     unittest.main()
