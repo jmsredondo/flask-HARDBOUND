@@ -76,13 +76,13 @@ class Genre(db.Model):
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128), nullable=False)
-    image = db.Column(db.BLOB)
+    image = db.Column(db.String)
     author = db.Column(db.String(64))
     description = db.Column(db.String(64))
     genre_id = db.Column(db.Integer,db.ForeignKey('genre.genre_id'),nullable=False)
 
     book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
-    status = db.Column(db.Integer, default=1)
+    status = db.Column(db.Integer, default='1')
 
     def __repr__(self):
         book_data = {
@@ -309,7 +309,7 @@ def add_genres():
      else:
         genre_type=request.form['type']
         genre_name=request.form['genre']
-        cur.execute("insert into genre (type, genre) VALUES (?,?)", (genre_type, genre_name))
+        cur.execute("insert into genre (type, genre,status) VALUES (?,?,?)", (genre_type, genre_name,'1'))
         db.commit()
 
         genrepost = [(genre_type,genre_name)]
