@@ -193,21 +193,17 @@ def getlibraries():
 @app.route('/library', methods=['GET'])
 def getlibrary():
     username = session['token']
-    books = getuserbook(username)
-    return jsonify(books), 200
+    return jsonify(getuserbook(username)), 200
 
 @app.route('/library', methods=['POST'])
 def addlibraries():
-
-    if addlibrary() == 'error1':
-        return redirect('/getaddlibeerror1'),400
-    elif addlibrary() == 'error2':
-        return redirect('/getaddlibeerror2'),401
-    else:
-
-        addlibrary()
+    # if addlibrary() == 'error1':
+    #     return redirect('/getaddlibeerror1'),400
+    # elif addlibrary() == 'error2':
+    #     return redirect('/getaddlibeerror2'),401
+    # else:
         flash('Book successfully added to your library!')
-        return redirect('/library'), 201
+        return addlibrary(), 201
 
 @app.route('/rate', methods=['POST'])
 def addratings():

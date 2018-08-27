@@ -257,9 +257,9 @@ def add_book():
          return genrepost
 
 def add_library():
-    if request.form['book'] == '':
-        return 'error2'
-    else:
+    # if request.form['book'] == '':
+    #     return 'error2'
+    # else:
         book=request.form['book']
         user=session['token']
         cur.execute("select id from user where username = '" + user + "'")
