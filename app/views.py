@@ -234,7 +234,7 @@ def getratings(bid):
 def logout():
    # remove the username from the session if it is there
    session.pop('token', None)
-   return redirect(url_for('login')), 200
+   return render_template('login.html'), 200
 
 
 #Error Handling
