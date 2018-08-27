@@ -37,6 +37,22 @@
                   <div class="logo">
                     <h1><span>HARD</span><strong>BOUND</strong></h1>
                   </div>
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+
+                        {% for message in messages %}
+                <div class="col-lg-12">
+                    <div class="card bg-success text-white bg-lighten-3">
+                        <div class="card-body">
+                            <h3 class="h4">{{ message }}</h3>
+                        </div>
+                    </div>
+                </div>
+
+               {% endfor %}
+
+                      {% endif %}
+                    {% endwith %}
                   <h4>User Login</h4>    
                   <a href="/admin" class="text-white">Click here for administrator login</a>
                   <h5>Registration</h5>

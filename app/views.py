@@ -240,7 +240,8 @@ def geterrorlogin():
         'description': 'Invalid username/password supplied'
     }
     errorlogin.append(error)
-    return jsonify(errorlogin), 400
+    flash('Wrong username or password')
+    return login(), 400
     #return redirect('/errorlogin')
 
 #Error Handling
