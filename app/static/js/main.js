@@ -622,18 +622,19 @@ function deletegenre(genre_id) {
 
     //delete book
 function deletebook(book_id) {
-    var data = $('#genredel').serialize();
-    console.log(data);
+    var data = $('#bookdel').serialize();
+    var decodedata = (decodeURI(data));
+    console.log(decodedata)
     $.ajax({
-        url: '/genre/'+book_id,
+        url: 'book/'+book_id,
         data: data,
         method: 'POST',
         dataType: 'JSON',
-        success: function (data) {
-            console.log(data)
+        success: function (decodedata) {
+            console.log(decodedata)
         }
     });
-    //document.location.href = ('/books');
+    document.location.href = ('/books');
     }
 
 
