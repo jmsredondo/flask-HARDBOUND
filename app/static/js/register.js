@@ -8,7 +8,8 @@ function userregister() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
+            document.location.href = ('/users/list');
         }
     });
-    document.location.href = ('/users/list');
+
 }

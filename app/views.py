@@ -127,9 +127,9 @@ def getregister():
 
 @app.route('/users', methods=['POST'])
 def register():
-    if adduser() == 'error1':
-        return redirect('/getaddusererror1'),400
-    else:
+    # if adduser() == 'error1':
+    #     return redirect('/getaddusererror1'),400
+    # else:
         flash('New user successfully added!')
         return jsonify(adduser()), 201
 

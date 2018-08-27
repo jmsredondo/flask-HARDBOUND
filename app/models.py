@@ -215,22 +215,21 @@ def login():
 
 
 def add_user():
-    if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerFirstname'])) or bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
-        return 'error1'
-    else:
+    # if bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerFirstname'])) or bool(re.search(r'[\d!#$%&*+-.^_`|~:]+$', request.form['registerLastname'])) or request.form['registerUsername'] == '' or request.form['registerFirstname'] == '' or request.form['registerLastname'] == '' or request.form['registerEmail'] == '' or request.form['registerPhoneNum'] == '':
+    #     return 'error1'
+    # else:
         username = request.form['registerUsername']
         firstname = request.form['registerFirstname']
         lastname = request.form['registerLastname']
         email = request.form['registerEmail']
         phone = request.form['registerPhoneNum']
-        usertype = request.form['registerUserType']
         password = request.form['registerPassword']
         password_hash= generate_password_hash(password)
         cur.execute(
-            "insert into user (username, firstname, lastname, email, balance, phone, password,usertype,password_hash) VALUES (?,?,?,?,?,?,?,?,?)",
-            (username, firstname, lastname, email, '0', phone, password ,usertype,password_hash))
+            "insert into user (username, firstname, lastname, email, balance, phone) VALUES (?,?,?,?,?,?)",
+            (username, firstname, lastname, email, '0', phone))
         db.commit()
-        regpost = [(username,firstname, lastname,email,phone,usertype,password,password_hash)]
+        regpost = [(username,firstname, lastname,email,phone)]
         return regpost
 
 
