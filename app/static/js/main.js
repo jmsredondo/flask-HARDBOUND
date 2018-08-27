@@ -229,7 +229,7 @@ function openModaldelbook(id,bookid,title,image,description) {
             console.log(data);
              for(var i =0; i <= data.length-1; i++) {
                  genrebooksbody += '<div class="row bg-white has-shadow">' +
-                     '<div class="left-col col-lg-6 d-flex align-items-center justify-content-between">' +
+                     '<div class="left-col col-lg-5 d-flex align-items-center justify-content-between">' +
                      '<div class="project-title d-flex align-items-center">' +
                      '<div class="image has-shadow"><img src="/static/img/book.jpg " style="height: 100%; width: 100%;" alt="..." class="img-fluid"></div>' +
                      '<div class="text">' +
@@ -238,10 +238,10 @@ function openModaldelbook(id,bookid,title,image,description) {
                      '</div>' +
                      '</div>' +
                      '</div>' +
-                     '<div class="right-col col-lg-5 d-flex align-items-center">' +
+                     '<div class="right-col col-lg-4 d-flex align-items-center">' +
                      '<div class="desc">'+data[i].description+'</div>' +
                      '</div>' +
-                     '<div class="right-col col-lg-1 d-flex align-items-center">' +
+                     '<div class="right-col col-lg-3 d-flex align-items-center">' +
                      '<form">' +
                      '<button type="button" class="btn btn-primary" onclick=openModal("confirmModal",'+data[i].book_id+')>Add Book to Genre</button>'+
                      '</form>' +
