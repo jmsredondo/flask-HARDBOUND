@@ -59,10 +59,11 @@ def getunassignedbook(gid):
     for book in get_unassigned_book(gid):
         book_as_dict = {
             'title': book[1],
-            'description': book[4],
+            'description': book[3],
             'book_id': book[0],
-            'author': book[3],
-            'genre_id': book[5]
+            'author': book[2],
+            'genre_id': book[6],
+            'image': book[5]
         }
         query_dict.append(book_as_dict)
 
