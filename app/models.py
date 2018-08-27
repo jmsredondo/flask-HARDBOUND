@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from app import app
 import os
+from sqlalchemy import update
 
 from flask import jsonify
 
@@ -350,15 +351,16 @@ def delete_genres(gid):
     genre_id = request.form['id']
     genre = request.form['genre']
     type = request.form['type']
-    cur.execute("delete from genres where genre_id = " + (gid))
-    db.commit()
-    delgenre = [(genre_id,genre,type)]
-    return delgenre
+    #cur.execute("delete from genres where genre_id = " + (gid))
+    #db.commit()
+    #delgenre = [(genre_id,genre,type)]
+    #return delgenre
     #gen=Genre.query.get(gid)
     #db.session.delete(gen)
     #db.session.commit()
     #print gen
     #return
+    gen=update(Genre).where(Genre.status == 1).\values(status == 0)
 
 
 def delete_books(bid):
