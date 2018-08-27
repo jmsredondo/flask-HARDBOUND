@@ -123,8 +123,11 @@ def getausers(uid):
 
 @app.route('/register', methods=['GET'])
 def getregister():
-    current_user = session['token']
-    return render_template('register.html',current_user=current_user), 200
+    if g.user is not None and session['usertype'] == True:
+        current_user = session['token']
+        return render_template('register.html',current_user=current_user), 200
+    else:
+        return redirect('/dashboard')
 
 @app.route('/users', methods=['POST'])
 def register():
@@ -195,8 +198,8 @@ def getlibraries():
 
 @app.route('/library', methods=['GET'])
 def getlibrary():
-    username = session['token']
-    books = getuserbook(username)
+    #username = session['token']
+    books = getuserbook('arvincea')
     return jsonify(books), 200
 
 @app.route('/library', methods=['POST'])

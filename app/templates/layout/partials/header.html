@@ -35,7 +35,8 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="../../../static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">{{current_user}}</h1>
+              <!--<h1 class="h4">{{current_user}}</h1>-->
+                <h1 class="h4">Test</h1>
                 {% if session['usertype'] == True: %} <p>Admin</p> {% else: %} <p>User</p> {% endif%}
             </div>
           </div>
@@ -53,7 +54,7 @@
                     <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
                     <ul id="booksSubMenu" class="collapse list-unstyled ">
                         <li><a id = "getbooks" href="/books">Display All Books</a></li>
-                        <li><a href="#addBook" data-toggle="modal">Add New Book</a></li>
+                        {% if session['usertype'] == True: %}<li><a href="#addBook" data-toggle="modal">Add New Book</a></li>{% else: %}{% endif%}
                     </ul>
 
 
