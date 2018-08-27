@@ -384,7 +384,7 @@ function openModaldelbook(id,bookid,title,image,description) {
                     content += '<div class="feed d-flex justify-content-between">' +
                         '<div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>' +
                         '<div class="content">' +
-                        '<h2>' + data[i].username + '<h2>' +
+                        '<h2>' + data[i].firstname + ','+data[i].lastname+'<h2>' +
                         '<h3>' + data[i].rating + ' Stars <i class="fa fa-star text-orange"></i></h3>' +
                         '<div class="full-date"><small>Date</small></div>' +
                         '</div>' +

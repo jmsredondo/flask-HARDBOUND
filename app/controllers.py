@@ -191,7 +191,8 @@ def getrating(bid):
         rating_as_dict = {
             'rating': rating[2],
             'comment': rating[3],
-            'username': rating[12]
+            'firstname': rating[14],
+            'lastname': rating[15]
 
         }
         rating_dict.append(rating_as_dict)
