@@ -176,9 +176,9 @@ def getagenres(gid):
 
     for genre in get_a_genre(gid):
         genre_as_dict = {
-            'type': genre.type,
-            'genre': genre.genre,
-            'genre_id': genre.genre_id
+            'type': genre[2],
+            'genre': genre[1],
+            'genre_id': genre[0]
         }
         genres_dict.append(genre_as_dict)
 

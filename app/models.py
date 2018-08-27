@@ -295,7 +295,7 @@ def get_genres():
     return rows
 
 def get_a_genre(gid):
-    cur.execute("select * from genre where genre_id = " + (gid))
+    cur.execute("select * from genre where status = 1 and genre_id = " + (gid))
     genres = cur.fetchall()
     return genres
 
