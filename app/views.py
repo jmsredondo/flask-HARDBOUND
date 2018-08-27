@@ -163,7 +163,7 @@ def addgenres():
         return redirect('/getaddgenereerror2'),401
     else:
         flash('Genre successfully added!')
-    return jsonify(result), 201
+        return jsonify(result), 201
 
 @app.route('/genre/<gid>', methods=['POST'])
 def deletegenres(gid):

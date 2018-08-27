@@ -20,6 +20,7 @@ switch (windowurl) {
 
         });
     $('#booksearch').on('input', function() {
+        console.log('asdf')
         if ($.trim($('#booksearch').val()) === ''){
             init_getbooks('book')
         }
@@ -531,10 +532,9 @@ $(document).on('click', '.bookid', function() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
-
+            location.reload(true);
         }
     });
-     document.location.href = ('/genres');
 }
 
     //add new book
