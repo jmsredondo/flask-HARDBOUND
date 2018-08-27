@@ -94,7 +94,7 @@ def addbooks():
         genres = getgenres()
         return jsonify(result), 201
 
-@app.route('/book/<bid>')
+@app.route('/book/<bid>', methods=['POST'])
 def deletebooks(bid):
     flash('Book successfully deleted.')
     return jsonify(deletebook(bid)), 200

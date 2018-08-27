@@ -352,12 +352,9 @@ def delete_genres(gid):
     genre = request.form['genre']
     type = request.form['type']
     status =request.form['status']
-
-    #gen= update(Genre).where(Genre.genre_id == gid).values(Genre.status == '0')
-    gen = Genre.query.filter_by(genre_id == gid).update(Genre.status == 0)
-    db.session.commit()
-    delgenre = [(genre_id, genre, type,status)]
-    print gen
+    delgenre = [(genre_id,genre,type)]
+    cur.execute("UPDATE genre set status = 0 where genre_id = "+gid+"")
+    db.commit()
     return delgenre
 
 
@@ -366,9 +363,9 @@ def delete_books(bid):
     title = request.form['book_name']
     description = request.form['description']
     image = request.form['image']
-    cur.execute("delete from books where book_id = " + (bid))
-    db.commit()
     delbook = [(book_id,title,description,image)]
+    cur.execute("UPDATE book set status = 0 where id = " + bid + "")
+    db.commit()
     return delbook
     # book=Book.query.get(bid)
     # db.session.delete(book)

@@ -616,7 +616,7 @@ function deletegenre(genre_id) {
             console.log(data)
         }
     });
-    //document.location.href = ('/genres');
+    document.location.href = ('/genres');
     }
 
 
