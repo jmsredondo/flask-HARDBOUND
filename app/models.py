@@ -79,7 +79,7 @@ class Book(db.Model):
     image = db.Column(db.String)
     author = db.Column(db.String(64))
     description = db.Column(db.String(64))
-    genre_id = db.Column(db.Integer,db.ForeignKey('genre.genre_id'),nullable=False)
+    genre_id = db.Column(db.Integer,db.ForeignKey('genre.genre_id'))
 
     book_rate = db.relationship('Ratings', backref='book', lazy='dynamic')
     status = db.Column(db.Integer, default='1')
