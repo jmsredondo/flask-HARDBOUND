@@ -286,33 +286,56 @@ function openModaldelbook(id,bookid,title,image,description) {
 
             for (var i = 0; i <= data.length - 1; i++) {
 
-                // genre += "<h1>Genre(For udpate)</h1>";
-                div += "<div class=\"row bg-white has-shadow\">" +
-                    "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
-                    "<div class=\"project-title d-flex align-items-center\">" +
-                    "<div class=\"image has-shadow\"><img src="+data[i].image+" style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
-                    "<div class=\"text\">" +
-                    "<input type='hidden' class='bidclass' value="+data[i].book_id+">"+
-                    "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
-                    "<small>" + data[i].author + "</small>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>" +
-                    "<div class=\"right-col col-lg-4 d-flex align-items-center\">" +
-                    "<div class=\"desc\">" + data[i].description + "</div>" +
-                    "</div>" +
-                    "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
-                    "<form id='addtolib'>" +
-                    "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
-                    "<button type=\"button\" onclick=\"openModallib('confirmModallib',"+data[i].book_id+")\" class=\"btn btn-warning\">Add book</button></form>" +
-                    "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
-                    "<button type=\"button\" onclick=\"openModaldelbook('deletebook',"+data[i].book_id+",'"+data[i].title+"','"+data[i].image+"','"+data[i].description+"')\" class=\"btn btn-danger\">Delete</button></form>" +
-                    "</div>" +
-                    "</div>";
-            }
-            $listbook.html(div);
-            // $genrecontainer.html(genre);
+                if (data[i].user_type === true) { // genre += "<h1>Genre(For udpate)</h1>";
+                    div += "<div class=\"row bg-white has-shadow\">" +
+                        "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
+                        "<div class=\"project-title d-flex align-items-center\">" +
+                        "<div class=\"image has-shadow\"><img src=" + data[i].image + " style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                        "<div class=\"text\">" +
+                        "<input type='hidden' class='bidclass' value=" + data[i].book_id + ">" +
+                        "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
+                        "<small>" + data[i].author + "</small>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class=\"right-col col-lg-4 d-flex align-items-center\">" +
+                        "<div class=\"desc\">" + data[i].description + "</div>" +
+                        "</div>" +
+                        "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
+                        "<form id='addtolib'>" +
+                        "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
+                        "<button type=\"button\" onclick=\"openModallib('confirmModallib'," + data[i].book_id + ")\" class=\"btn btn-warning\">Add book</button></form>" +
+                        "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
+                        "<button type=\"button\" onclick=\"openModaldelbook('deletebook'," + data[i].book_id + ",'" + data[i].title + "','" + data[i].image + "','" + data[i].description + "')\" class=\"btn btn-danger\">Delete</button></form>" +
+                        "</div>" +
+                        "</div>";
+                } else {
+                    div += "<div class=\"row bg-white has-shadow\">" +
+                        "<div class=\"left-col col-lg-5 d-flex align-items-center justify-content-between\">" +
+                        "<div class=\"project-title d-flex align-items-center\">" +
+                        "<div class=\"image has-shadow\"><img src=" + data[i].image + " style=\"height: 110%; width: 100%;\" alt=\"...\" class=\"img-fluid\"></div>" +
+                        "<div class=\"text\">" +
+                        "<input type='hidden' class='bidclass' value=" + data[i].book_id + ">" +
+                        "<a href='bookbyid' class='bookid'><h2>" + data[i].title + "</h2></a><br>" +
+                        "<small>" + data[i].author + "</small>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class=\"right-col col-lg-4 d-flex align-items-center\">" +
+                        "<div class=\"desc\">" + data[i].description + "</div>" +
+                        "</div>" +
+                        "<div class=\"right-col col-lg-3 d-flex align-items-center\">" +
+                        "<form id='addtolib'>" +
+                        "<input name = \"book\" type=\"hidden\" value= " + data[i].book_id + ">" +
+                        "<button type=\"button\" onclick=\"openModallib('confirmModallib'," + data[i].book_id + ")\" class=\"btn btn-warning\">Add book</button></form>" +
+                        "<form method=\"delete\" style=\"padding-left:2%\"  action=\"/book" + "/" + data[i].book_id + "\">" +
+                        "</div>" +
+                        "</div>";
+                }
 
+                $listbook.html(div);
+                // $genrecontainer.html(genre);
+            }
         }
     });
 
