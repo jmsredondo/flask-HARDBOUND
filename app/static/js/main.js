@@ -212,7 +212,6 @@ function openModaldelbook(id,bookid,title,image,description) {
                         "<div class='row'>" +
                         "<form method=\"delete\" action=\"/genre" + "/" + data[i].genre_id + "\">" +
                         "<form method=\"get\" style=\"padding-left:2%\">" +
-                        "<button type=\"button\" onclick='getbooktogenre(" + data[i].genre_id + ")' class=\"btn btn-warning\">Add Book</button></form>" +
                         "</div>" +
                         "</td>" +
                         "</tr>";
