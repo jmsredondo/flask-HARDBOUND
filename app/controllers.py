@@ -32,8 +32,8 @@ def getuserbook(username):
         book_as_dict = {
             'title': book[1],
             'book_id': book[0],
-            'author': book[3],
-            'description': book[4]
+            'author': book[2],
+            'description': book[3]
         }
         query_dict.append(book_as_dict)
     return query_dict
