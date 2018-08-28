@@ -8,7 +8,7 @@ function userregister() {
         dataType: 'JSON',
         success: function (data) {
             console.log(data)
-            //location.reload(true);
+            document.location.href = ('/');
         }
     });
 
