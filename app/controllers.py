@@ -16,7 +16,8 @@ def getbook():
             'description': book.description,
             'book_id': book.id,
             'author': book.author,
-            'status':book.status
+            'status':book.status,
+            'user_type': session['usertype']
             #'genre_id': book[5]
         }
         book_list.append(book_as_dict)
