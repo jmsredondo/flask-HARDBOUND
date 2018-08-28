@@ -58,7 +58,7 @@
             <li><a href="#booksSubMenu" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-book"></i>BOOKS </a></li>
             <ul id="booksSubMenu" class="collapse list-unstyled ">
                 <li><a id="getbooks" href="/books">Display All Books</a></li>
-                {% if session['usertype'] == True: %}
+                {% if session['usertype'] == False: %}
                 <li><a href="#addBook" data-toggle="modal">Add New Book</a></li>{% else: %}{% endif%}
             </ul>
 

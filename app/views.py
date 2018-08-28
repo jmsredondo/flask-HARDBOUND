@@ -14,7 +14,7 @@ def login():
         return render_template("login.html")
     else:
         if session['usertype'] is not None:
-            current_user = 'test'
+            current_user = session['token']
             print ("token: a  "+ session['token'])
             return render_template('dashboard.html',current_user=current_user)
         else:
@@ -27,7 +27,7 @@ def adminlogin():
         return render_template("login2.html")
     else:
         if session['usertype'] is not None:
-            current_user = 'test'
+            current_user = session['token']
             print ("token: a  "+ session['token'])
             return render_template('dashboard.html',current_user=current_user)
         else:
@@ -36,14 +36,14 @@ def adminlogin():
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     if g.user is not None and session['usertype'] is not None:
-        current_user = 'test'
+        current_user = session['token']
         usertype = session['usertype']
         #print "token b : "+ session['token']
         return render_template('dashboard.html',current_user=current_user,usertype=usertype)
     else:
         rows = getlogin()
         if rows is not None and session['usertype'] is not None:
-            current_user = 'test'
+            current_user = session['token']
             usertype = session['usertype']
             #print "token b : "+ session['token']
             return render_template('dashboard.html',current_user=current_user,usertype=usertype)
@@ -61,17 +61,17 @@ def before_request():
 #generating json response
 @app.route('/books')
 def getbooktemp():
-    current_user = 'test'
+    current_user = session['token']
     return render_template("bookList.html",current_user=current_user)
 
 @app.route('/bookbyid')
 def getbookbyidtem():
-    current_user = 'test'
+    current_user = session['token']
     return render_template("getBook.html",current_user=current_user)
 
 @app.route('/book',methods=['GET'])
 def getbooks():
-    #current_user = 'test'
+    #current_user = session['token']
     books = getbook()
    # genres = getgenres()
     return jsonify(books), 200
@@ -101,12 +101,12 @@ def deletebooks(bid):
 
 @app.route('/users/list', methods=['GET'])
 def listuser():
-    current_user = 'test'
+    current_user = session['token']
     return render_template('userList.html',current_user=current_user), 200
 
 @app.route('/user')
 def userbyusernametemp():
-    current_user = 'test'
+    current_user = session['token']
     return render_template('getUser.html',current_user=current_user), 200
 
 @app.route('/users', methods=['GET'])
@@ -121,7 +121,7 @@ def getausers(uid):
 
 @app.route('/register', methods=['GET'])
 def getregister():
-        current_user = 'test'
+        current_user = session['token']
         return render_template('register.html',current_user=current_user), 200
 
 
@@ -136,12 +136,12 @@ def register():
 #get list of genres
 @app.route('/genres', methods=['GET'])
 def getgenretemp():
-    current_user = 'test'
+    current_user = session['token']
     return render_template('dispCat_all.html',current_user=current_user), 200
 
 @app.route('/genrebyid')
 def getgenreidtemp():
-    current_user = 'test'
+    current_user = session['token']
     return render_template('getGenre.html',current_user=current_user), 200
 
 @app.route('/genre', methods=['GET'])
@@ -172,7 +172,7 @@ def deletegenres(gid):
 
 @app.route('/genre/addbookstogenre')
 def getbookstoadd():
-    current_user = 'test'
+    current_user = session['token']
     return render_template("bookList2.html",current_user=current_user)
 
 @app.route('/genre/getaddbook/<gid>', methods=['GET'])
