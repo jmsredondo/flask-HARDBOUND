@@ -121,8 +121,8 @@ def getausers(uid):
 
 @app.route('/register', methods=['GET'])
 def getregister():
-        current_user = session['token']
-        return render_template('register.html',current_user=current_user), 200
+        #current_user = session['token']
+        return render_template('register.html'), 200
 
 
 @app.route('/users', methods=['POST'])
