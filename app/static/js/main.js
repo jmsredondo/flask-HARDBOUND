@@ -189,19 +189,35 @@ function openModaldelbook(id,bookid,title,image,description) {
                 var gettype = data[i].type;
                 var getgenreid = data[i].genre_id;
            // genre += "<h1>Genre(For udpate)</h1>";
-            genretbody += "<tr>"+
-                                "<td hidden>"+data[i].genre_id+"</td>"+
-                              "<td>"+data[i].type+"</td>"+
-                              "<td>"+data[i].genre+"</td>"+
-                              "<td>" +
-                "<div class='row'>" +
-                "<form method=\"delete\" action=\"/genre"+"/"+data[i].genre_id+"\">" +
-                "<button type=\"button\" onclick=\"openModaldelgenre('deletegenre',"+data[i].genre_id+",'"+data[i].genre+"','"+data[i].type+"')\" class=\"btn btn-danger\">Delete</button></form>" +
-                "<form method=\"get\" style=\"padding-left:2%\">" +
-                "<button type=\"button\" onclick='getbooktogenre("+data[i].genre_id+")' class=\"btn btn-warning\">Add Book</button></form>" +
-                "</div>" +
-                "</td>"+
-                            "</tr>";
+                if (data[i].user_type === true) {
+                    genretbody += "<tr>" +
+                        "<td hidden>" + data[i].genre_id + "</td>" +
+                        "<td>" + data[i].type + "</td>" +
+                        "<td>" + data[i].genre + "</td>" +
+                        "<td>" +
+                        "<div class='row'>" +
+                        "<form method=\"delete\" action=\"/genre" + "/" + data[i].genre_id + "\">" +
+                        "<button type=\"button\" onclick=\"openModaldelgenre('deletegenre'," + data[i].genre_id + ",'" + data[i].genre + "','" + data[i].type + "')\" class=\"btn btn-danger\">Delete</button></form>" +
+                        "<form method=\"get\" style=\"padding-left:2%\">" +
+                        "<button type=\"button\" onclick='getbooktogenre(" + data[i].genre_id + ")' class=\"btn btn-warning\">Add Book</button></form>" +
+                        "</div>" +
+                        "</td>" +
+                        "</tr>";
+                }else{
+                    genretbody += "<tr>" +
+                        "<td hidden>" + data[i].genre_id + "</td>" +
+                        "<td>" + data[i].type + "</td>" +
+                        "<td>" + data[i].genre + "</td>" +
+                        "<td>" +
+                        "<div class='row'>" +
+                        "<form method=\"delete\" action=\"/genre" + "/" + data[i].genre_id + "\">" +
+                        "<form method=\"get\" style=\"padding-left:2%\">" +
+                        "<button type=\"button\" onclick='getbooktogenre(" + data[i].genre_id + ")' class=\"btn btn-warning\">Add Book</button></form>" +
+                        "</div>" +
+                        "</td>" +
+                        "</tr>";
+                }
+
 
             }
             $genretable.html(genretbody);

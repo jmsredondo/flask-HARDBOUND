@@ -166,7 +166,8 @@ def getgenres():
             'type': genre.type,
             'genre': genre.genre,
             'genre_id': genre.genre_id,
-            'status': genre.status
+            'status': genre.status,
+            'user_type': session['usertype']
         }
         genres_dict.append(genre_as_dict)
 
