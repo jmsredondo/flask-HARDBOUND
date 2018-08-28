@@ -83,16 +83,16 @@ def getabooks(bid):
 
 @app.route('/book', methods=['POST'])
 def addbooks():
-    result = addbook()
-    if result == 'error1':
-        return redirect('/getaddbookerror1'),400
-    elif result == 'error2':
-        return redirect('/getaddbookerror2'),401
-    else:
+    # result = addbook()
+    # if result == 'error1':
+    #     return redirect('/getaddbookerror1'),400
+    # elif result == 'error2':
+    #     return redirect('/getaddbookerror2'),401
+    # else:
         flash('New book successfully added!')
         books = getbook()
         genres = getgenres()
-        return jsonify(result), 201
+        return jsonify(addbook()), 201
 
 @app.route('/book/<bid>', methods=['POST'])
 def deletebooks(bid):
